@@ -1,7 +1,7 @@
 <script>
-import Bento from "./main-partials/Bento.vue";
-import Most from "./main-partials/Most.vue";
-import Counter from "./main-partials/Counter.vue";
+import Bento from "./Main-partials/Bento.vue";
+import Most from "./Main-partials/Most.vue";
+import Counter from "./Main-partials/Counter.vue";
 
 // import {store} from '../data/store';
 
