@@ -2,7 +2,7 @@
 export default {};
 </script>
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid mt-5">
     <h3 class="text-center">I più richiesti</h3>
 
     <div class="row row-cols-4">

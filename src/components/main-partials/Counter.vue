@@ -3,7 +3,7 @@ export default {};
 </script>
 <template>
   <div>
-    <h1>Counter</h1>
+    <h1></h1>
   </div>
 </template>
 
