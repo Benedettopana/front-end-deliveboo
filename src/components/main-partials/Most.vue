@@ -5,7 +5,7 @@ export default {};
   <div class="container-fluid mt-5">
     <h3 class="text-center">I più richiesti</h3>
 
-    <div class="row row-cols-4">
+    <div class="row row-cols-4 my-5">
       <div id="box-1" class="col">Most 1</div>
       <div id="box-2" class="col">Most 2</div>
       <div id="box-3" class="col">Most 3</div>
