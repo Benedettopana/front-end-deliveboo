@@ -2,7 +2,7 @@
 export default {};
 </script>
 <template>
-  <div class="container-xxl">
+  <div class="container-xxl my-5">
     <!-- TODO: DA FARE FUNZIONE CONTATORE ANCHE FAKE IN JS -->
     <div class="">vari contatori.....</div>
   </div>
