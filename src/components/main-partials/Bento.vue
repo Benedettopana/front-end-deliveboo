@@ -39,7 +39,7 @@ $box-bg-color: #f9f9f9;
 }
 
 .bento {
-  // border: 1px solid $box-border-color;
+  border: 1px solid $box-border-color;
   text-align: center;
   // margin: 2px;
 }
