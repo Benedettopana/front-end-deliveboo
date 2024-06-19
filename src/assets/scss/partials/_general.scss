@@ -1,0 +1,11 @@
+body {
+  overflow-x: auto !important;
+  width: 99vw !important;
+  .container-fluid {
+    --bs-gutter-x: 0 !important;
+  }
+
+  img {
+    width: 100% !important;
+  }
+}
