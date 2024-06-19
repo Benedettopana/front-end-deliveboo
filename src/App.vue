@@ -6,6 +6,7 @@ import axios from "axios";
 // import {store} from './data/store';
 
 export default {
+  
   components: {
     Header,
     Main,
@@ -22,6 +23,12 @@ export default {
 
 <template>
   <Header />
+
+  <div>
+    <router-view></router-view>
+  </div>
+
+  
   <Main />
   <Footer />
 </template>

@@ -9,10 +9,27 @@ export default {
 
 <template>
   <header class="container-fluid">
+    
     <!--? Navbar -->
     <nav class="navbar bg-primary fixed-top" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a class="navbar-brand">Navbar</a>
+      <div class="container">
+        <a class="navbar-brand pt-0">Boo</a>
+
+
+        <ul class="d-flex justify-content-center align-items-center pt-2">
+          <li class="mx-3">
+            <router-link :to="{name:'home'}">Home</router-link>
+          </li>
+          <li class="mx-3">
+            <router-link :to="{name:'advanceResearch'}">Ricerca Avanzata</router-link>
+          </li>
+          <li class="mx-3">
+            <router-link :to="{name:'restaurantMenu'}">Menu Ristorante</router-link>
+          </li>
+        </ul>
+  
+            
+
         <form class="d-flex" role="search">
           <input
             class="form-control me-2"
@@ -25,6 +42,8 @@ export default {
       </div>
     </nav>
     <!--? /Navbar -->
+
+
     <!--% Jumbotron -->
     <div class="container-jumbo w-100">
       <div class="jumbo-img w-100">
@@ -44,6 +63,14 @@ header {
 
   nav {
     height: 70px;
+    li{
+      list-style: none;
+      // padding-top: 5px;
+      a{
+        color:white;
+        text-decoration: none;
+      }
+    }
   }
   .container-jumbo {
     margin-top: 70px;
