@@ -1,20 +1,19 @@
 <script>
-import { store } from '../../data/store';
+import { store } from "../../data/store";
 export default {
-  props:{
-      restaurant : Object
-    },
-    data(){
-      return{
-        store
-      }
-    },
+  props: {
+    restaurant: Object,
+  },
+  data() {
+    return {
+      store,
+    };
+  },
 };
 </script>
 <template>
-  <div class="col-12 my-5">
+  <div class="col-12 my-5 d-flex justify-content-center">
     <div class="restaurant-card">
-   
       <!--! restaurant img -->
       <!-- <div class="restaurant-tumb text-white mb-3">
         <img :src="restaurant.image" alt="">
@@ -22,16 +21,15 @@ export default {
       <!--! /restaurant img -->
       <!--? restaurant info -->
       <div class="restaurant-info">
-        <h3> {{ restaurant.name }}</h3>
-        <div>Categorie: 
+        <h3>{{ restaurant.name }}</h3>
+        <div>
+          Categorie:
           <span v-for="item in restaurant.types" :key="item.id" class="me-2">
             {{ item.name }}
           </span>
         </div>
         <p>Indirizzo: {{ restaurant.address }}</p>
-        <p>
-          Descrizione: {{ restaurant.desc }}
-        </p>
+        <p>Descrizione: {{ restaurant.desc }}</p>
       </div>
       <!--? /restaurant info -->
     </div>
@@ -42,8 +40,16 @@ export default {
 @use "../../assets/scss/partials/general" as *;
 @use "../../assets/scss/partials/variables" as *;
 
+$restaurant-card-bg-color: #ececec;
+$restaurant-card-text-color: #b2adbe;
+
 .restaurant-card {
+  background-color: $restaurant-card-bg-color;
+  color: $restaurant-card-text-color;
+  border-radius: 20px;
   width: 80%;
+  padding: 20px;
+
   .restaurant-tumb {
     background-color: #210b2d;
     width: 100%;

@@ -2,15 +2,15 @@
 export default {};
 </script>
 <template>
-  <div>
+  <div class="container-fluid">
     <h1>Categorie</h1>
     <!--? Riga -->
-    <div class="row">
+    <div class="row justify-content-center">
       <!--% Colonne -->
       <div class="col-1">
         <div class="type-card">
           <div class="type-icon my-3">
-            <img :src="`../../public/img/food-type/fast-food.png`" alt="" />
+            <img :src="`img/food-type/fast-food.png`" alt="" />
           </div>
           <p class="my-3">Fast-food</p>
         </div>
@@ -19,7 +19,7 @@ export default {};
       <div class="col-1">
         <div class="type-card">
           <div class="type-icon my-3">
-            <img :src="`../../public/img/food-type/ramen.png`" alt="" />
+            <img :src="`img/food-type/ramen.png`" alt="" />
           </div>
           <p class="my-3">Cinese</p>
         </div>
@@ -28,7 +28,7 @@ export default {};
       <div class="col-1">
         <div class="type-card">
           <div class="type-icon my-3">
-            <img :src="`../../public/img/food-type/taco.png`" alt="" />
+            <img :src="`img/food-type/taco.png`" alt="" />
           </div>
           <p class="my-3">Tacos</p>
         </div>
@@ -37,7 +37,7 @@ export default {};
       <div class="col-1">
         <div class="type-card">
           <div class="type-icon my-3">
-            <img :src="`../../public/img/food-type/hamburger.png`" alt="" />
+            <img :src="`img/food-type/hamburger.png`" alt="" />
           </div>
           <p class="my-3">Hamburger</p>
         </div>
@@ -46,7 +46,7 @@ export default {};
       <div class="col-1">
         <div class="type-card">
           <div class="type-icon my-3">
-            <img :src="`../../public/img/food-type/kebab.png`" alt="" />
+            <img :src="`img/food-type/kebab.png`" alt="" />
           </div>
           <p class="my-3">Kebab</p>
         </div>
@@ -55,7 +55,7 @@ export default {};
       <div class="col-1">
         <div class="type-card">
           <div class="type-icon my-3">
-            <img :src="`../../public/img/food-type/noodles.png`" alt="" />
+            <img :src="`img/food-type/noodles.png`" alt="" />
           </div>
           <p class="my-3">Noodles</p>
         </div>
@@ -64,7 +64,7 @@ export default {};
       <div class="col-1">
         <div class="type-card">
           <div class="type-icon my-3">
-            <img :src="`../../public/img/food-type/pizza.png`" alt="" />
+            <img :src="`img/food-type/pizza.png`" alt="" />
           </div>
           <p class="my-3">Pizza</p>
         </div>
@@ -73,7 +73,7 @@ export default {};
       <div class="col-1">
         <div class="type-card">
           <div class="type-icon my-3">
-            <img :src="`../../public/img/food-type/salad.png`" alt="" />
+            <img :src="`img/food-type/salad.png`" alt="" />
           </div>
           <p class="my-3">Insalata</p>
         </div>

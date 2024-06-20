@@ -7,18 +7,21 @@ export default {
   },
   data() {
     return {
-      store
-    }
-  }
-
+      store,
+    };
+  },
 };
 </script>
 <template>
-  <div>
-    <h2>Ristoranti</h2>
-    
-    <RestaurantCard v-for="restaurant in store.restaurants" :key="restaurant.id" :restaurant="restaurant"/>
- 
+  <div class="container-xxl my-5">
+    <h2 class="text-center">Ristoranti</h2>
+    <div class="row">
+      <RestaurantCard
+        v-for="restaurant in store.restaurants"
+        :key="restaurant.id"
+        :restaurant="restaurant"
+      />
+    </div>
   </div>
 </template>
 
