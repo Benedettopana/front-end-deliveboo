@@ -1,9 +1,55 @@
 <script>
+import axios from "axios";
+import {store} from '../data/store';
 export default {
   components: {},
   data() {
-    return {};
+    return {
+      store,
+      axios,
+      nameToSearch:'',
+    };
   },
+  methods:{
+    search(){
+      if(this.nameToSearch.length >0){
+        axios.get(store.apiUrl + '/search/' + this.nameToSearch)
+        .then(result=> {
+          // this.typeName = result.data.types.name;
+          console.log(result.data);
+          store.restaurants = result.data.restaurants
+          this.nameToSearch = '';
+          this.$router.push({ name: 'advanceResearch' });
+          
+          // console.log(result.data.restaurants);
+          // console.log(store.restaurants);
+        })
+        .catch(error => {
+        console.log(error);
+        console.log(error.message);
+        })
+
+      }else{
+        this.getApi()
+        this.$router.push({ name: 'advanceResearch' });
+       
+      }
+    },
+    getApi(){
+        axios.get(store.apiUrl + '/restaurants')
+        .then(result=> {
+          // this.typeName = result.data.types.name;
+          store.restaurants = result.data.restaurants
+          
+          console.log(result.data.restaurants);
+          console.log(store.restaurants);
+        })
+        .catch(error => {
+        console.log(error);
+        console.log(error.message);
+        })
+      }
+  }
 };
 </script>
 
@@ -16,7 +62,7 @@ export default {
 
         <ul class="d-flex justify-content-center align-items-center pt-2">
           <li class="mx-3">
-            <router-link :to="{ name: 'home' }">Home</router-link>
+            <router-link :to="{ name: 'home' }" @click='getApi'>Home</router-link>
           </li>
           <li class="mx-3">
             <router-link :to="{ name: 'advanceResearch' }"
@@ -30,12 +76,14 @@ export default {
           </li>
         </ul>
 
-        <form class="d-flex" role="search">
+        <form class="d-flex" role="search" @submit.prevent="search">
           <input
             class="form-control me-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
+            v-model.trim="this.nameToSearch" 
+            
           />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
