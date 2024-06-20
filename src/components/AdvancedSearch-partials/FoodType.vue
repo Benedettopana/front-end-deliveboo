@@ -1,5 +1,39 @@
 <script>
-export default {};
+import axios from "axios";
+import { store } from "../../data/store.js";
+
+export default {
+  data() {
+    return {
+      store,
+      axios,
+
+      types: [],
+
+      icons: "img/food-type/",
+    };
+  },
+
+  methods: {
+    getApi() {
+      axios
+        .get(store.apiUrl + "/types")
+        .then((result) => {
+          this.types = result.data.types;
+
+          console.log(result.data.types);
+          console.log(this.types);
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log(error.message);
+        });
+    },
+  },
+  mounted() {
+    this.getApi();
+  },
+};
 </script>
 <template>
   <div class="container-fluid">
@@ -7,15 +41,15 @@ export default {};
     <!--? Riga -->
     <div class="row justify-content-center">
       <!--% Colonne -->
-      <div class="col-1">
+      <div class="col-1" v-for="item in types" :key="item.id">
         <div class="type-card">
           <div class="type-icon my-3">
-            <img :src="`img/food-type/fast-food.png`" alt="" />
+            <img :src="`${icons}${item.name}.png`" :alt="`${item.name}`" />
           </div>
-          <p class="my-3">Fast-food</p>
+          <p class="my-3">{{ item.name }}</p>
         </div>
       </div>
-
+      <!-- 
       <div class="col-1">
         <div class="type-card">
           <div class="type-icon my-3">
@@ -77,7 +111,7 @@ export default {};
           </div>
           <p class="my-3">Insalata</p>
         </div>
-      </div>
+      </div> -->
       <!--% /Colonne -->
     </div>
     <!--? /Riga -->
