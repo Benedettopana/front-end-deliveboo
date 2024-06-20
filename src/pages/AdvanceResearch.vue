@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="container-fluid">
     <h1 class="my-5">Ricerca avanzata</h1>
     <AsideAdvResearch />
     <Banner />
