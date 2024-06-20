@@ -76,11 +76,11 @@ export default {
               >Ricerca Avanzata</router-link
             >
           </li>
-          <li class="mx-3">
+          <!-- <li class="mx-3">
             <router-link :to="{ name: 'restaurantMenu' }"
               >Menu Ristorante</router-link
             >
-          </li>
+          </li> -->
         </ul>
 
         <form class="d-flex" role="search" @submit.prevent="search">
