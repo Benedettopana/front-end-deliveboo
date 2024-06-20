@@ -1,18 +1,24 @@
 <script>
 import RestaurantCard from "../partials/RestaurantCard.vue";
+import { store } from "../../data/store";
 export default {
   components: {
     RestaurantCard,
   },
+  data() {
+    return {
+      store
+    }
+  }
+
 };
 </script>
 <template>
   <div>
-    <h1>Restaurant</h1>
-
-    <RestaurantCard />
-    <RestaurantCard />
-    <RestaurantCard />
+    <h2>Ristoranti</h2>
+    
+    <RestaurantCard v-for="restaurant in store.restaurants" :key="restaurant.id" :restaurant="restaurant"/>
+ 
   </div>
 </template>
 
