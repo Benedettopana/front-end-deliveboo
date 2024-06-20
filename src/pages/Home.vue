@@ -1,19 +1,23 @@
 <script>
-  export default {
-    name:'home'
-  }
+import Jumbotron from "../components/Jumbotron.vue";
+import Main from "../components/Main.vue";
+export default {
+  name: "home",
+
+  components: {
+    Jumbotron,
+    Main,
+  },
+
+  data() {
+    return {};
+  },
+};
 </script>
 
-
-
 <template>
-  <div>
-    <h1>Home</h1>
-  </div>
+  <Jumbotron />
+  <Main />
 </template>
 
-
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
