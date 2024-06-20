@@ -1,5 +1,53 @@
 <script>
-export default {};
+import axios from "axios";
+import { store } from "../../data/store.js";
+
+export default {
+  data() {
+    return {
+      store,
+      axios,
+      // selected: false,
+      types: [],
+      icons: "img/food-type/",
+    };
+  },
+
+  methods: {
+    getApi() {
+      axios
+        .get(store.apiUrl + "/types")
+        .then((result) => {
+          this.types = result.data.types;
+
+          console.log(result.data.types);
+          console.log(this.types);
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log(error.message);
+        });
+    },
+
+    getRestaurantsByType(typeName) {
+      // this.selected = !this.selected;
+      axios
+        .get(`${store.apiUrl}/restaurants/${typeName}`)
+        .then((result) => {
+          store.restaurants = result.data.restaurants;
+
+          console.log(result.data.restaurants);
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log(error.message);
+        });
+    },
+  },
+  mounted() {
+    this.getApi();
+  },
+};
 </script>
 <template>
   <div class="container-fluid">
@@ -7,75 +55,13 @@ export default {};
     <!--? Riga -->
     <div class="row justify-content-center">
       <!--% Colonne -->
-      <div class="col-1">
-        <div class="type-card">
+      <div class="col-1" v-for="item in types" :key="item.id">
+        <div class="type-card" @click="getRestaurantsByType(item.name)">
+          <!-- :class="[selected ? isSelected : notSelected]" -->
           <div class="type-icon my-3">
-            <img :src="`img/food-type/fast-food.png`" alt="" />
+            <img :src="`${icons}${item.name}.png`" :alt="`${item.name}`" />
           </div>
-          <p class="my-3">Fast-food</p>
-        </div>
-      </div>
-
-      <div class="col-1">
-        <div class="type-card">
-          <div class="type-icon my-3">
-            <img :src="`img/food-type/ramen.png`" alt="" />
-          </div>
-          <p class="my-3">Cinese</p>
-        </div>
-      </div>
-
-      <div class="col-1">
-        <div class="type-card">
-          <div class="type-icon my-3">
-            <img :src="`img/food-type/taco.png`" alt="" />
-          </div>
-          <p class="my-3">Tacos</p>
-        </div>
-      </div>
-
-      <div class="col-1">
-        <div class="type-card">
-          <div class="type-icon my-3">
-            <img :src="`img/food-type/hamburger.png`" alt="" />
-          </div>
-          <p class="my-3">Hamburger</p>
-        </div>
-      </div>
-
-      <div class="col-1">
-        <div class="type-card">
-          <div class="type-icon my-3">
-            <img :src="`img/food-type/kebab.png`" alt="" />
-          </div>
-          <p class="my-3">Kebab</p>
-        </div>
-      </div>
-
-      <div class="col-1">
-        <div class="type-card">
-          <div class="type-icon my-3">
-            <img :src="`img/food-type/noodles.png`" alt="" />
-          </div>
-          <p class="my-3">Noodles</p>
-        </div>
-      </div>
-
-      <div class="col-1">
-        <div class="type-card">
-          <div class="type-icon my-3">
-            <img :src="`img/food-type/pizza.png`" alt="" />
-          </div>
-          <p class="my-3">Pizza</p>
-        </div>
-      </div>
-
-      <div class="col-1">
-        <div class="type-card">
-          <div class="type-icon my-3">
-            <img :src="`img/food-type/salad.png`" alt="" />
-          </div>
-          <p class="my-3">Insalata</p>
+          <p class="my-3">{{ item.name }}</p>
         </div>
       </div>
       <!--% /Colonne -->
@@ -89,9 +75,9 @@ export default {};
 @use "../../assets/scss/partials/variables" as *;
 
 $type-card-bg-color: #ececec;
+$type-card-bg-color-active: #0d6efd;
 $type-card-text-color: #b2adbe;
 .type-card {
-  background-color: $type-card-bg-color;
   color: $type-card-text-color;
   display: flex;
   flex-direction: column;
@@ -117,6 +103,14 @@ $type-card-text-color: #b2adbe;
     width: 50px;
     // img {
     // }
+  }
+
+  .isSelected {
+    background-color: $type-card-bg-color-active;
+  }
+
+  .notSelected {
+    background-color: $type-card-bg-color;
   }
 }
 </style>
