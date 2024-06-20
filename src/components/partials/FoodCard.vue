@@ -27,7 +27,7 @@ export default {};
 
         <!-- TODO: fare aggiunta al carrello -->
         <!--% Aggiungi al carrello -->
-        <div class="add-to-card">
+        <div class="add-to-cart">
           <button type="button" class="btn btn-primary">
             <i class="fa-solid fa-cart-plus"></i>
           </button>
@@ -85,7 +85,7 @@ $vegan-icon-color: #059862;
   // /Info piatto
 
   // Aggiungi al carrello
-  .add-to-card {
+  .add-to-cart {
     display: flex;
     justify-content: center;
   }
