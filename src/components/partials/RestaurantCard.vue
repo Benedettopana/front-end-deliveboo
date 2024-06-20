@@ -1,28 +1,36 @@
 <script>
-export default {};
+import { store } from '../../data/store';
+export default {
+  props:{
+      restaurant : Object
+    },
+    data(){
+      return{
+        store
+      }
+    },
+};
 </script>
 <template>
   <div class="col-12 my-5">
     <div class="restaurant-card">
+   
       <!--! restaurant img -->
-      <div class="restaurant-tumb mb-3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
-        temporibus. Facere numquam placeat dignissimos quod deleniti nesciunt
-        ipsum quibusdam, iure quia molestias possimus porro tenetur, fugit sit
-        saepe itaque eveniet!
-      </div>
+      <!-- <div class="restaurant-tumb text-white mb-3">
+        <img :src="restaurant.image" alt="">
+      </div> -->
       <!--! /restaurant img -->
       <!--? restaurant info -->
       <div class="restaurant-info">
-        <p>Nome: Il mio ristorant</p>
-        <p>Categorie: pizza</p>
-        <p>Indirizzo: Via dei platani 12</p>
+        <h3> {{ restaurant.name }}</h3>
+        <div>Categorie: 
+          <span v-for="item in restaurant.types" :key="item.id" class="me-2">
+            {{ item.name }}
+          </span>
+        </div>
+        <p>Indirizzo: {{ restaurant.address }}</p>
         <p>
-          Descrizione: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Tempora quaerat recusandae eveniet sit velit beatae illo architecto
-          magni! Animi hic ex soluta dignissimos reprehenderit, corrupti
-          voluptatem possimus molestiae unde dolor commodi nostrum, accusamus
-          expedita dicta harum vero, aut est assumenda.
+          Descrizione: {{ restaurant.desc }}
         </p>
       </div>
       <!--? /restaurant info -->

@@ -15,7 +15,7 @@ export default {
     return {
       axios,
       store,
-      restaurants: [],
+      
       // typeName: [],
     };
   },
@@ -25,10 +25,10 @@ export default {
         axios.get(store.apiUrl + '/restaurants')
         .then(result=> {
           // this.typeName = result.data.types.name;
-          this.restaurants = result.data.restaurants
+          store.restaurants = result.data.restaurants
           
-          console.log(result.data);
-          console.log(this.typeName);
+          console.log(result.data.restaurants);
+          console.log(store.restaurants);
         })
         .catch(error => {
         console.log(error);
