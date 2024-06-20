@@ -19,8 +19,8 @@ export default {
 <template>
   <div class="container-fluid">
     <h1 class="my-5">Ricerca avanzata</h1>
-    <AsideAdvResearch />
-    <Banner />
+    <!-- <AsideAdvResearch /> -->
+    <!-- <Banner /> -->
     <FoodType />
     <Restaurant />
   </div>
