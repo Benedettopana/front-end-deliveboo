@@ -70,7 +70,7 @@ $restaurant-card-text-color: #b2adbe;
   border-radius: 20px;
   width: 80%;
   padding: 20px;
-
+  cursor: pointer;
   .restaurant-tumb {
     background-color: #210b2d;
     width: 100%;

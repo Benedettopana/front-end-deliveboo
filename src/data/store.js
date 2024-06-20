@@ -6,6 +6,6 @@ export let store = reactive({
 
   restaurants: [],
   restaurant_detail: [],
-
+  // restaurant_selected: [],
   message: "",
 });

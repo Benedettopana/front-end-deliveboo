@@ -4,6 +4,10 @@ export default {
     dish: Object,
   },
 
+  data() {
+    return {};
+  },
+
   mounted() {
     // console.log("dish>>>>", dish);
   },
