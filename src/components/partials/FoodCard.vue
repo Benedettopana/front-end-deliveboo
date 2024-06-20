@@ -1,5 +1,13 @@
 <script>
-export default {};
+export default {
+  props: {
+    dish: Object,
+  },
+
+  mounted() {
+    // console.log("dish>>>>", dish);
+  },
+};
 </script>
 <template>
   <div class="container-md d-flex justify-content-center my-3">
@@ -12,17 +20,15 @@ export default {};
       <!--? Informazioni piatto e aggiunta al carrello -->
       <div class="food-info">
         <!-- Nome piatto -->
-        <p>Pizza Margherita</p>
+        <p>{{ dish.name }}</p>
         <!-- /Nome piatto -->
         <!-- Descrizione piatto -->
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
-          tempora vero voluptatibus culpa iure quos rem, corporis voluptate iste
-          porro.
+          {{ dish.desc }}
         </p>
         <!-- /Descrizione piatto -->
         <!-- Prezzo piatto -->
-        <p>$ 8,00</p>
+        <p>&euro; {{ dish.price.replace(".", ",") }}</p>
         <!-- /Prezzo piatto -->
 
         <!-- TODO: fare aggiunta al carrello -->

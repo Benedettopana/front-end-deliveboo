@@ -15,6 +15,7 @@ export default {
 <template>
   <div class="container-xxl my-5">
     <h2 class="text-center">Ristoranti</h2>
+    <h4>{{ store.message }}</h4>
     <div class="row">
       <RestaurantCard
         v-for="restaurant in store.restaurants"
