@@ -15,6 +15,7 @@ export default {
 
   methods: {
     getApi() {
+      store.message = "";
       axios
         .get(store.apiUrl + "/types")
         .then((result) => {
@@ -31,6 +32,7 @@ export default {
 
     getRestaurantsByType(typeName) {
       // this.selected = !this.selected;
+      store.message = "";
       axios
         .get(`${store.apiUrl}/restaurants/${typeName}`)
         .then((result) => {

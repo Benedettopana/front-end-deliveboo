@@ -1,5 +1,6 @@
 <script>
 import { store } from "../../data/store";
+import axios from "axios";
 export default {
   props: {
     restaurant: Object,
@@ -7,13 +8,33 @@ export default {
   data() {
     return {
       store,
+      axios,
     };
+  },
+
+  methods: {
+    getRestaurantDetail(idRestaurant) {
+      axios
+        .get(store.apiUrl + "/restaurant-info/" + idRestaurant)
+        .then((result) => {
+          store.restaurant_detail = result.data;
+
+          this.$router.push({ name: "restaurantMenu" });
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log(error.message);
+        });
+    },
   },
 };
 </script>
 <template>
-  <div class="col-12 my-5 d-flex justify-content-center">
-    <div class="restaurant-card">
+  <div class="col-12 my-3 d-flex justify-content-center">
+    <div class="restaurant-card" @click="getRestaurantDetail(restaurant.id)">
+      <!--?redirect -->
+
+      <!--?/redirect -->
       <!--! restaurant img -->
       <!-- <div class="restaurant-tumb text-white mb-3">
         <img :src="restaurant.image" alt="">

@@ -1,10 +1,21 @@
 <script>
 import FoodCard from "../components/partials/FoodCard.vue";
+import { store } from "../data/store";
 export default {
   name: "restaurantMenu",
 
   components: {
     FoodCard,
+  },
+
+  data() {
+    return {
+      store,
+    };
+  },
+
+  mounted() {
+    console.log(store.restaurant_detail);
   },
 };
 </script>
@@ -21,22 +32,11 @@ export default {
         <div class="row">
           <!-- TODO: Stampa card dinamiche -->
           <div class="col-12">
-            <FoodCard />
-          </div>
-          <div class="col-12">
-            <FoodCard />
-          </div>
-          <div class="col-12">
-            <FoodCard />
-          </div>
-          <div class="col-12">
-            <FoodCard />
-          </div>
-          <div class="col-12">
-            <FoodCard />
-          </div>
-          <div class="col-12">
-            <FoodCard />
+            <FoodCard
+              v-for="dish in store.restaurant_detail.dishes"
+              :key="dish.id"
+              :dish="dish"
+            />
           </div>
         </div>
         <!--? /Card piatti -->
