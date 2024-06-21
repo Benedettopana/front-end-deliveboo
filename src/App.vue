@@ -1,13 +1,14 @@
 <script>
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import Loader from "./components/partials/Loader.vue";
 import axios from "axios";
 import { store } from "./data/store";
 
 export default {
   components: {
     Header,
-
+    Loader,
     Footer,
   },
 
@@ -15,26 +16,29 @@ export default {
     return {
       axios,
       store,
-
+      isApiCallInProgress: false,
       // typeName: [],
     };
   },
 
   methods: {
-    getApi() {
-      axios
-        .get(store.apiUrl + "/restaurants")
-        .then((result) => {
-          // this.typeName = result.data.types.name;
-          store.restaurants = result.data.restaurants;
+    async getApi() {
+      if (this.isApiCallInProgress) return;
 
-          console.log(result.data.restaurants);
-          console.log(store.restaurants);
-        })
-        .catch((error) => {
-          console.log(error);
-          console.log(error.message);
-        });
+      this.isApiCallInProgress = true;
+      this.store.loading = true;
+
+      try {
+        const result = await axios.get(`${store.apiUrl}/restaurants`);
+        store.restaurants = result.data.restaurants;
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setTimeout(() => {
+          this.store.loading = false;
+          this.isApiCallInProgress = false;
+        }, 1000);
+      }
     },
   },
   mounted() {
@@ -45,10 +49,16 @@ export default {
 
 <template>
   <Header />
-
-  <div>
+  <!--* Loader -->
+  <div v-if="store.loading">
+    <Loader />
+  </div>
+  <!--* /Loader -->
+  <!--? Contenuto Pagina -->
+  <div v-else>
     <router-view></router-view>
   </div>
+
   <Footer />
 </template>
 

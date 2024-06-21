@@ -3,7 +3,9 @@ import AsideAdvResearch from "../components/AdvancedSearch-partials/AsideAdvRese
 import Banner from "../components/AdvancedSearch-partials/Banner.vue";
 import FoodType from "../components/AdvancedSearch-partials/FoodType.vue";
 import Restaurant from "../components/AdvancedSearch-partials/Restaurant.vue";
+import Loader from "../components/partials/Loader.vue";
 
+import { store } from "../data/store";
 export default {
   name: "advanceResearch",
 
@@ -12,6 +14,13 @@ export default {
     Banner,
     FoodType,
     Restaurant,
+    Loader,
+  },
+
+  data() {
+    return {
+      store,
+    };
   },
 };
 </script>
@@ -21,8 +30,13 @@ export default {
     <h1 class="my-5">Ricerca avanzata</h1>
     <!-- <AsideAdvResearch /> -->
     <!-- <Banner /> -->
-    <FoodType />
-    <Restaurant />
+    <div v-if="store.loading">
+      <Loader />
+    </div>
+    <div v-else>
+      <FoodType />
+      <Restaurant />
+    </div>
   </div>
 </template>
 

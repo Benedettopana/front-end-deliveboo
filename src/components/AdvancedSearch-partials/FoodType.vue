@@ -7,7 +7,6 @@ export default {
     return {
       store,
       axios,
-      // selected: false,
       types: [],
       icons: "img/food-type/",
     };
@@ -20,7 +19,6 @@ export default {
         .get(store.apiUrl + "/types")
         .then((result) => {
           this.types = result.data.types;
-
           console.log(result.data.types);
           console.log(this.types);
         })
@@ -31,18 +29,25 @@ export default {
     },
 
     getRestaurantsByType(typeName) {
-      // this.selected = !this.selected;
       store.message = "";
+      this.store.loading = true; // Imposta loading su true all'inizio della richiesta
+      console.log("entro nella chiamata", this.store.loading);
       axios
         .get(`${store.apiUrl}/restaurants/${typeName}`)
         .then((result) => {
           store.restaurants = result.data.restaurants;
-
           console.log(result.data.restaurants);
+          console.log("sono nella chiamata", this.store.loading);
         })
         .catch((error) => {
           console.log(error);
           console.log(error.message);
+        })
+        .finally(() => {
+          setTimeout(() => {
+            this.store.loading = false; // Imposta loading su false dopo 1 secondo
+          }, 1500);
+          console.log("esco nella chiamata e ho aspettato", this.store.loading);
         });
     },
   },
