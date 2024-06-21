@@ -101,7 +101,7 @@ export default {};
   width: 60%;
   height: 45%;
   border: 10px solid transparent;
-  border-bottom: 10px solid #ff2f2f;
+  border-bottom: 10px solid #e88735;
   border-radius: 50%;
   animation: loader 2s infinite;
   animation-timing-function: linear;

@@ -2,14 +2,16 @@
 import Bento from "./Main-partials/Bento.vue";
 import Most from "./Main-partials/Most.vue";
 import Counter from "./Main-partials/Counter.vue";
+import Banner from "./Main-partials/Banner.vue";
 
- import {store} from '../data/store';
+import { store } from "../data/store";
 
 export default {
   components: {
     Bento,
     Most,
     Counter,
+    Banner,
   },
   data() {
     return {
@@ -20,9 +22,10 @@ export default {
 </script>
 
 <template>
+  <Banner />
   <Bento />
-  <Most />
-  <Counter />
+  <!-- <Most /> -->
+  <!-- <Counter /> -->
 </template>
 
 <style lang="scss" scoped>
