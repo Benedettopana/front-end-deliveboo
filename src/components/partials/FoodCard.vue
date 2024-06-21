@@ -9,46 +9,53 @@ export default {
   },
 
   mounted() {
-    // console.log("dish>>>>", dish);
+    console.log("dish>>>>", this.dish);
   },
 };
 </script>
 <template>
   <div class="container-md d-flex justify-content-center my-3">
-    <div class="food-card">
-      <!--! Img Piatto -->
-      <div class="food-img">
-        <img src="" alt="" />
-      </div>
-      <!--! /Img Piatto -->
-      <!--? Informazioni piatto e aggiunta al carrello -->
-      <div class="food-info">
-        <!-- Nome piatto -->
-        <p>{{ dish.name }}</p>
-        <!-- /Nome piatto -->
-        <!-- Descrizione piatto -->
-        <p>
-          {{ dish.desc }}
-        </p>
-        <!-- /Descrizione piatto -->
-        <!-- Prezzo piatto -->
-        <p>&euro; {{ dish.price.replace(".", ",") }}</p>
-        <!-- /Prezzo piatto -->
-
-        <!-- TODO: fare aggiunta al carrello -->
-        <!--% Aggiungi al carrello -->
-        <div class="add-to-cart">
-          <button type="button" class="btn btn-primary">
-            <i class="fa-solid fa-cart-plus"></i>
-          </button>
+    <div v-show="dish.visibility" class="food-card">
+      <div class="row row-cols-3 w-100">
+        <!--! Img Piatto -->
+        <div class="col-3">
+          <div class="food-img">
+            <img src="" alt="" />
+          </div>
         </div>
-        <!--% /Aggiungi al carrello -->
+        <!--! /Img Piatto -->
+        <div class="col-7">
+          <!--? Informazioni piatto e aggiunta al carrello -->
+          <div class="food-info">
+            <!-- Nome piatto -->
+            <p>{{ dish.name }}</p>
+            <!-- /Nome piatto -->
+            <!-- Descrizione piatto -->
+            <p>
+              {{ dish.desc }}
+            </p>
+            <!-- /Descrizione piatto -->
+            <!-- Prezzo piatto -->
+            <p>&euro; {{ dish.price.replace(".", ",") }}</p>
+            <!-- /Prezzo piatto -->
+          </div>
+        </div>
+        <div class="col-2">
+          <!-- TODO: fare aggiunta al carrello -->
+          <!--% Aggiungi al carrello -->
+          <div class="add-to-cart">
+            <button type="button" class="btn btn-primary">
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
+          <!--% /Aggiungi al carrello -->
+        </div>
       </div>
+
       <!--? /Informazioni piatto e aggiunta al carrello -->
 
-      <!-- TODO: Stampa dinamica se vegano (true/false) -->
       <!--* Vegan -->
-      <div class="vegan">
+      <div v-show="dish.vegan" class="vegan">
         <i class="fa-solid fa-leaf"></i>
       </div>
       <!--* /Vegan -->
@@ -73,13 +80,12 @@ $vegan-icon-color: #059862;
 
   position: relative;
   // formato
-  // width: 60%;
-  // aspect-ratio: 1/0.5;
+  width: 60%;
   border-radius: 20px;
   // /formato
 
   // Debug TODO: togliere
-  cursor: pointer;
+  // cursor: pointer;
 
   // Effetti
   transition: all 0.6s;
@@ -96,8 +102,12 @@ $vegan-icon-color: #059862;
 
   // Aggiungi al carrello
   .add-to-cart {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
+    align-items: end;
+    padding: 20px;
   }
   // /Aggiungi al carrello
 
