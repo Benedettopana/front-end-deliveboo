@@ -31,6 +31,7 @@ export default {
       try {
         const result = await axios.get(`${store.apiUrl}/restaurants`);
         store.restaurants = result.data.restaurants;
+        console.log(store.restaurants);
       } catch (error) {
         console.log(error);
       } finally {
