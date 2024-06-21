@@ -9,11 +9,13 @@ export default {
       axios,
       types: [],
       icons: "img/food-type/",
+      myString: "",
+      selectedTypes: [],
     };
   },
 
   methods: {
-    getApi() {
+    getTypes() {
       store.message = "";
       axios
         .get(store.apiUrl + "/types")
@@ -28,21 +30,32 @@ export default {
         });
     },
 
-    getRestaurantsByType(typeName) {
+    saveTypes(typeName) {
+      // console.log(this.selectedTypes.includes(typeName));
+      if (this.store.selected.includes(typeName)) {
+        console.log("prima>>>>>>>>>>>", this.store.selected);
+        this.store.selected.splice(this.selectedTypes.indexOf(typeName));
+        console.log("dopo>>>>>>>>>>>", this.store.selected);
+      } else {
+        this.store.selected.push(typeName);
+      }
+      this.myString = this.store.selected.toString();
+      this.getRestaurantsByType();
+    },
+
+    getRestaurantsByType() {
+      // store.restaurants = [];
       store.message = "";
-      this.store.loading = true; // Imposta loading su true all'inizio della richiesta
-      console.log("entro nella chiamata", this.store.loading);
+      this.store.loading = true;
+
       axios
-        .get(`${store.apiUrl}/restaurants/${typeName}`)
+        .get(`${store.apiUrl}/restaurants/type/?types=${this.myString}`)
         .then((result) => {
+          console.log(result.data.restaurant);
           // Ordina i ristoranti in ordine alfabetico per nome
-        store.restaurants = result.data.restaurants.sort((a, b) => {
-        if (a.name < b.name) return -1;
-        if (a.name > b.name) return 1;
-        return 0;
-      });
-          console.log(result.data.restaurants);
-          console.log("sono nella chiamata", this.store.loading);
+          store.restaurants = result.data.restaurant;
+          console.log(store.restaurants);
+          // console.log("sono nella chiamata", this.store.loading);
         })
         .catch((error) => {
           console.log(error);
@@ -53,11 +66,14 @@ export default {
             this.store.loading = false; // Imposta loading su false dopo 1 secondo
           }, 1500);
           console.log("esco nella chiamata e ho aspettato", this.store.loading);
+
+          this.myString = "";
         });
     },
   },
   mounted() {
-    this.getApi();
+    this.getTypes();
+    this.getRest;
   },
 };
 </script>
@@ -68,7 +84,7 @@ export default {
     <div class="row justify-content-center">
       <!--% Colonne -->
       <div class="col-1" v-for="item in types" :key="item.id">
-        <div class="type-card"   @click="getRestaurantsByType(item.name)">
+        <div class="type-card" @click="saveTypes(item.name)">
           <!-- :class="[selected ? isSelected : notSelected]" -->
           <div class="type-icon my-3">
             <img :src="`${icons}${item.name}.png`" :alt="`${item.name}`" />

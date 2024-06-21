@@ -10,4 +10,6 @@ export let store = reactive({
   restaurant_detail: [],
   // restaurant_selected: [],
   message: "",
+
+  selected: [],
 });
