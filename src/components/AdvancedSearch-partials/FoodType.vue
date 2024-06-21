@@ -11,6 +11,8 @@ export default {
       icons: "img/food-type/",
       myString: "",
       selectedTypes: [],
+
+      ricerca: "",
     };
   },
 
@@ -33,9 +35,15 @@ export default {
     saveTypes(typeName) {
       // console.log(this.selectedTypes.includes(typeName));
       if (this.store.selected.includes(typeName)) {
-        console.log("prima>>>>>>>>>>>", this.store.selected);
-        this.store.selected.splice(this.selectedTypes.indexOf(typeName));
-        console.log("dopo>>>>>>>>>>>", this.store.selected);
+        for (let i = 0; i < this.store.selected.length; i++) {
+          if (this.store.selected[i] == typeName) {
+            this.store.selected.splice(i, 1);
+            break;
+          }
+        }
+        // console.log("prima>>>>>>>>>>>", this.store.selected);
+        // this.store.selected.splice(this.selectedTypes.indexOf(typeName));
+        // console.log("dopo>>>>>>>>>>>", this.store.selected);
       } else {
         this.store.selected.push(typeName);
       }
@@ -47,13 +55,22 @@ export default {
       // store.restaurants = [];
       store.message = "";
       this.store.loading = true;
+      // this.store.apiUrl + "/restaurants/type/?types=" + this.myString;
 
+      if (this.store.selected.length < 1) {
+        this.ricerca = this.store.apiUrl + "/restaurants";
+      } else {
+        this.ricerca =
+          this.store.apiUrl + "/restaurants/type/?types=" + this.myString;
+      }
+      // .get(`${store.apiUrl}/restaurants/type/?types=${this.myString}`)
       axios
-        .get(`${store.apiUrl}/restaurants/type/?types=${this.myString}`)
+        // .get(`${this.ricerca}`)
+        .get(`${this.ricerca}`)
         .then((result) => {
-          console.log(result.data.restaurant);
+          console.log(result.data.restaurants);
           // Ordina i ristoranti in ordine alfabetico per nome
-          store.restaurants = result.data.restaurant;
+          store.restaurants = result.data.restaurants;
           console.log(store.restaurants);
           // console.log("sono nella chiamata", this.store.loading);
         })
