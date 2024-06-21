@@ -157,16 +157,16 @@ export default {
   transition: transform 0.5s ease-in-out;
   outline: 1px dashed #fff5;
   outline-offset: -100px;
-}
-.jumboImg .item {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  rotate: calc(60deg * var(--i));
-}
-.jumboImg .item img {
-  height: 420px;
+  & .item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    rotate: calc(60deg * var(--i));
+    & img {
+      height: 420px;
+    }
+  }
 }
 
 .content {
@@ -176,25 +176,25 @@ export default {
   left: 60%;
   text-align: justify;
   width: 350px;
-}
-.content h1 {
-  color: #e88735;
-  font-size: xxx-large;
-}
-.content button {
-  margin-top: 30px;
-  padding: 10px 30px;
-  border-radius: 20px;
-  background-color: #e88735;
-  color: #fff;
-  border: none;
-  float: right;
-}
-.content .item {
-  display: none;
-}
-.content .item.active {
-  display: block;
+  & h1 {
+    color: #e88735;
+    font-size: xxx-large;
+  }
+  & button {
+    margin-top: 30px;
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: #e88735;
+    color: #fff;
+    border: none;
+    float: right;
+  }
+  & .item {
+    display: none;
+  }
+  & .item.active {
+    display: block;
+  }
 }
 @keyframes showContent {
   from {
