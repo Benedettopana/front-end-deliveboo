@@ -16,6 +16,7 @@ export default {
       active: 0,
       countItem: 0,
       rotateAdd: 0,
+      autoplayInterval: null,
     };
   },
 
@@ -42,18 +43,36 @@ export default {
     show() {
       this.image.style.setProperty("--rotate", this.rotate + "deg");
       this.contents.forEach((content, key) => {
-        if (key == this.active) {
-          content.active = true;
-        } else {
-          content.active = false;
-        }
+        // if (key == this.active) {
+        //   content.active = true;
+        // } else {
+        //   content.active = false;
+        // }
+        content.active = key === this.active;
       });
     },
+
+    // Autoplay
+    startAutoplay() {
+      // Cambia slider ogni 3 secondi
+      this.autoplayInterval = setInterval(this.prevSlider, 3000);
+    },
+
+    stopAutoplay() {
+      clearInterval(this.autoplayInterval);
+      this.autoplayInterval = null;
+    },
+    // /Autoplay
   },
 
   mounted() {
     this.slider();
     this.show();
+    this.startAutoplay();
+  },
+
+  beforeDestroy() {
+    this.stopAutoplay();
   },
 };
 </script>
@@ -63,7 +82,11 @@ export default {
   <div class="container-fluid">
     <div class="slider">
       <div class="title">DeliveBoo!</div>
-      <div class="jumboImg">
+      <div
+        class="jumboImg"
+        @mouseenter="stopAutoplay"
+        @mouseleave="startAutoplay"
+      >
         <div class="item" style="--i: 1">
           <img :src="`/img/jumbotron/1.PNG`" class="dishImg" />
         </div>
@@ -83,7 +106,11 @@ export default {
           <img :src="`/img/jumbotron/6.PNG`" class="dishImg" />
         </div>
       </div>
-      <div class="content">
+      <div
+        class="content"
+        @mouseenter="stopAutoplay"
+        @mouseleave="startAutoplay"
+      >
         <div
           class="item"
           v-for="(content, index) in contents"
