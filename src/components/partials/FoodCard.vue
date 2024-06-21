@@ -9,13 +9,13 @@ export default {
   },
 
   mounted() {
-    // console.log("dish>>>>", dish);
+    console.log("dish>>>>", this.dish);
   },
 };
 </script>
 <template>
   <div class="container-md d-flex justify-content-center my-3">
-    <div class="food-card">
+    <div v-show="dish.visibility" class="food-card">
       <div class="row row-cols-3 w-100">
         <!--! Img Piatto -->
         <div class="col-3">
@@ -54,9 +54,8 @@ export default {
 
       <!--? /Informazioni piatto e aggiunta al carrello -->
 
-      <!-- TODO: Stampa dinamica se vegano (true/false) -->
       <!--* Vegan -->
-      <div class="vegan">
+      <div v-show="dish.vegan" class="vegan">
         <i class="fa-solid fa-leaf"></i>
       </div>
       <!--* /Vegan -->
