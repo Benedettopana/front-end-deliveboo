@@ -35,7 +35,12 @@ export default {
       axios
         .get(`${store.apiUrl}/restaurants/${typeName}`)
         .then((result) => {
-          store.restaurants = result.data.restaurants;
+          // Ordina i ristoranti in ordine alfabetico per nome
+        store.restaurants = result.data.restaurants.sort((a, b) => {
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
+        return 0;
+      });
           console.log(result.data.restaurants);
           console.log("sono nella chiamata", this.store.loading);
         })
@@ -63,7 +68,7 @@ export default {
     <div class="row justify-content-center">
       <!--% Colonne -->
       <div class="col-1" v-for="item in types" :key="item.id">
-        <div class="type-card" @click="getRestaurantsByType(item.name)">
+        <div class="type-card"   @click="getRestaurantsByType(item.name)">
           <!-- :class="[selected ? isSelected : notSelected]" -->
           <div class="type-icon my-3">
             <img :src="`${icons}${item.name}.png`" :alt="`${item.name}`" />
