@@ -83,7 +83,7 @@ export default {
           </li> -->
         </ul>
 
-        <form class="d-flex" role="search" @submit.prevent="search">
+       <!-- <form class="d-flex" role="search" @submit.prevent="search">
           <input
             class="form-control me-2"
             type="search"
@@ -92,7 +92,7 @@ export default {
             v-model.trim="this.nameToSearch"
           />
           <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        </form> -->
       </div>
     </nav>
     <!--? /Navbar -->
