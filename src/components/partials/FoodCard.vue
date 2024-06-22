@@ -13,7 +13,15 @@ export default {
   methods: {
     ...mapActions(["addToCart"]),
     addToCartHandler() {
-      this.addToCart(this.dish);
+      try {
+        this.addToCart({
+          dish: this.dish,
+          restaurantId: this.dish.restaurant_id,
+        });
+      } catch (error) {
+        alert(error.message);
+      }
+      // this.addToCart(this.dish);
     },
   },
 

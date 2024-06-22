@@ -49,7 +49,7 @@ export default {
             <FoodCard
               v-for="dish in store.restaurant_detail.dishes"
               :key="dish.id"
-              :dish="dish"
+              :dish="{ ...dish, restaurant_id: store.restaurant_detail.id }"
             />
           </div>
         </div>

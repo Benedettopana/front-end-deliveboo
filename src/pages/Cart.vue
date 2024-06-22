@@ -8,7 +8,7 @@ export default {
     ...mapGetters(["cartItems"]),
   },
   methods: {
-    ...mapActions(["removeFromCart"]),
+    ...mapActions(["removeFromCart", "clearCart"]),
   },
 };
 </script>
@@ -23,6 +23,13 @@ export default {
         </button>
       </li>
     </ul>
+
+    <!--! Pulsante che svuota il carrello -->
+    <div class="">
+      <button class="btn btn-warning" @click="clearCart">
+        Svuota carrello
+      </button>
+    </div>
   </div>
 </template>
 
