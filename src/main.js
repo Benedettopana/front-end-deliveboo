@@ -8,12 +8,7 @@ import { store } from "./store/index.js";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 
-// Vue.use(Toast, {
-//   transition: "Vue-Toastification__bounce",
-//   maxToasts: 20,
-//   newestOnTop: true,
-// });
-
+//? Personalizzazione toast
 const options = {
   position: "bottom-center",
   timeout: 5000,
@@ -28,4 +23,5 @@ const options = {
   icon: true,
   rtl: false,
 };
+
 createApp(App).use(router).use(store).use(Toast, options).mount("#app");
