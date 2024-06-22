@@ -18,7 +18,9 @@ export default {
     <ul>
       <li v-for="(item, index) in cartItems" :key="index">
         {{ item.name }} - {{ item.price }}
-        <button @click="removeFromCart(index)">Rimuovi</button>
+        <button class="btn btn-danger" @click="removeFromCart(index)">
+          Rimuovi
+        </button>
       </li>
     </ul>
   </div>
