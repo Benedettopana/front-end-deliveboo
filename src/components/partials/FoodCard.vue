@@ -53,7 +53,11 @@ export default {
           <!-- TODO: fare aggiunta al carrello -->
           <!--% Aggiungi al carrello -->
           <div class="add-to-cart">
-            <button type="button" class="btn btn-primary" @click="addToCart">
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="addToCartHandler"
+            >
               <!-- <i class="fa-solid fa-cart-plus"></i> -->
               +
             </button>
