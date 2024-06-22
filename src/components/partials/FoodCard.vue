@@ -4,6 +4,7 @@ import { useToast } from "vue-toastification";
 export default {
   props: {
     dish: Object,
+    restaurantName: String,
   },
 
   setup() {
@@ -18,12 +19,17 @@ export default {
     ...mapActions(["addToCart"]),
     addToCartHandler() {
       try {
+        console.log("Nome ristorante>>>>>>>", this.dish.restaurant_name);
+        const restaurant = {
+          id: this.dish.restaurant_id,
+          name: this.dish.restaurant_name,
+        };
         this.addToCart({
           dish: this.dish,
-          restaurantId: this.dish.restaurant_id,
+          restaurant: restaurant,
         });
+        this.toast.success("Piatto aggiunto al carrello!");
       } catch (error) {
-        // alert(error.message);
         this.toast.error(error.message);
       }
     },

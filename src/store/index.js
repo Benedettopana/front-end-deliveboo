@@ -12,9 +12,9 @@ const loadCartFromLocalStorage = () => {
 };
 
 //% Salvo il ristorante
-const saveCurrentRestaurantToLocalStorage = (restaurantId) => {
-  if (restaurantId) {
-    localStorage.setItem("currentRestaurant", restaurantId);
+const saveCurrentRestaurantToLocalStorage = (restaurant) => {
+  if (restaurant) {
+    localStorage.setItem("currentRestaurant", JSON.stringify(restaurant));
   } else {
     localStorage.removeItem("currentRestaurant");
   }
@@ -22,7 +22,8 @@ const saveCurrentRestaurantToLocalStorage = (restaurantId) => {
 
 //% Carico il ristorante
 const loadCurrentRestaurantFromLocalStorage = () => {
-  return localStorage.getItem("currentRestaurant");
+  const restaurant = localStorage.getItem("currentRestaurant");
+  return restaurant ? JSON.parse(restaurant) : [];
 };
 
 // Creo lo store con il ristorante e i piatti che ho messo nel carrello.
@@ -35,10 +36,10 @@ export const store = createStore({
 
   mutations: {
     // pusho e salvo il piatto e l'id del ristorante
-    addToCart(state, { dish, restaurantId }) {
+    addToCart(state, { dish, restaurant }) {
       state.cart.push(dish);
       if (!state.currentRestaurant) {
-        state.currentRestaurant = restaurantId;
+        state.currentRestaurant = restaurant;
       }
       saveCartToLocalStorage(state.cart);
       saveCurrentRestaurantToLocalStorage(state.currentRestaurant);
@@ -67,11 +68,14 @@ export const store = createStore({
   //? Azioni del mapActions
   actions: {
     // Aggiungo piatto
-    addToCart({ commit, state }, { dish, restaurantId }) {
-      if (state.currentRestaurant && state.currentRestaurant !== restaurantId) {
+    addToCart({ commit, state }, { dish, restaurant }) {
+      if (
+        state.currentRestaurant &&
+        state.currentRestaurant.id !== restaurant.id
+      ) {
         throw new Error("Puoi ordinare solo da un ristorante alla volta.");
       }
-      commit("addToCart", { dish, restaurantId });
+      commit("addToCart", { dish, restaurant });
     },
 
     // Rimuovo il piatto

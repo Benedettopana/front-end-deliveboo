@@ -2,12 +2,15 @@
 import FoodCard from "../components/partials/FoodCard.vue";
 import { store } from "../data/store";
 import AsideMenu from "../components/RestaurantMenu-partials/AsideMenu.vue";
+import AsideCart from "../components/RestaurantMenu-partials/AsideCart.vue";
+
 export default {
   name: "restaurantMenu",
 
   components: {
     FoodCard,
     AsideMenu,
+    AsideCart,
   },
 
   data() {
@@ -49,13 +52,20 @@ export default {
             <FoodCard
               v-for="dish in store.restaurant_detail.dishes"
               :key="dish.id"
-              :dish="{ ...dish, restaurant_id: store.restaurant_detail.id }"
+              :dish="{
+                ...dish,
+                restaurant_id: store.restaurant_detail.id,
+                restaurant_name: store.restaurant_detail.name,
+              }"
+              :restaurantName="store.restaurant_detail.name"
             />
           </div>
         </div>
         <!--? /Card piatti -->
       </div>
-      <div class="col-2">check</div>
+      <div class="col-2">
+        <AsideCart />
+      </div>
     </div>
   </div>
 </template>
