@@ -1,11 +1,15 @@
 <script>
 import { mapActions } from "vuex/dist/vuex.cjs.js";
-
+import { useToast } from "vue-toastification";
 export default {
   props: {
     dish: Object,
   },
 
+  setup() {
+    const toast = useToast();
+    return { toast };
+  },
   data() {
     return {};
   },
@@ -19,9 +23,9 @@ export default {
           restaurantId: this.dish.restaurant_id,
         });
       } catch (error) {
-        alert(error.message);
+        // alert(error.message);
+        this.toast.error(error.message);
       }
-      // this.addToCart(this.dish);
     },
   },
 
