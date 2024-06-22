@@ -5,12 +5,12 @@ export default {
       image: null,
       items: [],
       contents: [
-        { name: "Piatto 1", description: "Aggiungi desc.." },
-        { name: "Piatto 2", description: "Aggiungi desc.." },
-        { name: "Piatto 3", description: "Aggiungi desc.." },
-        { name: "Piatto 4", description: "Aggiungi desc.." },
-        { name: "Piatto 5", description: "Aggiungi desc.." },
-        { name: "Piatto 6", description: "Aggiungi desc.." },
+        { name: "Italiano", description: "W l'italia.." },
+        { name: "Poke", description: "Mon.." },
+        { name: "Piadineria", description: "Piada.." },
+        { name: "Asiatico", description: "Cin Cin.." },
+        { name: "Messicano", description: "Ola Gringo.." },
+        { name: "Fast Food", description: "'Merica.." },
       ],
       rotate: 0,
       active: 0,
@@ -87,23 +87,23 @@ export default {
         @mouseenter="stopAutoplay"
         @mouseleave="startAutoplay"
       >
-        <div class="item" style="--i: 1">
-          <img :src="`/img/jumbotron/1.PNG`" class="dishImg" />
+        <div class="item" style="--i: 1;">
+          <img :src="`/img/jumbotron/hamburgeria.png`" class="dishImg" />
         </div>
-        <div class="item" style="--i: 2">
-          <img :src="`/img/jumbotron/2.PNG`" class="dishImg" />
+        <div class="item" style="--i: 2;">
+          <img :src="`/img/jumbotron/messicano.png`" class="dishImg" />
         </div>
-        <div class="item" style="--i: 3">
-          <img :src="`/img/jumbotron/3.PNG`" class="dishImg" />
+        <div class="item" style="--i: 3;">
+          <img :src="`/img/jumbotron/asiatico.png`" class="dishImg" />
         </div>
-        <div class="item" style="--i: 4">
-          <img :src="`/img/jumbotron/4.PNG`" class="dishImg" />
+        <div class="item" style="--i: 4;">
+          <img :src="`/img/jumbotron/piadineria.png`" class="dishImg" />
         </div>
-        <div class="item" style="--i: 5">
-          <img :src="`/img/jumbotron/5.PNG`" class="dishImg" />
+        <div class="item" style="--i: 5;">
+          <img :src="`/img/jumbotron/poke.png`" class="dishImg" />
         </div>
-        <div class="item" style="--i: 6">
-          <img :src="`/img/jumbotron/6.PNG`" class="dishImg" />
+        <div class="item" style="--i: 6;">
+          <img :src="`/img/jumbotron/italiano.png`" class="dishImg" />
         </div>
       </div>
       <div
