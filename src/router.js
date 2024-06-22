@@ -1,38 +1,41 @@
-import {createRouter, createWebHistory} from 'vue-router';
+import { createRouter, createWebHistory } from "vue-router";
 
-import Home from './pages/Home.vue';
-import AdvanceResearch from './pages/AdvanceResearch.vue';
-import RestaurantMenu from './pages/RestaurantMenu.vue';
-import Error404 from './pages/Error404.vue';
-
+import Home from "./pages/Home.vue";
+import AdvanceResearch from "./pages/AdvanceResearch.vue";
+import RestaurantMenu from "./pages/RestaurantMenu.vue";
+import Error404 from "./pages/Error404.vue";
+import Cart from "./pages/Cart.vue";
 
 const router = createRouter({
-  history:createWebHistory(),
-
+  history: createWebHistory(),
 
   routes: [
     {
-      path: '/',
+      path: "/",
       name: "home",
       component: Home,
     },
     {
-      path: '/advance-research',
-      name: 'advanceResearch',
+      path: "/advance-research",
+      name: "advanceResearch",
       component: AdvanceResearch,
     },
     {
-      path: '/restaurant-menu',
-      name: 'restaurantMenu',
+      path: "/restaurant-menu",
+      name: "restaurantMenu",
       component: RestaurantMenu,
     },
     {
-      path: '/:pathMatch(.*)*',
-      name: 'error404',
-      component: Error404
+      path: "/cart",
+      name: "cart",
+      component: Cart,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "error404",
+      component: Error404,
     },
   ],
 });
 
-
-export {router};
+export { router };
