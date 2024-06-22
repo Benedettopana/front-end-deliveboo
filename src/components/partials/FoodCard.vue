@@ -1,4 +1,6 @@
 <script>
+import { mapActions } from "vuex/dist/vuex.cjs.js";
+
 export default {
   props: {
     dish: Object,
@@ -6,6 +8,13 @@ export default {
 
   data() {
     return {};
+  },
+
+  methods: {
+    ...mapActions(["addToCart"]),
+    addToCartHandler() {
+      this.addToCart(this.dish);
+    },
   },
 
   mounted() {
@@ -44,8 +53,9 @@ export default {
           <!-- TODO: fare aggiunta al carrello -->
           <!--% Aggiungi al carrello -->
           <div class="add-to-cart">
-            <button type="button" class="btn btn-primary">
-              <i class="fa-solid fa-cart-plus"></i>
+            <button type="button" class="btn btn-primary" @click="addToCart">
+              <!-- <i class="fa-solid fa-cart-plus"></i> -->
+              +
             </button>
           </div>
           <!--% /Aggiungi al carrello -->

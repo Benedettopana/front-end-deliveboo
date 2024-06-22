@@ -76,6 +76,9 @@ export default {
               >Ricerca Avanzata</router-link
             >
           </li>
+          <li class="mx-3">
+            <router-link :to="{ name: 'cart' }">Carrello</router-link>
+          </li>
           <!-- <li class="mx-3">
             <router-link :to="{ name: 'restaurantMenu' }"
               >Menu Ristorante</router-link
@@ -83,7 +86,7 @@ export default {
           </li> -->
         </ul>
 
-       <!-- <form class="d-flex" role="search" @submit.prevent="search">
+        <!-- <form class="d-flex" role="search" @submit.prevent="search">
           <input
             class="form-control me-2"
             type="search"
