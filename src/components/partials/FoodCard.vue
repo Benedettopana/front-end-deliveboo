@@ -28,6 +28,7 @@ export default {
           dish: this.dish,
           restaurant: restaurant,
         });
+        console.log("questo è il piatto che sto aggiungendo>>>>", this.dish);
         this.toast.success("Piatto aggiunto al carrello!");
       } catch (error) {
         this.toast.error(error.message);

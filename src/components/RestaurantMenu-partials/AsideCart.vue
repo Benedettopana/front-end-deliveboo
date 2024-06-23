@@ -12,7 +12,10 @@ export default {
     ...mapGetters(["cartItems", "currentRestaurant"]),
     totalPrice() {
       return this.cartItems
-        .reduce((total, item) => total + parseFloat(item.price), 0)
+        .reduce(
+          (total, item) => total + parseFloat(item.dish.price) * item.quantity,
+          0
+        )
         .toFixed(2);
     },
 
@@ -35,8 +38,13 @@ export default {
     <div v-if="cartItems.length > 0">
       <ul>
         <li v-for="(item, index) in cartItems" :key="index">
-          <div>{{ item.name }} - &euro;{{ item.price.replace(".", ",") }}</div>
-          <button @click="removeFromCart(index)" class="btn btn-danger">
+          <div>
+            {{ item.dish.name }} - &euro;{{
+              item.dish.price.replace(".", ",")
+            }}
+            x {{ item.quantity }}
+          </div>
+          <button class="btn btn-danger" @click="removeFromCart(item.dish)">
             Rimuovi
           </button>
         </li>
