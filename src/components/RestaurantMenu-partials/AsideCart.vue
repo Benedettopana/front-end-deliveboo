@@ -139,6 +139,7 @@ $cart-text-color: #b2adbe;
   padding: 20px;
   margin: 10px;
   border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 
   li {
     list-style: none;

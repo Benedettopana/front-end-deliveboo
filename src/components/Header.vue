@@ -174,5 +174,6 @@ header.container-fluid {
 
 header.scrolled nav {
   background-color: #181b21;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 </style>

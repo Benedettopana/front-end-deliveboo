@@ -40,5 +40,6 @@ $filter-card-text-color: #b2adbe;
 
 .filter-container {
   width: 60%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 </style>

@@ -71,6 +71,7 @@ $restaurant-card-text-color: #b2adbe;
   width: 80%;
   padding: 20px;
   cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   .restaurant-tumb {
     background-color: #210b2d;
     width: 100%;
