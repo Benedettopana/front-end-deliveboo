@@ -11,7 +11,7 @@ import "vue-toastification/dist/index.css";
 //? Personalizzazione toast
 const options = {
   position: "bottom-center",
-  timeout: 5000,
+  timeout: 2500,
   closeOnClick: true,
   pauseOnFocusLoss: true,
   pauseOnHover: true,
