@@ -32,25 +32,6 @@ export default {
         });
     },
 
-    // saveTypes(typeName) {
-    //   // console.log(this.selectedTypes.includes(typeName));
-    //   if (this.store.selected.includes(typeName)) {
-    //     for (let i = 0; i < this.store.selected.length; i++) {
-    //       if (this.store.selected[i] == typeName) {
-    //         this.store.selected.splice(i, 1);
-    //         break;
-    //       }
-    //     }
-    //     // console.log("prima>>>>>>>>>>>", this.store.selected);
-    //     // this.store.selected.splice(this.selectedTypes.indexOf(typeName));
-    //     // console.log("dopo>>>>>>>>>>>", this.store.selected);
-    //   } else {
-    //     this.store.selected.push(typeName);
-    //   }
-    //   this.myString = this.store.selected.toString();
-    //   this.getRestaurantsByType();
-    // },
-
     saveTypes(typeName) {
       if (this.store.selected.includes(typeName)) {
         this.store.selected = this.store.selected.filter(
@@ -98,12 +79,12 @@ export default {
 </script>
 <template>
   <div class="container-fluid">
-    <h1>Categorie</h1>
+    <h1 class="mb-4">Categorie</h1>
     <!--? Riga -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-center px-5">
       <!--% Colonne -->
       <div
-        class="col-1"
+        class="col-md-2 col-sm-3 col-4 mb-4"
         v-for="item in types"
         :key="item.id"
         @click="saveTypes(item.name)"
@@ -141,22 +122,20 @@ $type-card-text-color: #b2adbe;
   align-items: center;
 
   // formato
-  width: 130px;
-  aspect-ratio: 1;
-  border-radius: 20px;
+  // width: 130px;
+  // aspect-ratio: 1;
+  border-radius: 12px;
   // /formato
-
-  // Debug TODO: togliere
   cursor: pointer;
 
   // Effetti
-  transition: all 0.6s;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  transition: all 0.3s ease-out;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   &:hover {
-    scale: 1.1;
+    transform: scale(1.05);
   }
   .type-icon {
-    width: 50px;
+    width: 40px;
     // img {
     // }
   }
@@ -164,6 +143,10 @@ $type-card-text-color: #b2adbe;
   &.active {
     background-color: $type-card-bg-color-active;
     color: white;
+  }
+
+  .container-fluid {
+    padding: 20px;
   }
 }
 </style>
