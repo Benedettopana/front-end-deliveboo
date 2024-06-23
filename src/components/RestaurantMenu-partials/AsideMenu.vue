@@ -2,7 +2,7 @@
 export default {};
 </script>
 <template>
-  <div class="container-md filter">
+  <div class="filter-container filter mx-5">
     <nav>
       <ul>
         <li class="my-3">Antipasti</li>
@@ -36,5 +36,9 @@ $filter-card-text-color: #b2adbe;
     list-style: none;
     cursor: pointer;
   }
+}
+
+.filter-container {
+  width: 60%;
 }
 </style>

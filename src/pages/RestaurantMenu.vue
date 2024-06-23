@@ -39,10 +39,10 @@ export default {
     <h1 class="text-center mt-5">{{ store.restaurant_detail.name }}</h1>
 
     <div class="row row-cols-3 my-5">
-      <div class="col-2">
+      <div class="col-3">
         <AsideMenu />
       </div>
-      <div class="col-8">
+      <div class="col-6">
         <p class="text-center px-5 pt-5">
           {{ store.restaurant_detail.desc }}
         </p>
@@ -66,7 +66,7 @@ export default {
         </div>
         <!--? /Card piatti -->
       </div>
-      <div class="col-2">
+      <div class="col-3">
         <AsideCart />
       </div>
     </div>
