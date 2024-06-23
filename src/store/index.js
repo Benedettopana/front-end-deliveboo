@@ -2,7 +2,13 @@ import { createStore } from "vuex";
 
 //? Salvataggio dei dati nel localStorage
 const saveCartToLocalStorage = (cart) => {
-  localStorage.setItem("cart", JSON.stringify(cart));
+  // localStorage.setItem("cart", JSON.stringify(cart));
+
+  if (cart && cart.length > 0) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  } else {
+    localStorage.removeItem("cart");
+  }
 };
 
 //? Caricamento dei dati dal localStorage
@@ -23,7 +29,8 @@ const saveCurrentRestaurantToLocalStorage = (restaurant) => {
 //% Carico il ristorante
 const loadCurrentRestaurantFromLocalStorage = () => {
   const restaurant = localStorage.getItem("currentRestaurant");
-  return restaurant ? JSON.parse(restaurant) : [];
+  return restaurant ? JSON.parse(restaurant) : null;
+  // return restaurant ? JSON.parse(restaurant) : [];
 };
 
 // Creo lo store con il ristorante e i piatti che ho messo nel carrello.
@@ -98,8 +105,8 @@ export const store = createStore({
     },
 
     // Rimuovo il piatto
-    removeFromCart({ commit }, dishId) {
-      commit("removeFromCart", dishId);
+    removeFromCart({ commit }, dish) {
+      commit("removeFromCart", dish);
     },
 
     //! Pulisco il carrello
