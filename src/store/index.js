@@ -37,19 +37,38 @@ export const store = createStore({
   mutations: {
     // pusho e salvo il piatto e l'id del ristorante
     addToCart(state, { dish, restaurant }) {
-      state.cart.push(dish);
-      if (!state.currentRestaurant) {
-        state.currentRestaurant = restaurant;
+      // ? Gestisco il contatore del piatto singolo
+      const item = state.cart.find((i) => i.dish.id === dish.id);
+      if (item) {
+        item.quantity += 1;
+      } else {
+        state.cart.push({ dish, quantity: 1 });
+        if (!state.currentRestaurant) {
+          state.currentRestaurant = restaurant;
+        }
       }
+
+      // ! Aggiorno i dati nel localStorage
       saveCartToLocalStorage(state.cart);
       saveCurrentRestaurantToLocalStorage(state.currentRestaurant);
     },
 
     // rimuovo e salvo le modifiche
-    removeFromCart(state, index) {
-      state.cart.splice(index, 1);
+    removeFromCart(state, dish) {
+      console.log("rimuovo dal carrello con dishId", dish.id);
+      const index = state.cart.findIndex((item) => item.dish.id === dish.id);
+      console.log("Item index trovato", index);
+      if (index !== -1) {
+        if (state.cart[index].quantity > 1) {
+          state.cart[index].quantity -= 1;
+        } else {
+          state.cart.splice(index, 1);
+        }
+      }
+      //! Salvo il carrello aggiornato nel localStorage
       saveCartToLocalStorage(state.cart);
-      // Se il carrello è vuoto svuto anche currentRestaurant
+      //! controllo se devo resettare il controllo del ristorante nel localStoraga
+      //! Se il carrello è vuoto svuto anche currentRestaurant
       if (state.cart.length === 0) {
         state.currentRestaurant = null;
         saveCurrentRestaurantToLocalStorage(null);
@@ -79,8 +98,8 @@ export const store = createStore({
     },
 
     // Rimuovo il piatto
-    removeFromCart({ commit }, index) {
-      commit("removeFromCart", index);
+    removeFromCart({ commit }, dishId) {
+      commit("removeFromCart", dishId);
     },
 
     //! Pulisco il carrello
