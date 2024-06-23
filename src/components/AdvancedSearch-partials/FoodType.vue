@@ -32,18 +32,30 @@ export default {
         });
     },
 
+    // saveTypes(typeName) {
+    //   // console.log(this.selectedTypes.includes(typeName));
+    //   if (this.store.selected.includes(typeName)) {
+    //     for (let i = 0; i < this.store.selected.length; i++) {
+    //       if (this.store.selected[i] == typeName) {
+    //         this.store.selected.splice(i, 1);
+    //         break;
+    //       }
+    //     }
+    //     // console.log("prima>>>>>>>>>>>", this.store.selected);
+    //     // this.store.selected.splice(this.selectedTypes.indexOf(typeName));
+    //     // console.log("dopo>>>>>>>>>>>", this.store.selected);
+    //   } else {
+    //     this.store.selected.push(typeName);
+    //   }
+    //   this.myString = this.store.selected.toString();
+    //   this.getRestaurantsByType();
+    // },
+
     saveTypes(typeName) {
-      // console.log(this.selectedTypes.includes(typeName));
       if (this.store.selected.includes(typeName)) {
-        for (let i = 0; i < this.store.selected.length; i++) {
-          if (this.store.selected[i] == typeName) {
-            this.store.selected.splice(i, 1);
-            break;
-          }
-        }
-        // console.log("prima>>>>>>>>>>>", this.store.selected);
-        // this.store.selected.splice(this.selectedTypes.indexOf(typeName));
-        // console.log("dopo>>>>>>>>>>>", this.store.selected);
+        this.store.selected = this.store.selected.filter(
+          (type) => type !== typeName
+        );
       } else {
         this.store.selected.push(typeName);
       }
@@ -52,27 +64,19 @@ export default {
     },
 
     getRestaurantsByType() {
-      // store.restaurants = [];
       store.message = "";
       this.store.loading = true;
-      // this.store.apiUrl + "/restaurants/type/?types=" + this.myString;
 
-      if (this.store.selected.length < 1) {
-        this.ricerca = this.store.apiUrl + "/restaurants";
-      } else {
-        this.ricerca =
-          this.store.apiUrl + "/restaurants/type/?types=" + this.myString;
-      }
-      // .get(`${store.apiUrl}/restaurants/type/?types=${this.myString}`)
+      this.ricerca =
+        this.store.selected.length < 1
+          ? this.store.apiUrl + "/restaurants"
+          : this.store.apiUrl + "/restaurants/type/?types=" + this.myString;
+
       axios
-        // .get(`${this.ricerca}`)
-        .get(`${this.ricerca}`)
+        .get(this.ricerca)
         .then((result) => {
-          console.log(result.data.restaurants);
-          // Ordina i ristoranti in ordine alfabetico per nome
           store.restaurants = result.data.restaurants;
           console.log(store.restaurants);
-          // console.log("sono nella chiamata", this.store.loading);
         })
         .catch((error) => {
           console.log(error);
@@ -82,8 +86,6 @@ export default {
           setTimeout(() => {
             this.store.loading = false; // Imposta loading su false dopo 1 secondo
           }, 1500);
-          console.log("esco nella chiamata e ho aspettato", this.store.loading);
-
           this.myString = "";
         });
     },
@@ -100,8 +102,16 @@ export default {
     <!--? Riga -->
     <div class="row justify-content-center">
       <!--% Colonne -->
-      <div class="col-1" v-for="item in types" :key="item.id">
-        <div class="type-card" @click="saveTypes(item.name)">
+      <div
+        class="col-1"
+        v-for="item in types"
+        :key="item.id"
+        @click="saveTypes(item.name)"
+      >
+        <div
+          class="type-card"
+          :class="{ active: store.selected.includes(item.name) }"
+        >
           <!-- :class="[selected ? isSelected : notSelected]" -->
           <div class="type-icon my-3">
             <img :src="`${icons}${item.name}.png`" :alt="`${item.name}`" />
@@ -122,6 +132,7 @@ export default {
 $type-card-bg-color: #ececec;
 $type-card-bg-color-active: #0d6efd;
 $type-card-text-color: #b2adbe;
+
 .type-card {
   color: $type-card-text-color;
   display: flex;
@@ -150,12 +161,9 @@ $type-card-text-color: #b2adbe;
     // }
   }
 
-  .isSelected {
+  &.active {
     background-color: $type-card-bg-color-active;
-  }
-
-  .notSelected {
-    background-color: $type-card-bg-color;
+    color: white;
   }
 }
 </style>

@@ -10,18 +10,25 @@ export default {
       store,
     };
   },
+
+  mounted() {
+    console.log("ristoranti>>>>>>>>>>>", this.store.restaurants);
+  },
 };
 </script>
 <template>
   <div class="container-xxl my-5">
     <h2 class="text-center">Ristoranti</h2>
     <h4>{{ store.message }}</h4>
-    <div class="row">
+    <div class="row" v-if="store.restaurants.length !== 0">
       <RestaurantCard
         v-for="restaurant in store.restaurants"
         :key="restaurant.id"
         :restaurant="restaurant"
       />
+    </div>
+    <div v-else class="">
+      <h4 class="text-center my-5">Nessun Ristorante trovato</h4>
     </div>
   </div>
 </template>
