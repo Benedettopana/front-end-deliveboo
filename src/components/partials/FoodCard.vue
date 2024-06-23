@@ -29,7 +29,7 @@ export default {
           restaurant: restaurant,
         });
         console.log("questo è il piatto che sto aggiungendo>>>>", this.dish);
-        this.toast.success("Piatto aggiunto al carrello!");
+        this.toast.success(`${this.dish.name} aggiunto al carrello.`);
       } catch (error) {
         this.toast.error(error.message);
       }
@@ -77,8 +77,7 @@ export default {
               class="btn btn-primary"
               @click="addToCartHandler"
             >
-              <!-- <i class="fa-solid fa-cart-plus"></i> -->
-              +
+              <i class="fa-solid fa-cart-plus"></i>
             </button>
           </div>
           <!--% /Aggiungi al carrello -->

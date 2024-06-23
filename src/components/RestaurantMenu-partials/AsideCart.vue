@@ -1,21 +1,38 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
+import { useToast } from "vue-toastification";
 
 export default {
   name: "Cart",
+
+  setup() {
+    const toast = useToast();
+    return { toast };
+  },
 
   methods: {
     ...mapActions(["removeFromCart", "clearCart", "addToCart"]),
 
     incrementItem(item) {
-      this.addToCart({
-        dish: item,
-        restaurant: this.currentRestaurant,
-      });
+      if (this.currentRestaurant) {
+        this.addToCart({
+          dish: item,
+          restaurant: this.currentRestaurant,
+        });
+        this.toast.success(`${item.name} aggiunto al carrello.`);
+      } else {
+        console.error("Ristorante non corretto");
+      }
     },
 
     decrementItem(item) {
       this.removeFromCart(item);
+      this.toast.error(`${item.name} rimosso dal carrello.`);
+    },
+
+    clearCartHandler() {
+      this.clearCart();
+      this.toast.error("Carrello svuotato");
     },
   },
 
@@ -74,7 +91,7 @@ export default {
       <div>
         <strong>Totale: &euro;{{ totalPrice.replace(".", ",") }}</strong>
       </div>
-      <button @click="clearCart" class="btn btn-warning">
+      <button @click="clearCartHandler" class="btn btn-warning">
         Svuota Carrello
       </button>
       <router-link :to="{ name: 'cart' }" class="btn btn-primary">
