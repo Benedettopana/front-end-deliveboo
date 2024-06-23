@@ -81,10 +81,10 @@ export default {
   <div class="container-fluid">
     <h1 class="mb-4">Categorie</h1>
     <!--? Riga -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-center px-5">
       <!--% Colonne -->
       <div
-        class="col-md-3 col-sm-4 col-6 mb-4"
+        class="col-md-2 col-sm-3 col-4 mb-4"
         v-for="item in types"
         :key="item.id"
         @click="saveTypes(item.name)"
@@ -124,7 +124,7 @@ $type-card-text-color: #b2adbe;
   // formato
   // width: 130px;
   // aspect-ratio: 1;
-  border-radius: 20px;
+  border-radius: 12px;
   // /formato
   cursor: pointer;
 
@@ -132,10 +132,10 @@ $type-card-text-color: #b2adbe;
   transition: all 0.3s ease-out;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
   .type-icon {
-    width: 50px;
+    width: 40px;
     // img {
     // }
   }
@@ -143,6 +143,10 @@ $type-card-text-color: #b2adbe;
   &.active {
     background-color: $type-card-bg-color-active;
     color: white;
+  }
+
+  .container-fluid {
+    padding: 20px;
   }
 }
 </style>
