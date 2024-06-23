@@ -60,11 +60,10 @@ export const store = createStore({
       saveCurrentRestaurantToLocalStorage(state.currentRestaurant);
     },
 
-    // rimuovo e salvo le modifiche
+    //! rimuovo e salvo le modifiche
     removeFromCart(state, dish) {
-      console.log("rimuovo dal carrello con dishId", dish.id);
+      console.log("rimuovo dal carrello con dish->id", dish.id);
       const index = state.cart.findIndex((item) => item.dish.id === dish.id);
-      console.log("Item index trovato", index);
       if (index !== -1) {
         if (state.cart[index].quantity > 1) {
           state.cart[index].quantity -= 1;
@@ -93,7 +92,7 @@ export const store = createStore({
 
   //? Azioni del mapActions
   actions: {
-    // Aggiungo piatto
+    //* Aggiungo piatto
     addToCart({ commit, state }, { dish, restaurant }) {
       if (
         state.currentRestaurant &&
@@ -104,7 +103,7 @@ export const store = createStore({
       commit("addToCart", { dish, restaurant });
     },
 
-    // Rimuovo il piatto
+    //* Rimuovo il piatto
     removeFromCart({ commit }, dish) {
       commit("removeFromCart", dish);
     },
