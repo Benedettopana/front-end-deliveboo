@@ -8,6 +8,11 @@ export default {
       store,
       axios,
       nameToSearch: "",
+      // scroll
+      isScrolled: false,
+
+      // Variabile di controllo per la homepage
+      isHomePage: this.$route.name === "home",
     };
   },
   methods: {
@@ -54,14 +59,48 @@ export default {
           console.log(error.message);
         });
     },
+
+    // Scroll
+    handleScroll() {
+      // Aggiorno is scroll solo se sono nella "home"
+      if (this.isHomePage) {
+        const jumbotronHeight =
+          document.querySelector(".jumbotron").offsetHeight;
+        this.isScrolled = window.scrollY > jumbotronHeight;
+      }
+    },
+  },
+
+  // Utilizzo un watcher su "route.name" per aggiornare:
+  // isHomePage/isScrolled quando cambio la rotta
+  watch: {
+    "$route.name"(newName) {
+      this.isHomePage = newName === "home";
+      if (!this.isHomePage) {
+        this.isScrolled = true;
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
 };
 </script>
 
 <template>
-  <header class="container-fluid">
+  <!--* il binding di scrolled avviene solo quando sono nella "home" -->
+  <header
+    class="container-fluid"
+    :class="{ scrolled: isScrolled || !isHomePage }"
+  >
     <!--? Navbar -->
-    <nav class="navbar bg-primary fixed-top" data-bs-theme="dark">
+    <nav
+      class="navbar fixed-top"
+      :class="{ 'navbar-scrolled': isScrolled || !isHomePage }"
+    >
       <div class="container">
         <a class="navbar-brand pt-0">Boo</a>
 
@@ -111,6 +150,12 @@ header {
 
   nav {
     height: 70px;
+    transition: background-color 0.3s;
+
+    &.navbar-scrolled {
+      background-color: #181b21;
+    }
+
     li {
       list-style: none;
       // padding-top: 5px;
@@ -120,5 +165,14 @@ header {
       }
     }
   }
+}
+
+// resetto l'altezza
+header.container-fluid {
+  margin-top: 0 !important;
+}
+
+header.scrolled nav {
+  background-color: #181b21;
 }
 </style>
