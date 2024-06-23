@@ -43,8 +43,11 @@ export default {
         <AsideMenu />
       </div>
       <div class="col-8">
-        <p class="text-center p-5">
+        <p class="text-center px-5 pt-5">
           {{ store.restaurant_detail.desc }}
+        </p>
+        <p class="text-center px-5 pt-2">
+          {{ store.restaurant_detail.address }}
         </p>
         <!--? Card piatti -->
         <div class="row">
