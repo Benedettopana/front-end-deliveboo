@@ -79,7 +79,7 @@ export default {
 
 <template>
   <!--% Jumbotron -->
-  <div class="container-fluid">
+  <div class="container-fluid jumbotron">
     <div class="slider">
       <div class="title">DeliveBoo!</div>
       <div
@@ -136,6 +136,10 @@ export default {
 @use "../assets/scss/partials/variables" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.container-fluid.jumbotron {
+  margin-top: 0 !important;
+}
 
 .slider {
   margin: 0;
