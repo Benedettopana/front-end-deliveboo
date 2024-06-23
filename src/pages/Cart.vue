@@ -43,17 +43,19 @@ export default {
       <ul>
         <li v-for="(item, index) in cartItems" :key="index">
           <div>
-            {{ item.dish.name }} - &euro;{{
-              item.dish.price.replace(".", ",")
-            }}
-            x {{ item.quantity }}
+            {{ item.dish.name }} - &euro;{{ item.dish.price.replace(".", ",") }}
           </div>
           <div class="buttons">
-            <button @click="incrementItem(item.dish)" class="btn btn-success">
-              +
-            </button>
             <button @click="decrementItem(item.dish)" class="btn btn-danger">
-              -
+              <i class="fa-solid fa-minus text-white"></i>
+            </button>
+
+            <div class="text-center pt-1">
+              {{ item.quantity }}
+            </div>
+
+            <button @click="incrementItem(item.dish)" class="btn btn-success">
+              <i class="fa-solid fa-plus text-white"></i>
             </button>
           </div>
         </li>
@@ -81,6 +83,10 @@ export default {
     display: flex;
     gap: 10px;
     margin-top: 10px;
+
+    & button {
+      text-align: center;
+    }
   }
 }
 </style>
