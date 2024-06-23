@@ -4,31 +4,69 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "cart",
 
-  computed: {
-    ...mapGetters(["cartItems"]),
-  },
   methods: {
-    ...mapActions(["removeFromCart", "clearCart"]),
+    ...mapActions(["removeFromCart", "clearCart", "addToCart"]),
+
+    incrementItem(item) {
+      this.addToCart({
+        dish: item,
+        restaurant: this.currentRestaurant,
+      });
+    },
+
+    decrementItem(item) {
+      this.removeFromCart(item);
+    },
+  },
+  computed: {
+    ...mapGetters(["cartItems", "currentRestaurant"]),
+
+    totalPrice() {
+      return this.cartItems
+        .reduce(
+          (total, item) => total + parseFloat(item.dish.price) * item.quantity,
+          0
+        )
+        .toFixed(2);
+    },
   },
 };
 </script>
 <template>
-  <div>
-    <h2>Carrello</h2>
-    <ul>
-      <li v-for="(item, index) in cartItems" :key="index">
-        {{ item.name }} - {{ item.price }}
-        <button class="btn btn-danger" @click="removeFromCart(index)">
-          Rimuovi
-        </button>
-      </li>
-    </ul>
+  <div class="container-fluid cart-detail">
+    <h1>Dettagli del Carrello</h1>
 
-    <!--! Pulsante che svuota il carrello -->
-    <div class="">
-      <button class="btn btn-warning" @click="clearCart">
-        Svuota carrello
+    <p v-if="currentRestaurant">
+      Ordine da: <strong>{{ currentRestaurant.name }}</strong>
+    </p>
+    <div v-if="cartItems.length > 0">
+      <ul>
+        <li v-for="(item, index) in cartItems" :key="index">
+          <div>
+            {{ item.dish.name }} - &euro;{{
+              item.dish.price.replace(".", ",")
+            }}
+            x {{ item.quantity }}
+          </div>
+          <div class="buttons">
+            <button @click="incrementItem(item.dish)" class="btn btn-success">
+              +
+            </button>
+            <button @click="decrementItem(item.dish)" class="btn btn-danger">
+              -
+            </button>
+          </div>
+        </li>
+      </ul>
+      <div>
+        <strong>Totale: &euro;{{ totalPrice.replace(".", ",") }}</strong>
+      </div>
+      <button @click="clearCart" class="btn btn-warning">
+        Svuota Carrello
       </button>
+    </div>
+    <div v-else>
+      <p>Il carrello è vuoto</p>
     </div>
   </div>
 </template>
@@ -36,4 +74,13 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/scss/partials/general" as *;
 @use "../assets/scss/partials/variables" as *;
+
+.cart-detail {
+  padding: 20px;
+  .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
 </style>

@@ -5,7 +5,18 @@ export default {
   name: "Cart",
 
   methods: {
-    ...mapActions(["removeFromCart", "clearCart"]),
+    ...mapActions(["removeFromCart", "clearCart", "addToCart"]),
+
+    incrementItem(item) {
+      this.addToCart({
+        dish: item,
+        restaurant: this.currentRestaurant,
+      });
+    },
+
+    decrementItem(item) {
+      this.removeFromCart(item);
+    },
   },
 
   computed: {
@@ -44,9 +55,18 @@ export default {
             }}
             x {{ item.quantity }}
           </div>
-          <button class="btn btn-danger" @click="removeFromCart(item.dish)">
-            Rimuovi
-          </button>
+
+          <!--* Bottoni di incremento & decremento del piatto -->
+          <div class="buttons">
+            <!--? Incremento -->
+            <button class="btn btn-success" @click="incrementItem(item.dish)">
+              +
+            </button>
+            <!--! Decremento -->
+            <button class="btn btn-danger" @click="decrementItem(item.dish)">
+              -
+            </button>
+          </div>
         </li>
       </ul>
       <div>
@@ -55,6 +75,9 @@ export default {
       <button @click="clearCart" class="btn btn-warning">
         Svuota Carrello
       </button>
+      <router-link :to="{ name: 'cart' }" class="btn btn-primary">
+        Vai al carrello
+      </router-link>
     </div>
     <div v-else>
       <p>Il carrello è vuoto</p>
@@ -79,6 +102,12 @@ $cart-text-color: #b2adbe;
   li {
     list-style: none;
     cursor: pointer;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
   }
 }
 </style>
