@@ -44,7 +44,7 @@ export default {
           class="mySwiper"
         >
           <swiper-slide>
-            <div class="review-card position-relative">
+            <div class="review-card position-relative" style="margin-left: 10%;">
               <h6>Fantastico servizio!</h6>
               <p>"Deliveboo è un servizio eccellente! Le consegne sono sempre puntuali e il personale è molto gentile. La varietà di ristoranti disponibili è incredibile"</p>
               <div class=" d-flex">
@@ -55,7 +55,7 @@ export default {
           <swiper-slide>
             <div class="review-card position-relative">
               <h6>Veloce e affidabile</h6>
-              <p>"Uso Deliveboo da qualche mese e non ho mai avuto problemi. Le consegne sono velocissime e gli ordini arrivano sempre caldi e ben confezionati. Consigliatissimo!"</p>
+              <p>"Uso Deliveboo da qualche mese e non ho mai avuto problemi. Le consegne sono velocissime e gli ordini arrivano sempre caldi e ben confezionati.Consigliatissimo!"</p>
               <h6 class="card-subtitle mb-2 text-body-secondary text-end position-absolute my-name">Luca</h6>
             </div>
           </swiper-slide>
