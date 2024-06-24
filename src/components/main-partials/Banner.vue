@@ -2,26 +2,53 @@
 export default {};
 </script>
 <template>
-  <div class="container-fluid my-5">
-    <div class="img-banner">
+  <div class="container-fluid my-5 d-flex justify-content-center">
+
+   
+    <div class="card mb-3 rounded-4 my-card" style="max-width: 1400px;">
+      <div class="row g-0">
+        <div class="col-md-5">
+          <img src="https://www.foodserviceweb.it/wp-content/uploads/sites/4/2020/06/delivery-consegna.jpg" class="img-fluid rounded-start-4 " alt="...">
+        </div>
+        <div class="col-md-7">
+          <div class="card-body">
+            <h2 class="card-title ">Hai paurosamente fame?? Ordina con Deliveboo!</h2>
+            <p class="card-text mt-5 fs-5">Hai voglia del tuo piatto preferito, ma senza uscire di casa? Con Deliveboo, puoi ordinare cibo delizioso dai migliori ristoranti locali e riceverlo direttamente a domicilio in modo rapido e conveniente. Ma c'è di più: noi di Deliveboo ci preoccupiamo dell'ambiente! Utilizziamo confezioni eco-friendly e promuoviamo l'uso di mezzi di trasporto a basso impatto ambientale, come biciclette elettriche e veicoli ibridi. Ogni ordine con Deliveboo non solo soddisfa il tuo palato, ma contribuisce anche a un futuro più verde. Scegli Deliveboo per un'esperienza di consegna che fa bene a te e al pianeta!</p>
+            <p class="card-text"><small class="text-body-secondary fs-6">Deliveboo pensa all'ambiente</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <div class="container-fluid d-flex justify-content-center">
+    <div class="card text-bg-dark rounded-4 my-card bs-dark" style="max-width: 1600px;">
+      <img src="https://image-tc.galaxy.tf/wijpeg-1lcrqdyl91lsdkomcnet6276l/magazine-detail-page-it_og-image.jpg" class="card-img rounded-4" alt="...">
+      <div class="card-img-overlay bg-black opacity-50">
+        <h2 class="card-title text-center fs-1">Facciamo consegne su tutta Roma!</h2>
+        <p class="card-text text-center ms-5 ps-5 fs-5" style="max-width: 1400px;">Le consegne a domicilio su Roma con Deliveboo ti aprono le porte a un'ampia varietà di ristoranti locali, dalle rinomate catene in franchising alle accoglienti trattorie di quartiere. Puoi ordinare cibo a domicilio a Roma in qualsiasi momento della giornata, dall'alba al tramonto, garantendo sempre freschezza e qualità direttamente sulla tua tavola.</p>
+        <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
+      </div>
+    </div>
+  </div>
+    <!-- <div class="img-banner">
       <img :src="`/img/home/pic1.jpg`" alt="" />
 
       <div class="banner">
         <h3 class="text-center mt-4">
           I migliori ristoranti adesso a casa tua!
-        </h3>
+        </h3> -->
 
         <!--? BTN -->
-        <div class="d-flex justify-content-center mt-5">
+        <!-- <div class="d-flex justify-content-center mt-5">
           <button class="btn">
             <router-link :to="{ name: 'advanceResearch' }"
               >Ricerca Avanzata</router-link
             >
           </button>
-        </div>
-      </div>
-    </div>
-  </div>
+        </div> -->
+      <!-- </div>
+    </div> -->
 </template>
 
 <style lang="scss" scoped>
@@ -32,33 +59,44 @@ $btn-bg-color: #16181e;
 $btn-text-color: #e88735;
 $banner-bg-color: #e88735;
 $banner-text-color: #16181e;
-.img-banner {
-  width: 55%;
-  position: relative;
+// .img-banner {
+//   width: 55%;
+//   position: relative;
 
-  .banner {
-    width: 40%;
-    height: 30%;
-    background-color: $banner-bg-color;
-    color: $banner-text-color;
-    font-size: 0.8em;
-    border-radius: 20px;
-    padding: 20px;
-    // Posizionamento
-    position: absolute;
-    top: 50%;
-    right: -40%;
-    transform: translate(-50%, -50%);
-    // /Posizionamento
+//   .banner {
+//     width: 40%;
+//     height: 30%;
+//     background-color: $banner-bg-color;
+//     color: $banner-text-color;
+//     font-size: 0.8em;
+//     border-radius: 20px;
+//     padding: 20px;
+//     // Posizionamento
+//     position: absolute;
+//     top: 50%;
+//     right: -40%;
+//     transform: translate(-50%, -50%);
+//     // /Posizionamento
 
-    button {
-      background-color: $btn-bg-color;
-      // color: $btn-text-color;
-      a {
-        text-decoration: none;
-        color: $btn-text-color;
-      }
-    }
-  }
+//     button {
+//       background-color: $btn-bg-color;
+//       // color: $btn-text-color;
+//       a {
+//         text-decoration: none;
+//         color: $btn-text-color;
+//       }
+//     }
+//   }
+// }
+
+
+
+.my-card {
+  border: none !important;
+}
+
+.ooo {
+  -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
 }
 </style>
