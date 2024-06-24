@@ -64,8 +64,8 @@ export default {
     handleScroll() {
       // Aggiorno is scroll solo se sono nella "home"
       if (this.isHomePage) {
-        const jumbotronHeight =
-          document.querySelector(".jumbotron").offsetHeight;
+        const jumbotronHeight = document.querySelector(".jumbotron")
+          .offsetHeight;
         this.isScrolled = window.scrollY > jumbotronHeight;
       }
     },
@@ -110,7 +110,7 @@ export default {
               >Home</router-link
             >
           </li>
-          <li class="mx-3">
+          <li class="mx-2">
             <router-link :to="{ name: 'advanceResearch' }"
               >Ricerca Avanzata</router-link
             >
@@ -147,6 +147,9 @@ export default {
 
 header {
   width: 99vw !important;
+  @media screen and (max-width: 700px) {
+    font-size: 0.6rem;
+  }
 
   nav {
     height: 70px;
@@ -162,6 +165,9 @@ header {
       a {
         color: white;
         text-decoration: none;
+        &:hover {
+          color: #e88735;
+        }
       }
     }
   }

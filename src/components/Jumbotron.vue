@@ -207,7 +207,7 @@ export default {
   right: 60%;
   text-align: right;
   color: #fff;
-  font-size: 150px;
+  font-size: 10vw;
   width: 40%;
   font-family: "Pacifico", cursive;
   text-shadow: 3px 5px 0px #478860;
@@ -243,11 +243,14 @@ export default {
   position: absolute;
   top: 10%;
   left: 60%;
-  text-align: justify;
-  width: 350px;
+  text-align: left;
+  width: 30vw;
+  // font-size: 1.5vw;
+  font-weight: 600;
   & h1 {
     color: #e88735;
-    font-size: xxx-large;
+    font-size: 3vw;
+    font-weight: 800;
   }
   & button {
     margin-top: 30px;
@@ -291,14 +294,14 @@ export default {
 #next {
   position: absolute;
   border: none;
-  top: 50%;
+  bottom: 10%;
   left: 250px;
   font-size: 100px;
   font-family: cursive;
   background-color: transparent;
   color: #fff;
   font-weight: bold;
-  opacity: 0.3;
+  opacity: 0.4;
 }
 #next {
   left: unset;
@@ -307,5 +310,50 @@ export default {
 #next:hover,
 #prev:hover {
   opacity: 1;
+}
+
+// Media Queries
+
+// Mobile
+@media screen and (max-width: 660px) {
+  .content {
+    font-size: 0.55rem;
+  }
+  #next {
+    right: 20vw;
+  }
+  #prev {
+    left: 20vw;
+  }
+}
+
+// Tablet
+@media screen and (min-width: 880px) {
+  .content {
+    font-size: 0.9rem;
+  }
+  #next {
+    right: 40vw;
+    bottom: 5vh;
+  }
+  #prev {
+    left: 40vw;
+    bottom: 5vh;
+  }
+}
+
+// Desktop
+@media screen and (min-width: 1200px) {
+  .content {
+    font-size: 1.1rem;
+  }
+  #next {
+    right: 20vw;
+    top: 0;
+  }
+  #prev {
+    left: 20vw;
+    top: 0;
+  }
 }
 </style>
