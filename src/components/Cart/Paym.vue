@@ -1,12 +1,15 @@
 <script>
 import dropin from "braintree-web-drop-in";
 import axios from "axios";
+import { store } from "../../data/store.js";
+
 export default {
   data() {
     return {
       clientToken: null,
       dropinInstance: null,
       axios,
+      store,
     };
   },
   async mounted() {
@@ -15,9 +18,7 @@ export default {
   },
   methods: {
     async getClientToken() {
-      const response = await axios.get(
-        "http://127.0.0.1:8000/api/payment/token"
-      );
+      const response = await axios.get(`${store.apiUrl}/payment/token`);
       this.clientToken = response.data.token;
     },
     setupBraintreeDropIn() {
@@ -41,7 +42,7 @@ export default {
           console.error(err);
           return;
         }
-        const response = await axios.post("/payment/process", {
+        const response = await axios.post(`${store.apiUrl}//payment/process`, {
           payment_method_nonce: payload.nonce,
           amount: "10.00", // Example amount, replace with your own
         });
