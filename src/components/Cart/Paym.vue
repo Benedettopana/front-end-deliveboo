@@ -42,7 +42,7 @@ export default {
           console.error(err);
           return;
         }
-        const response = await axios.post(`${store.apiUrl}//payment/process`, {
+        const response = await axios.post(`${store.apiUrl}/payment/process`, {
           payment_method_nonce: payload.nonce,
           amount: "10.00", // Example amount, replace with your own
         });
