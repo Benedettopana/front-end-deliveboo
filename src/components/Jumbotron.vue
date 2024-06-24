@@ -5,12 +5,36 @@ export default {
       image: null,
       items: [],
       contents: [
-        { name: "Italiano", description: "W l'italia.." },
-        { name: "Poke", description: "Mon.." },
-        { name: "Piadineria", description: "Piada.." },
-        { name: "Asiatico", description: "Cin Cin.." },
-        { name: "Messicano", description: "Ola Gringo.." },
-        { name: "Fast Food", description: "'Merica.." },
+        {
+          name: "Italiano",
+          description:
+            "Piatti autentici italiani: pasta fresca, pizza al forno a legna, antipasti sfiziosi e dolci tradizionali. Un viaggio tra i sapori d'Italia.",
+        },
+        {
+          name: "Poke",
+          description:
+            "Fresche bowl hawaiane con pesce crudo, riso e verdure fresche. Sano, leggero e personalizzabile per un'esperienza unica.",
+        },
+        {
+          name: "Piadineria",
+          description:
+            "Piadine italiane farcite con ingredienti freschi e genuini. Perfette per pranzi veloci e cene informali.",
+        },
+        {
+          name: "Asiatico",
+          description:
+            "Sapori intensi dall'Asia: sushi, noodles, curry e piatti speziati. Autenticità e freschezza in ogni portata.",
+        },
+        {
+          name: "Messicano",
+          description:
+            "Piatti vibranti e saporiti: tacos, burritos, fajitas e nachos. Esplosione di sapori con salse piccanti e guacamole.",
+        },
+        {
+          name: "Fast Food",
+          description:
+            "Hamburger, patatine, hot dog e snack veloci e deliziosi. Perfetto per pasti rapidi e serate rilassanti.",
+        },
       ],
       rotate: 0,
       active: 0,
