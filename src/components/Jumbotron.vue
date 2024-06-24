@@ -87,22 +87,22 @@ export default {
         @mouseenter="stopAutoplay"
         @mouseleave="startAutoplay"
       >
-        <div class="item" style="--i: 1;">
+        <div class="item" style="--i: 1">
           <img :src="`/img/jumbotron/fastfood.png`" class="dishImg" />
         </div>
-        <div class="item" style="--i: 2;">
+        <div class="item" style="--i: 2">
           <img :src="`/img/jumbotron/messicano.png`" class="dishImg" />
         </div>
-        <div class="item" style="--i: 3;">
+        <div class="item" style="--i: 3">
           <img :src="`/img/jumbotron/asiatico.png`" class="dishImg" />
         </div>
-        <div class="item" style="--i: 4;">
+        <div class="item" style="--i: 4">
           <img :src="`/img/jumbotron/piadineria.png`" class="dishImg" />
         </div>
-        <div class="item" style="--i: 5;">
+        <div class="item" style="--i: 5">
           <img :src="`/img/jumbotron/poke.png`" class="dishImg" />
         </div>
-        <div class="item" style="--i: 6;">
+        <div class="item" style="--i: 6">
           <img :src="`/img/jumbotron/italiano.png`" class="dishImg" />
         </div>
       </div>
@@ -124,8 +124,22 @@ export default {
           <button>See more</button>
         </div>
       </div>
-      <button id="prev" @click="nextSlider">&lt;</button>
-      <button id="next" @click="prevSlider">&gt;</button>
+      <button
+        id="prev"
+        @click="nextSlider"
+        @mouseenter="stopAutoplay"
+        @mouseleave="startAutoplay"
+      >
+        &lt;
+      </button>
+      <button
+        id="next"
+        @click="prevSlider"
+        @mouseenter="stopAutoplay"
+        @mouseleave="startAutoplay"
+      >
+        &gt;
+      </button>
     </div>
   </div>
   <!--% /Jumbotron -->
