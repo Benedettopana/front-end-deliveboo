@@ -19,13 +19,26 @@ export default {
 <template>
   <div class="container-fluid h-100">
     <h1 class="text-center">Dicono di noi</h1>
-    <div class="mySlider">
-      <div class="swiper-wrapper">
+  <div class="mySlider">
+      <!--  <div class="swiper-wrapper "> -->
         <swiper
           :initial-slide="2"
           :slidesPerView="5"
-          :spaceBetween="10"
           :centeredSlides="true"
+          :breakpoints="{
+            '640': {
+              slidesPerView: 2,
+            },
+            '768': {
+              slidesPerView: 2,
+            },
+            '1024': {
+              slidesPerView: 3,
+            },
+            '1400': {
+              slidesPerView: 5,
+            }
+          }"
         
           :modules="modules"
           class="mySwiper"
@@ -56,7 +69,7 @@ export default {
           <swiper-slide>
             <div class="review-card position-relative">
               <h6>Cibo delizioso a portata di mano</h6>
-              <p>"Grazie a Deliveboo posso gustare i miei piatti preferiti senza dover uscire di casa. La scelta è ampia e la qualità del cibo è sempre eccellente. Non potrei chiedere di meglio!"</p>
+              <p>"Grazie a Deliveboo posso gustare i miei piatti preferiti senza dover uscire di casa. La scelta è ampia e la qualità del cibo è sempre eccellente."</p>
               <h6 class="card-subtitle mb-2 text-body-secondary text-end position-absolute my-name">Rosa</h6>
             </div>
           </swiper-slide>
@@ -70,28 +83,28 @@ export default {
           <swiper-slide>
             <div class="review-card position-relative">
               <h6>Varietà e qualità</h6>
-              <p>"La cosa che più apprezzo di Deliveboo è la vasta scelta di ristoranti e cucine disponibili. Ogni volta posso provare qualcosa di nuovo e non sono mai rimasto deluso. Grande servizio!"</p>
+              <p>"La cosa che più apprezzo di Deliveboo è la vasta scelta di ristoranti e cucine disponibili. Ogni volta posso provare qualcosa di nuovo e non sono mai rimasto deluso."</p>
               <h6 class="card-subtitle mb-2 text-body-secondary text-end position-absolute my-name">Marta</h6>
             </div>
           </swiper-slide>
           <swiper-slide>
             <div class="review-card position-relative">
               <h6>Perfetto per ogni occasione</h6>
-              <p>"Che sia per una cena romantica, un pranzo veloce o una serata tra amici, Deliveboo è sempre la scelta giusta. Il servizio è rapido, il cibo è ottimo."</p>
+              <p>"Che sia per una cena romantica, un pranzo veloce o una serata tra amici, Deliveboo è sempre la scelta giusta. Il cibo è ottimo."</p>
               <h6 class="card-subtitle mb-2 text-body-secondary text-end position-absolute my-name">Paolo</h6>
             </div>
           </swiper-slide>
           <swiper-slide>
             <div class="review-card position-relative">
               <h6>Il meglio a domicilio</h6>
-              <p>"Non ho mai avuto un'esperienza negativa con Deliveboo. Il cibo arriva sempre caldo e ben confezionato. La scelta di ristoranti è vasta e di alta qualità. Consigliatissimo!"</p>
+              <p>"Non ho mai avuto un'esperienza negativa con Deliveboo. Il cibo arriva sempre caldo e ben confezionato. "</p>
               <h6 class="card-subtitle mb-2 text-body-secondary text-end position-absolute my-name">Franca</h6>
             </div>
           </swiper-slide>
 
         </swiper>
-      </div>
-    </div>
+    <!---  </div> -->
+    </div> 
   </div>
 </template>
 
@@ -104,20 +117,21 @@ $review-card-text-color: #b2adbe;
 
 .mySlider {
   width: 100%;
-  height: 250px;
   margin-top: 50px;
   margin-bottom: 70px;
   .review-card {
-    width: 80%;
-    height: 100%;
+    width: 280px;
+    height: 250px;
     background-color: white;
     color: $review-card-text-color;
     padding: 30px;
     border-radius: 20px;
-
     .my-name {
       bottom: 5px;
       right: 20px;
+    };
+    p{
+      font-size: 0.8rem;
     }
   }
 }

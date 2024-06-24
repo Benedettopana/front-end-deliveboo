@@ -68,8 +68,8 @@ $restaurant-card-text-color: #b2adbe;
   background-color: $restaurant-card-bg-color;
   color: $restaurant-card-text-color;
   border-radius: 20px;
-  width: 80%;
-  padding: 20px;
+  width: 90%;
+  padding: 15px;
   cursor: pointer;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   .restaurant-tumb {
