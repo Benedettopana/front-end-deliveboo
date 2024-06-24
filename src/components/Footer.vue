@@ -22,18 +22,18 @@
       <div class="col d-flex align-items-end flex-column">
         <!--? Nav -->
         <nav class="d-flex">
-          <li>Home</li>
-          <li>Ristoranti</li>
-          <li>Chi Siamo</li>
+          <li><a href="">Home</a></li>
+          <li><a href="">Ristoranti</a></li>
+          <li><a href="">Chi Siamo</a></li>
         </nav>
         <!--? /Nav -->
         <!--% Icon -->
         <div class="d-flex icon-list justify-content-between mt-2">
-          <i class="fa-brands fa-facebook-f"></i>
-          <i class="fa-brands fa-google-plus-g"></i>
-          <i class="fa-brands fa-linkedin-in"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-x-twitter"></i>
+          <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+          <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
+          <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-x-twitter"></i></a>
         </div>
         <!--% /Icon -->
       </div>
@@ -58,6 +58,13 @@ footer {
     li {
       list-style: none;
       margin: 10px;
+      a{
+        text-decoration: none;
+        color: #fff;
+        &:hover{
+          color: #f6a606;
+        }
+      }
     }
   }
 
@@ -71,6 +78,9 @@ footer {
       background-color: #f6a606;
       text-align: center;
       margin: 0 6px;
+      &:hover{
+          color: black
+        }
     }
   }
 }
