@@ -17,9 +17,9 @@ export default {
       axios,
       store,
       dishes: this.cartItems,
-      name: "marco rossi",
-      address: "via dei cazzi 22",
-      email: "succhio@palle.it",
+      name: "",
+      address: "",
+      email: "",
       phone: "",
       notes: "",
       orderId: "",
@@ -77,7 +77,7 @@ export default {
           );
           this.orderId = response.data.transaction_id;
           alert("Payment successful!");
-
+          console.log("form>>", this.name, this.address, this.email);
           // Chiamata axios
           axios
             .post(`${store.apiUrl}/send-order`, {
@@ -88,19 +88,7 @@ export default {
               email: this.email,
               phone: this.phone,
               notes: this.notes,
-              // cartItems: this.cartItems,
-              // restaurant: this.currentRestaurant,
-              // dishes: this.dishes,
-
-              // order_details: {
-              //   name: this.name,
-              //   address: this.address,
-              //   email: this.email,
-              //   phone: this.phone,
-              //   notes: this.notes,
-              //   cardItems: this.cardItems,
-              //   restaurant: this.currentRestaurant,
-              // },
+              dishes: this.dishes,
             })
             .then(function (response) {
               console.log(response);
@@ -123,7 +111,7 @@ export default {
       <button type="submit" @click="submitPayment">Pay</button>
     </div>
     <div class="col">
-      <!-- <form method="post">
+      <form method="post">
         <div class="my-3">
           <input type="text" v-model="name" placeholder="Nome e Cognome" />
         </div>
@@ -139,7 +127,7 @@ export default {
         <div class="my-3">
           <textarea v-model="notes" placeholder="Note"></textarea>
         </div>
-      </form> -->
+      </form>
     </div>
   </div>
 </template>
