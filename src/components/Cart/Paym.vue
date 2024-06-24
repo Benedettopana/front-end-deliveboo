@@ -78,6 +78,7 @@ export default {
           this.orderId = response.data.transaction_id;
           alert("Payment successful!");
           console.log("form>>", this.name, this.address, this.email);
+
           // Chiamata axios
           axios
             .post(`${store.apiUrl}/send-order`, {
