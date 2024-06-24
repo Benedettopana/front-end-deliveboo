@@ -8,7 +8,7 @@ export default {
 </script>
 <template>
   <div class="container-xxl mt-5">
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-8 row row-cols-2">
         <div class="col-6 bento box-cube mt-3">Pizza</div>
         <div class="col-6 bento box-cube mt-3">Sushi</div>
@@ -22,7 +22,7 @@ export default {
         <div class="col-4 bento box-cube mt-3">Cinese</div>
         <div class="col-4 bento box-cube mt-3">Messicano</div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
