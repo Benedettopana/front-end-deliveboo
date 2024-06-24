@@ -88,7 +88,7 @@ export default {
         @mouseleave="startAutoplay"
       >
         <div class="item" style="--i: 1;">
-          <img :src="`/img/jumbotron/hamburgeria.png`" class="dishImg" />
+          <img :src="`/img/jumbotron/fastfood.png`" class="dishImg" />
         </div>
         <div class="item" style="--i: 2;">
           <img :src="`/img/jumbotron/messicano.png`" class="dishImg" />
