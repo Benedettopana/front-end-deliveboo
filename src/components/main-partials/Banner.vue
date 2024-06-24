@@ -8,7 +8,8 @@ export default {};
     <div class="card mb-3 rounded-4 my-card" style="max-width: 1400px;">
       <div class="row g-0">
         <div class="col-md-5">
-          <img src="https://www.foodserviceweb.it/wp-content/uploads/sites/4/2020/06/delivery-consegna.jpg" class="img-fluid rounded-start-4 " alt="...">
+          <img src="https://franchiseindia.s3.ap-south-1.amazonaws.com/uploads/content/fi/art/5feb2c2f49aff.jpeg" style="object-fit: cover !important; height: 100% !important;" class="img-fluid rounded-start-4 " alt="...">
+          <!--src="https://www.foodserviceweb.it/wp-content/uploads/sites/4/2020/06/delivery-consegna.jpg" -->
         </div>
         <div class="col-md-7">
           <div class="card-body">
