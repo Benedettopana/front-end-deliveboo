@@ -94,8 +94,13 @@ export default {
       <p>Il carrello è vuoto</p>
     </div>
 
+    <!--? Passo le props al Paym component -->
     <div class="my-5">
-      <Paym />
+      <Paym
+        :cartItems="cartItems"
+        :totalPrice="totalPrice"
+        :currentRestaurant="currentRestaurant"
+      />
     </div>
   </div>
 </template>
