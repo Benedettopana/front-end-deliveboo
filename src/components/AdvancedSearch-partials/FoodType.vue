@@ -79,7 +79,7 @@ export default {
 </script>
 <template>
   <div class="container-fluid">
-    <h1 class="mb-4">Categorie</h1>
+    <h1 class="mb-4 text-center my-text">Le nostre tipologie di Ristoranti</h1>
     <!--? Riga -->
     <div class="row justify-content-center px-5">
       <!--% Colonne -->
@@ -111,8 +111,12 @@ export default {
 @use "../../assets/scss/partials/variables" as *;
 
 $type-card-bg-color: #ececec;
-$type-card-bg-color-active: #0d6efd;
-$type-card-text-color: #b2adbe;
+$type-card-bg-color-active: #e88735;
+$type-card-text-color: #000000;
+
+// .my-text{
+//   color: #e88735;
+// }
 
 .type-card {
   color: $type-card-text-color;
@@ -124,7 +128,9 @@ $type-card-text-color: #b2adbe;
   // formato
   // width: 130px;
   // aspect-ratio: 1;
-  border-radius: 12px;
+  border: 3px solid #e88735;
+  border-radius: 20px;
+  font-weight: 500;
   // /formato
   cursor: pointer;
 
