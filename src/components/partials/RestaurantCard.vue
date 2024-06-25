@@ -46,7 +46,7 @@ export default {
         <div>
           Categorie:
           <span v-for="item in restaurant.types" :key="item.id" class="me-2">
-            {{ item.name }}
+            <span class="badge text-bg-warning">{{ item.name }}</span> 
           </span>
         </div>
         <p>Indirizzo: {{ restaurant.address }}</p>
@@ -68,7 +68,7 @@ $restaurant-card-text-color: #000000;
   background-color: $restaurant-card-bg-color;
   color: $restaurant-card-text-color;
   border-radius: 20px;
-  border: 3px solid #e88735;
+  border: 5px solid #e88735;
   width: 80%;
   padding: 20px;
   cursor: pointer;

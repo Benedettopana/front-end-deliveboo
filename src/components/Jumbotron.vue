@@ -224,7 +224,7 @@ export default {
   height: 1300px;
   border-radius: 50%;
   transition: transform 0.5s ease-in-out;
-  outline: 1px dashed #fff5;
+  // outline: 1px dashed #fff5;
   outline-offset: -100px;
   & .item {
     position: absolute;
