@@ -5,7 +5,7 @@ export default {};
   <div class="container-fluid my-5 d-flex justify-content-center">
 
    
-    <div class="container-md">
+
       <div class="card mb-3 rounded-4 my-card" style="max-width: 1400px;">
       <div class="row g-0">
         <div class="col-md-5">
@@ -21,7 +21,7 @@ export default {};
         </div>
       </div>
     </div>
-    </div>
+
   </div>
     
   <div class="container-fluid d-flex justify-content-center">
