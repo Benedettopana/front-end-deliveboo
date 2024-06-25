@@ -41,7 +41,7 @@ export default {
       </div> -->
       <!--! /restaurant img -->
       <!--? restaurant info -->
-      <div class="card mx-3" style="width: 25rem;">
+      <div class="card mx-3" style="width: 18rem;">
         <img :src="restaurant.image" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ restaurant.name }}</h5>

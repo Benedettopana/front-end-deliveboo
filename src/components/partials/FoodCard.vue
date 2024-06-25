@@ -54,19 +54,32 @@ export default {
         <!--! /Img Piatto -->
         <div class="col-7">
           <!--? Informazioni piatto e aggiunta al carrello -->
-          <div class="food-info">
-            <!-- Nome piatto -->
+
+            <img :src="dish.image" alt="">
             <p>{{ dish.name }}</p>
-            <!-- /Nome piatto -->
-            <!-- Descrizione piatto -->
+            
+            <p>{{ dish.desc }}</p>
+            
+            <p>&euro; {{ dish.price.replace(".", ",") }}</p>
+
+
+
+
+
+
+
+          
+          <!-- <div class="food-info">
+            
+            <p>{{ dish.name }}</p>
+            
             <p>
               {{ dish.desc }}
             </p>
-            <!-- /Descrizione piatto -->
-            <!-- Prezzo piatto -->
+            
             <p>&euro; {{ dish.price.replace(".", ",") }}</p>
-            <!-- /Prezzo piatto -->
-          </div>
+            
+          </div> -->
         </div>
         <div class="col-2">
           <!-- TODO: fare aggiunta al carrello -->
