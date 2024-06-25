@@ -30,7 +30,7 @@ export default {
 };
 </script>
 <template>
-  <div class="col-12 my-3 d-flex justify-content-center">
+  <div class="col my-3 d-flex justify-content-center flex-wrap">
     <div class="restaurant-card" @click="getRestaurantDetail(restaurant.id)">
       <!--?redirect -->
 
@@ -41,7 +41,21 @@ export default {
       </div> -->
       <!--! /restaurant img -->
       <!--? restaurant info -->
-      <div class="restaurant-info">
+      <div class="card mx-3" style="width: 25rem;">
+        <img :src="restaurant.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ restaurant.name }}</h5>
+          <div>
+
+            <span v-for="item in restaurant.types" :key="item.id" class="me-2">
+             <span class="badge rounded-pill text-bg-warning">{{ item.name }}</span> 
+            </span>
+        </div>
+          <p class="card-text">{{ restaurant.address }}</p>
+          
+        </div>
+      </div>
+      <!-- <div class="restaurant-info">
         <h3>{{ restaurant.name }}</h3>
         <div>
           Categorie:
@@ -51,7 +65,7 @@ export default {
         </div>
         <p>Indirizzo: {{ restaurant.address }}</p>
         <p>Descrizione: {{ restaurant.desc }}</p>
-      </div>
+      </div> -->
       <!--? /restaurant info -->
     </div>
   </div>
@@ -64,20 +78,23 @@ export default {
 $restaurant-card-bg-color: #ffffff;
 $restaurant-card-text-color: #000000;
 
-.restaurant-card {
-  background-color: $restaurant-card-bg-color;
-  color: $restaurant-card-text-color;
-  border-radius: 20px;
-  border: 3px solid #e88735;
-  width: 80%;
-  padding: 20px;
-  cursor: pointer;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  .restaurant-tumb {
-    background-color: #210b2d;
-    width: 100%;
-    height: 150px;
-    border-radius: 20px;
-  }
-}
+
+
+
+// .restaurant-card {
+//   background-color: $restaurant-card-bg-color;
+//   color: $restaurant-card-text-color;
+//   border-radius: 20px;
+//   border: 3px solid #e88735;
+//   width: 80%;
+//   padding: 20px;
+//   cursor: pointer;
+//   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+//   .restaurant-tumb {
+//     background-color: #210b2d;
+//     width: 100%;
+//     height: 150px;
+//     border-radius: 20px;
+//   }
+// }
 </style>

@@ -20,7 +20,7 @@ export default {
   <div class="container-xxl my-5">
     <h2 class="text-center">Ristoranti</h2>
     <h4>{{ store.message }}</h4>
-    <div class="row" v-if="store.restaurants.length !== 0">
+    <div class="row row-cols-3 row-cols-md-2 row-cols-sm-1" v-if="store.restaurants.length !== 0">
       <RestaurantCard
         v-for="restaurant in store.restaurants"
         :key="restaurant.id"
