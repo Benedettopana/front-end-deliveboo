@@ -32,7 +32,7 @@ export default {
 
     clearCartHandler() {
       this.clearCart();
-      this.toast.error("Carrello svuotato");
+      this.toast.warning("Carrello svuotato");
     },
   },
 
