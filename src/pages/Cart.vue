@@ -1,9 +1,14 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import { useToast } from "vue-toastification";
+import Paym from "../components/Cart/Paym.vue";
 
 export default {
   name: "cart",
+
+  components: {
+    Paym,
+  },
 
   setup() {
     const toast = useToast();
@@ -87,6 +92,15 @@ export default {
     </div>
     <div v-else>
       <p>Il carrello è vuoto</p>
+    </div>
+
+    <!--? Passo le props al Paym component -->
+    <div class="my-5">
+      <Paym
+        :cartItems="cartItems"
+        :totalPrice="totalPrice"
+        :currentRestaurant="currentRestaurant"
+      />
     </div>
   </div>
 </template>

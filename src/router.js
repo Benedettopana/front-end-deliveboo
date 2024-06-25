@@ -5,6 +5,8 @@ import AdvanceResearch from "./pages/AdvanceResearch.vue";
 import RestaurantMenu from "./pages/RestaurantMenu.vue";
 import Error404 from "./pages/Error404.vue";
 import Cart from "./pages/Cart.vue";
+import Paym from "./components/Cart/Paym.vue";
+import OrderConfirmation from "./components/Cart/OrderConfirmation.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -29,6 +31,17 @@ const router = createRouter({
       path: "/cart",
       name: "cart",
       component: Cart,
+    },
+    {
+      path: "/pay",
+      name: "pay",
+      component: Paym,
+    },
+    {
+      path: "/conferma-ordine/:orderId",
+      name: "OrderConfirmation",
+      component: OrderConfirmation,
+      props: true,
     },
     {
       path: "/:pathMatch(.*)*",
