@@ -145,7 +145,7 @@ export default {
           <div class="des">
             {{ content.description }}
           </div>
-          <button>See more</button>
+          <button id="more">Scegli</button>
         </div>
       </div>
       <button
@@ -224,8 +224,6 @@ export default {
   height: 1300px;
   border-radius: 50%;
   transition: transform 0.5s ease-in-out;
-  outline: 1px dashed #fff5;
-  outline-offset: -100px;
   & .item {
     position: absolute;
     width: 100%;
@@ -315,9 +313,21 @@ export default {
 // Media Queries
 
 // Mobile
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 768px) {
   .content {
-    font-size: 0.55rem;
+    font-size: 0.9rem;
+    #more {
+      padding: 7px 10px;
+    }
+  }
+  .slider {
+    .jumboImg {
+      height: 120%;
+    }
+  }
+  .dishImg {
+    width: 300px !important;
+    height: 300px !important;
   }
   #next {
     right: 20vw;
@@ -328,9 +338,21 @@ export default {
 }
 
 // Tablet
-@media screen and (min-width: 880px) {
+@media screen and (min-width: 768px) and (max-width: 1199px) {
   .content {
-    font-size: 0.9rem;
+    font-size: 1.3rem;
+    #more {
+      padding: 7px 10px;
+    }
+  }
+  .slider {
+    .jumboImg {
+      height: 120%;
+    }
+  }
+  .dishImg {
+    width: 400px !important;
+    height: 400px !important;
   }
   #next {
     right: 40vw;
@@ -346,6 +368,15 @@ export default {
 @media screen and (min-width: 1200px) {
   .content {
     font-size: 1.1rem;
+  }
+  .slider {
+    .jumboImg {
+      height: 150%;
+    }
+  }
+  .dishImg {
+    width: 500px !important;
+    height: 500px !important;
   }
   #next {
     right: 20vw;
