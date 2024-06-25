@@ -60,15 +60,6 @@ export default {
         const response = await axios.post(`${store.apiUrl}/payment/process`, {
           payment_method_nonce: payload.nonce,
           amount: this.totalPrice,
-          // order_details: {
-          //   name: this.name,
-          //   address: this.address,
-          //   email: this.email,
-          //   phone: this.phone,
-          //   notes: this.notes,
-          //   cardItems: this.cardItems,
-          //   restaurant: this.currentRestaurant,
-          // },
         });
         if (response.data.success) {
           console.log(
@@ -91,11 +82,20 @@ export default {
               notes: this.notes,
               dishes: this.dishes,
             })
-            .then(function (response) {
+            .then((response) => {
+              // Utilizzo di una funzione arrow
               console.log(response);
+              // Redirect tutto è andato a buon fine!
+              this.$router.push({
+                name: "OrderConfirmation",
+                params: { orderId: this.orderId },
+              });
             })
             .catch(function (error) {
               console.log(error);
+
+              // Operazione di invio non andata a buon fine!
+              // Ricaricare la pagina per rigenarare il token!
             });
         } else {
           alert("Payment failed: " + response.data.message);
@@ -133,4 +133,7 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use "../../assets/scss/partials/general" as *;
+@use "../../assets/scss/partials/variables" as *;
+</style>
