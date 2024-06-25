@@ -32,7 +32,7 @@ export default {
 
     decrementItem(item) {
       this.removeFromCart(item);
-      this.toast.error(`${item.name} rimosso dal carrello.`);
+      this.toast.warning(`${item.name} rimosso dal carrello.`);
     },
 
     clearCartHandler() {
@@ -57,50 +57,64 @@ export default {
 </script>
 <template>
   <div class="container-fluid cart-detail">
-    <h1>Dettagli del Carrello</h1>
+    <div class="row row-cols-2">
+      <div class="col">
+        <h1>Dettagli del Carrello</h1>
 
-    <p v-if="currentRestaurant">
-      Ordine da: <strong>{{ currentRestaurant.name }}</strong>
-    </p>
-    <div v-if="cartItems.length > 0">
-      <ul>
-        <li v-for="(item, index) in cartItems" :key="index">
+        <p v-if="currentRestaurant">
+          Ordine da: <strong>{{ currentRestaurant.name }}</strong>
+        </p>
+        <div v-if="cartItems.length > 0">
+          <ul>
+            <li v-for="(item, index) in cartItems" :key="index">
+              <div>
+                {{ item.dish.name }} - &euro;{{
+                  item.dish.price.replace(".", ",")
+                }}
+              </div>
+              <div class="buttons">
+                <button
+                  @click="decrementItem(item.dish)"
+                  class="btn btn-danger"
+                >
+                  <i class="fa-solid fa-minus text-white"></i>
+                </button>
+
+                <div class="text-center pt-1">
+                  {{ item.quantity }}
+                </div>
+
+                <button
+                  @click="incrementItem(item.dish)"
+                  class="btn btn-success"
+                >
+                  <i class="fa-solid fa-plus text-white"></i>
+                </button>
+              </div>
+            </li>
+          </ul>
           <div>
-            {{ item.dish.name }} - &euro;{{ item.dish.price.replace(".", ",") }}
+            <strong>Totale: &euro;{{ totalPrice.replace(".", ",") }}</strong>
           </div>
-          <div class="buttons">
-            <button @click="decrementItem(item.dish)" class="btn btn-danger">
-              <i class="fa-solid fa-minus text-white"></i>
-            </button>
-
-            <div class="text-center pt-1">
-              {{ item.quantity }}
-            </div>
-
-            <button @click="incrementItem(item.dish)" class="btn btn-success">
-              <i class="fa-solid fa-plus text-white"></i>
-            </button>
-          </div>
-        </li>
-      </ul>
-      <div>
-        <strong>Totale: &euro;{{ totalPrice.replace(".", ",") }}</strong>
+          <button @click="clearCartHandler" class="btn btn-warning">
+            Svuota Carrello
+          </button>
+        </div>
+        <div v-else>
+          <p>Il carrello è vuoto</p>
+        </div>
       </div>
-      <button @click="clearCartHandler" class="btn btn-warning">
-        Svuota Carrello
-      </button>
-    </div>
-    <div v-else>
-      <p>Il carrello è vuoto</p>
-    </div>
 
-    <!--? Passo le props al Paym component -->
-    <div class="my-5">
-      <Paym
-        :cartItems="cartItems"
-        :totalPrice="totalPrice"
-        :currentRestaurant="currentRestaurant"
-      />
+      <div class="col">
+        <!--? Passo le props al Paym component -->
+        <div class="my-5">
+          <Paym
+            :cartItems="cartItems"
+            :totalPrice="totalPrice"
+            :currentRestaurant="currentRestaurant"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
