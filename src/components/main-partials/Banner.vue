@@ -25,9 +25,9 @@ export default {};
   <div class="container-fluid d-flex justify-content-center">
     <div class="card text-bg-dark rounded-4 my-card bs-dark" style="max-width: 1600px;">
       <img src="https://image-tc.galaxy.tf/wijpeg-1lcrqdyl91lsdkomcnet6276l/magazine-detail-page-it_og-image.jpg" class="card-img rounded-4" alt="...">
-      <div class="card-img-overlay bg-black opacity-50">
-        <h2 class="card-title text-center fs-1">Facciamo consegne su tutta Roma!</h2>
-        <p class="card-text text-center m-auto mt-5 fs-5" style="max-width: 1000px">Le consegne a domicilio su Roma con Deliveboo ti aprono le porte a un'ampia varietà di ristoranti locali, dalle rinomate catene in franchising alle accoglienti trattorie di quartiere. Puoi ordinare cibo a domicilio a Roma in qualsiasi momento della giornata, dall'alba al tramonto, garantendo sempre freschezza e qualità direttamente sulla tua tavola.</p>
+      <div class="card-img-overlay bg-black opacity-50 d-flex align-content-center flex-column flex-wrap">
+        <h2 class="card-title text-center">Facciamo consegne su tutta Roma!</h2>
+        <p class="card-text text-center" style="max-width: 1000px">Le consegne a domicilio su Roma con Deliveboo ti aprono le porte a un'ampia varietà di ristoranti locali, dalle rinomate catene in franchising alle accoglienti trattorie di quartiere. Puoi ordinare cibo a domicilio a Roma in qualsiasi momento della giornata, dall'alba al tramonto, garantendo sempre freschezza e qualità direttamente sulla tua tavola.</p>
         <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
       </div>
     </div>
@@ -103,12 +103,56 @@ $banner-text-color: #16181e;
   border: none !important;
 }
 
-.card-img-overlay{
-  p{
-    font-size: 1.7rem !important;
-    line-height: 2;
-  }
+.card-img-overlay p {
+  font-size: 2rem;
+  margin-top: 60px;
 }
+
+@media (max-width: 1200px) {
+    .card-img-overlay p { 
+        font-size: 1.8rem;
+        margin-top: 60px;
+    }
+    .card-img-overlay h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .card-img-overlay p { 
+        font-size: 1.1rem;
+        margin-top: 60px;
+    }
+    .card-img-overlay h2 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .rounded-start-4 {
+        border-bottom-left-radius: 0 !important;
+        border-top-right-radius: 3% !important;
+    } 
+    .card-img-overlay p {
+        font-size: 1rem;
+        margin-top: 40px;
+    }
+    .card-img-overlay h2 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-img-overlay p { 
+        font-size: 0.9rem;
+        margin-top: 20px;
+    }
+    .card-img-overlay h2 {
+        font-size: 1.1rem;
+    }
+}
+
+
 
 /* .ooo {
   -webkit-text-stroke-width: 1px;

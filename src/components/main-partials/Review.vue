@@ -22,18 +22,12 @@ export default {
   <div class="mySlider">
       <!--  <div class="swiper-wrapper "> -->
         <swiper
-          :initial-slide="2"
-          :slidesPerView="5"
-          :centeredSlides="true"
           :breakpoints="{
-            '640': {
-              slidesPerView: 2,
-            },
-            '768': {
-              slidesPerView: 2,
-            },
-            '1024': {
+            '820': {
               slidesPerView: 3,
+            },
+            '1150': {
+              slidesPerView: 4,
             },
             '1400': {
               slidesPerView: 5,
@@ -44,7 +38,7 @@ export default {
           class="mySwiper"
         >
           <swiper-slide>
-            <div class="review-card position-relative" style="margin-left: 10%;">
+            <div class="review-card position-relative" style="margin-left: 5%;">
               <h6>Fantastico servizio!</h6>
               <p>"Deliveboo è un servizio eccellente! Le consegne sono sempre puntuali e il personale è molto gentile. La varietà di ristoranti disponibili è incredibile"</p>
               <div class=" d-flex">
@@ -120,7 +114,7 @@ $review-card-text-color: #b2adbe;
   margin-top: 50px;
   margin-bottom: 70px;
   .review-card {
-    width: 280px;
+    width: 250px;
     height: 250px;
     background-color: white;
     color: $review-card-text-color;
