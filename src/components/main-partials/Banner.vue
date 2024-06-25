@@ -5,7 +5,8 @@ export default {};
   <div class="container-fluid my-5 d-flex justify-content-center">
 
    
-    <div class="card mb-3 rounded-4 my-card" style="max-width: 1400px;">
+    <div class="container-md">
+      <div class="card mb-3 rounded-4 my-card" style="max-width: 1400px;">
       <div class="row g-0">
         <div class="col-md-5">
           <img src="https://franchiseindia.s3.ap-south-1.amazonaws.com/uploads/content/fi/art/5feb2c2f49aff.jpeg" style="object-fit: cover !important; height: 100% !important;" class="img-fluid rounded-start-4 " alt="...">
@@ -19,6 +20,7 @@ export default {};
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
     
