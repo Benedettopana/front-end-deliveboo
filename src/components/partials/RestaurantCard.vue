@@ -61,13 +61,14 @@ export default {
 @use "../../assets/scss/partials/general" as *;
 @use "../../assets/scss/partials/variables" as *;
 
-$restaurant-card-bg-color: #ececec;
-$restaurant-card-text-color: #b2adbe;
+$restaurant-card-bg-color: #ffffff;
+$restaurant-card-text-color: #000000;
 
 .restaurant-card {
   background-color: $restaurant-card-bg-color;
   color: $restaurant-card-text-color;
   border-radius: 20px;
+  border: 3px solid #e88735;
   width: 80%;
   padding: 20px;
   cursor: pointer;

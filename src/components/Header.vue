@@ -112,7 +112,7 @@ export default {
           </li>
           <li class="mx-2">
             <router-link :to="{ name: 'advanceResearch' }"
-              >Ricerca Avanzata</router-link
+              >Ristoranti</router-link
             >
           </li>
           <li class="mx-3">
