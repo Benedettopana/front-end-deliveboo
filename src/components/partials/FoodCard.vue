@@ -55,21 +55,14 @@ export default {
     
     
     <div class="food-card">
-<<<<<<< HEAD
-      <div class="card" style="width: 18rem;">
-        <img :src="imageUrl" class="card-img-top" :alt="dish.name">
-        <div class="card-body">
-          <h5 class="card-title">{{ dish.name }}</h5>
-          <p class="card-text">{{ dish.desc }}</p>
-          <a href="#" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a>
-=======
+
 
         <img :src="imageUrl" class="card-img" :alt="dish.name">
         <div class="food-info">
           <h5 class="">{{ dish.name }}</h5>
           <p class="">{{ dish.desc }}</p>
           
->>>>>>> ee7bc84c09096f934a1cbad4c1c23a65da1a8736
+
         </div>
       </div>
         
