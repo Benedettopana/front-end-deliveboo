@@ -1,4 +1,3 @@
-
 <script>
 import { mapActions } from "vuex/dist/vuex.cjs.js";
 import { useToast } from "vue-toastification";
@@ -35,15 +34,13 @@ export default {
         this.toast.error(error.message);
       }
     },
-
-    
   },
   computed: {
-  imageUrl() {
-    const baseUrl = "http://localhost:8000/storage"; 
-    return `${baseUrl}/${this.dish.image}`;
+    imageUrl() {
+      const baseUrl = "http://localhost:8000/storage";
+      return `${baseUrl}/${this.dish.image}`;
+    },
   },
-},
 
   mounted() {
     console.log("dish>>>>", this.dish);
@@ -51,27 +48,16 @@ export default {
 };
 </script>
 <template>
-  <div v-if="dish.visibility" class="col d-flex justify-content-center  my-3">
-    
-    
+  <div v-if="dish.visibility" class="col d-flex justify-content-center my-3">
     <div class="food-card">
-
-
-        <img :src="imageUrl" class="card-img" :alt="dish.name">
-        <div class="food-info">
-          <h5 class="">{{ dish.name }}</h5>
-          <p class="">{{ dish.desc }}</p>
-          
-
-        </div>
+      <img :src="imageUrl" class="card-img" :alt="dish.name" />
+      <div class="food-info">
+        <h5 class="">{{ dish.name }}</h5>
+        <p class="">{{ dish.desc }}</p>
       </div>
-        
- 
-          
- 
+    </div>
 
-
-      <!-- <div class="row row-cols-3 w-100">
+    <!-- <div class="row row-cols-3 w-100">
   
         <div class="col">
   
@@ -107,15 +93,13 @@ export default {
         </div>
       </div> -->
 
-      <!--? /Informazioni piatto e aggiunta al carrello -->
+    <!--? /Informazioni piatto e aggiunta al carrello -->
 
-      <!--* Vegan -->
-      <div v-show="dish.vegan" class="vegan">
-        <i class="fa-solid fa-leaf"></i>
-      </div>
-      <!--* /Vegan -->
+    <!--* Vegan -->
+    <div v-show="dish.vegan" class="vegan">
+      <i class="fa-solid fa-leaf"></i>
     </div>
-
+    <!--* /Vegan -->
   </div>
 </template>
 
@@ -188,8 +172,4 @@ $vegan-icon-color: #059862;
   }
   // /Icon vegan
 }
-
-
-
-
 </style>
