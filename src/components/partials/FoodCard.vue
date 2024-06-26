@@ -56,7 +56,7 @@ export default {
     <div class="food-card">
 
         <img :src="imageUrl" class="card-img" :alt="dish.name">
-        <div class="">
+        <div class="food-info">
           <h5 class="">{{ dish.name }}</h5>
           <p class="">{{ dish.desc }}</p>
           
@@ -120,16 +120,15 @@ $vegan-icon-color: #059862;
 .food-card {
   background-color: $food-card-bg-color;
   color: $food-card-text-color;
-
+  border: 5px solid rgb(232, 135, 53);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: left;
 
   position: relative;
   // formato
   min-height: 100%;
-  
+  min-width: 100%;
   border-radius: 20px;
   // /formato
 
@@ -145,12 +144,14 @@ $vegan-icon-color: #059862;
 
   .card-img {
     height: 60%;
- 
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
   }
 
   // Info piatto
   .food-info {
-    padding: 30px;
+    padding: 15px 30px;
+    color: black;
   }
   // /Info piatto
 
@@ -168,8 +169,8 @@ $vegan-icon-color: #059862;
   // Icon vegan
   .vegan {
     position: absolute;
-    top: 20px;
-    right: 15px;
+    bottom: 0px;
+    right: 5px;
     transform: translate(-50%, -50%);
 
     i {
