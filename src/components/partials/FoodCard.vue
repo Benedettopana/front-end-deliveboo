@@ -117,7 +117,7 @@ $vegan-icon-color: #059862;
 .food-card {
   background-color: $food-card-bg-color;
   color: $food-card-text-color;
-  border: 5px solid rgb(232, 135, 53);
+  border: 3px solid rgb(232, 135, 53);
   display: flex;
   flex-direction: column;
   align-items: left;
