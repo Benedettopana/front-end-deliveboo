@@ -34,7 +34,15 @@ export default {
         this.toast.error(error.message);
       }
     },
+
+    
   },
+  computed: {
+  imageUrl() {
+    const baseUrl = "http://localhost:8000/storage"; 
+    return `${baseUrl}/${this.dish.image}`;
+  },
+},
 
   mounted() {
     console.log("dish>>>>", this.dish);
@@ -42,20 +50,25 @@ export default {
 };
 </script>
 <template>
-  <div class="container-md d-flex justify-content-center my-3">
-    <div v-show="dish.visibility" class="food-card">
-      <div class="row row-cols-3 w-100">
-        <!--! Img Piatto -->
-        <div class="col-3">
-          <div class="food-img">
-            <img src="" alt="" />
-          </div>
-        </div>
-        <!--! /Img Piatto -->
-        <div class="col-7">
-          <!--? Informazioni piatto e aggiunta al carrello -->
+  <div v-if="dish.visibility" class="col d-flex justify-content-center  my-3">
+    
+    
+    <div class="food-card">
 
-            <img :src="dish.image" alt="">
+        <img :src="imageUrl" class="card-img" :alt="dish.name">
+        <div class="">
+          <h5 class="">{{ dish.name }}</h5>
+          <p class="">{{ dish.desc }}</p>
+          
+        </div>
+
+
+      <!-- <div class="row row-cols-3 w-100">
+  
+        <div class="col">
+  
+
+            <img :src="imageUrl" :alt="dish.image">
             <p>{{ dish.name }}</p>
             
             <p>{{ dish.desc }}</p>
@@ -69,21 +82,10 @@ export default {
 
 
           
-          <!-- <div class="food-info">
-            
-            <p>{{ dish.name }}</p>
-            
-            <p>
-              {{ dish.desc }}
-            </p>
-            
-            <p>&euro; {{ dish.price.replace(".", ",") }}</p>
-            
-          </div> -->
+
         </div>
         <div class="col-2">
-          <!-- TODO: fare aggiunta al carrello -->
-          <!--% Aggiungi al carrello -->
+
           <div class="add-to-cart">
             <button
               type="button"
@@ -93,9 +95,9 @@ export default {
               <i class="fa-solid fa-cart-plus"></i>
             </button>
           </div>
-          <!--% /Aggiungi al carrello -->
+ 
         </div>
-      </div>
+      </div> -->
 
       <!--? /Informazioni piatto e aggiunta al carrello -->
 
@@ -105,6 +107,7 @@ export default {
       </div>
       <!--* /Vegan -->
     </div>
+
   </div>
 </template>
 
@@ -125,7 +128,8 @@ $vegan-icon-color: #059862;
 
   position: relative;
   // formato
-  width: 60%;
+  min-height: 100%;
+  
   border-radius: 20px;
   // /formato
 
@@ -137,6 +141,11 @@ $vegan-icon-color: #059862;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   &:hover {
     scale: 1.01;
+  }
+
+  .card-img {
+    height: 60%;
+ 
   }
 
   // Info piatto
@@ -170,4 +179,8 @@ $vegan-icon-color: #059862;
   }
   // /Icon vegan
 }
+
+
+
+
 </style>

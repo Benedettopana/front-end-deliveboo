@@ -50,8 +50,8 @@ export default {
           {{ store.restaurant_detail.address }}
         </p>
         <!--? Card piatti -->
-        <div class="row">
-          <div class="col-12">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-2">
+          <!-- <div class="col"> -->
             <FoodCard
               v-for="dish in store.restaurant_detail.dishes"
               :key="dish.id"
@@ -62,7 +62,7 @@ export default {
               }"
               :restaurantName="store.restaurant_detail.name"
             />
-          </div>
+          <!-- </div> -->
         </div>
         <!--? /Card piatti -->
       </div>
