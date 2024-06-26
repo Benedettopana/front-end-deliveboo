@@ -55,6 +55,15 @@ export default {
         <h5 class="">{{ dish.name }}</h5>
         <p class="">{{ dish.desc }}</p>
       </div>
+      <div class="add-to-cart">
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="addToCartHandler"
+            >
+              <i class="fa-solid fa-cart-plus"></i>
+            </button>
+          </div>
     </div>
 
     <!-- <div class="row row-cols-3 w-100">
