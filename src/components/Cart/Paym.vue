@@ -105,11 +105,11 @@ export default {
               });
             })
             .catch(function (error) {
-              this.toast.error(error);
+              // this.toast.error(error);
               console.log(error);
               // Operazione di invio non andata a buon fine!
               // Ricaricare la pagina per rigenarare il token!
-              window.location.reload();
+              // window.location.reload();
             });
         } else {
           this.toast.error("Pagamento fallito: " + response.data.message);
