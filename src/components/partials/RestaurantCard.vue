@@ -31,7 +31,7 @@ export default {
 </script>
 <template>
   <div class="col my-3 d-flex justify-content-center flex-wrap">
-    <div class="restaurant-card" @click="getRestaurantDetail(restaurant.id)">
+    <div class="restaurant-card">
       <!--?redirect -->
 
       <!--?/redirect -->
@@ -41,18 +41,22 @@ export default {
       </div> -->
       <!--! /restaurant img -->
       <!--? restaurant info -->
-      <div class="card mx-3" style="width: 18rem;">
-        <img :src="restaurant.image" class="card-img-top" alt="...">
+      <div
+        class="card mx-3"
+        style="width: 18rem"
+        @click="getRestaurantDetail(restaurant.id)"
+      >
+        <img :src="restaurant.image" class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{ restaurant.name }}</h5>
           <div>
-
             <span v-for="item in restaurant.types" :key="item.id" class="me-2">
-             <span class="badge rounded-pill text-bg-warning">{{ item.name }}</span> 
+              <span class="badge rounded-pill text-bg-warning">{{
+                item.name
+              }}</span>
             </span>
-        </div>
+          </div>
           <p class="card-text">{{ restaurant.address }}</p>
-          
         </div>
       </div>
       <!-- <div class="restaurant-info">
@@ -78,8 +82,9 @@ export default {
 $restaurant-card-bg-color: #ffffff;
 $restaurant-card-text-color: #000000;
 
-
-
+.card {
+  cursor: pointer !important;
+}
 
 // .restaurant-card {
 //   background-color: $restaurant-card-bg-color;
