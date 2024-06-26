@@ -56,14 +56,16 @@ export default {
         <p class="">{{ dish.desc }}</p>
       </div>
       <div class="add-to-cart">
-            <button
-              type="button"
-              class="btn btn-primary"
-              @click="addToCartHandler"
-            >
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
+        <button type="button" class="btn btn-primary" @click="addToCartHandler">
+          <i class="fa-solid fa-cart-plus"></i>
+        </button>
+      </div>
+
+      <!--* Vegan -->
+      <div v-show="dish.vegan" class="vegan">
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+      <!--* /Vegan -->
     </div>
 
     <!-- <div class="row row-cols-3 w-100">
@@ -103,12 +105,6 @@ export default {
       </div> -->
 
     <!--? /Informazioni piatto e aggiunta al carrello -->
-
-    <!--* Vegan -->
-    <div v-show="dish.vegan" class="vegan">
-      <i class="fa-solid fa-leaf"></i>
-    </div>
-    <!--* /Vegan -->
   </div>
 </template>
 
@@ -170,7 +166,7 @@ $vegan-icon-color: #059862;
   // Icon vegan
   .vegan {
     position: absolute;
-    bottom: 0px;
+    top: 20px;
     right: 5px;
     transform: translate(-50%, -50%);
 
