@@ -1,3 +1,4 @@
+
 <script>
 import { mapActions } from "vuex/dist/vuex.cjs.js";
 import { useToast } from "vue-toastification";
@@ -34,7 +35,15 @@ export default {
         this.toast.error(error.message);
       }
     },
+
+    
   },
+  computed: {
+  imageUrl() {
+    const baseUrl = "http://localhost:8000/storage"; 
+    return `${baseUrl}/${this.dish.image}`;
+  },
+},
 
   mounted() {
     console.log("dish>>>>", this.dish);
@@ -42,35 +51,49 @@ export default {
 };
 </script>
 <template>
-  <div class="container-md d-flex justify-content-center my-3">
-    <div v-show="dish.visibility" class="food-card">
-      <div class="row row-cols-3 w-100">
-        <!--! Img Piatto -->
-        <div class="col-3">
-          <div class="food-img">
-            <img src="" alt="" />
-          </div>
+  <div v-if="dish.visibility" class="col d-flex justify-content-center  my-3">
+    
+    
+    <div class="food-card">
+
+
+        <img :src="imageUrl" class="card-img" :alt="dish.name">
+        <div class="food-info">
+          <h5 class="">{{ dish.name }}</h5>
+          <p class="">{{ dish.desc }}</p>
+          
+
         </div>
-        <!--! /Img Piatto -->
-        <div class="col-7">
-          <!--? Informazioni piatto e aggiunta al carrello -->
-          <div class="food-info">
-            <!-- Nome piatto -->
+      </div>
+        
+ 
+          
+ 
+
+
+      <!-- <div class="row row-cols-3 w-100">
+  
+        <div class="col">
+  
+
+            <img :src="imageUrl" :alt="dish.image">
             <p>{{ dish.name }}</p>
-            <!-- /Nome piatto -->
-            <!-- Descrizione piatto -->
-            <p>
-              {{ dish.desc }}
-            </p>
-            <!-- /Descrizione piatto -->
-            <!-- Prezzo piatto -->
+            
+            <p>{{ dish.desc }}</p>
+            
             <p>&euro; {{ dish.price.replace(".", ",") }}</p>
-            <!-- /Prezzo piatto -->
-          </div>
+
+
+
+
+
+
+
+          
+
         </div>
         <div class="col-2">
-          <!-- TODO: fare aggiunta al carrello -->
-          <!--% Aggiungi al carrello -->
+
           <div class="add-to-cart">
             <button
               type="button"
@@ -80,9 +103,9 @@ export default {
               <i class="fa-solid fa-cart-plus"></i>
             </button>
           </div>
-          <!--% /Aggiungi al carrello -->
+ 
         </div>
-      </div>
+      </div> -->
 
       <!--? /Informazioni piatto e aggiunta al carrello -->
 
@@ -92,6 +115,7 @@ export default {
       </div>
       <!--* /Vegan -->
     </div>
+
   </div>
 </template>
 
@@ -104,15 +128,15 @@ $vegan-icon-color: #059862;
 .food-card {
   background-color: $food-card-bg-color;
   color: $food-card-text-color;
-
+  border: 5px solid rgb(232, 135, 53);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: left;
 
   position: relative;
   // formato
-  width: 60%;
+  min-height: 100%;
+  min-width: 100%;
   border-radius: 20px;
   // /formato
 
@@ -126,9 +150,16 @@ $vegan-icon-color: #059862;
     scale: 1.01;
   }
 
+  .card-img {
+    height: 60%;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+  }
+
   // Info piatto
   .food-info {
-    padding: 30px;
+    padding: 15px 30px;
+    color: black;
   }
   // /Info piatto
 
@@ -146,8 +177,8 @@ $vegan-icon-color: #059862;
   // Icon vegan
   .vegan {
     position: absolute;
-    top: 20px;
-    right: 15px;
+    bottom: 0px;
+    right: 5px;
     transform: translate(-50%, -50%);
 
     i {
@@ -157,4 +188,8 @@ $vegan-icon-color: #059862;
   }
   // /Icon vegan
 }
+
+
+
+
 </style>
