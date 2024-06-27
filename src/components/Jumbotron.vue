@@ -1,37 +1,46 @@
 <script>
+import { store } from "../data/store";
+
 export default {
   data() {
     return {
+      store,
       image: null,
       items: [],
       contents: [
         {
           name: "Italiano",
+          research: "Italiano",
           description:
             "Piatti autentici italiani: pasta fresca, pizza al forno a legna, antipasti sfiziosi e dolci tradizionali. Un viaggio tra i sapori d'Italia.",
         },
         {
           name: "Poke",
+          research: "Poke",
           description:
             "Fresche bowl hawaiane con pesce crudo, riso e verdure fresche. Sano, leggero e personalizzabile per un'esperienza unica.",
         },
         {
           name: "Piadineria",
+          research: "Piadineria",
           description:
             "Piadine italiane farcite con ingredienti freschi e genuini. Perfette per pranzi veloci e cene informali.",
         },
         {
           name: "Asiatico",
+          research: "Giapponese",
           description:
             "Sapori intensi dall'Asia: sushi, noodles, curry e piatti speziati. Autenticità e freschezza in ogni portata.",
         },
         {
           name: "Messicano",
+          research: "Messicano",
           description:
             "Piatti vibranti e saporiti: tacos, burritos, fajitas e nachos. Esplosione di sapori con salse piccanti e guacamole.",
         },
         {
           name: "Fast Food",
+          research: "Fast Food",
           description:
             "Hamburger, patatine, hot dog e snack veloci e deliziosi. Perfetto per pasti rapidi e serate rilassanti.",
         },
@@ -74,6 +83,11 @@ export default {
         // }
         content.active = key === this.active;
       });
+    },
+
+    tryThis(type) {
+      this.store.jumboChoose = type;
+      this.$router.push({ name: "advanceResearch" });
     },
 
     // Autoplay
@@ -145,7 +159,7 @@ export default {
           <div class="des">
             {{ content.description }}
           </div>
-          <button>See more</button>
+          <button @click="tryThis(content.research)">Provalo!</button>
         </div>
       </div>
       <button

@@ -56,74 +56,87 @@ export default {
   },
 };
 </script>
+
 <template>
-  <div class="cart mx-5">
-    <h3>Carrello</h3>
+  <transition
+    :name="cartItems.length > 0 ? 'slide-in' : 'slide-out'"
+    mode="out-in"
+  >
+    <div :key="cartItems.length > 0 ? 'full' : 'empty'">
+      <div class="cart mx-5" v-if="cartItems.length > 0">
+        <h3>Carrello</h3>
 
-    <p v-if="currentRestaurant">
-      Ordine da: <strong>{{ currentRestaurant.name }}</strong>
-    </p>
-    <div v-if="cartItems.length > 0">
-      <p class="my-4">
-        <strong>Il tuo ordine:</strong>
-      </p>
-      <ul>
-        <li v-for="(item, index) in cartItems" :key="index" class="my-3">
-          <div>
-            {{ item.dish.name }} - &euro;{{ item.dish.price.replace(".", ",") }}
+        <p v-if="currentRestaurant">
+          Ordine da: <strong>{{ currentRestaurant.name }}</strong>
+        </p>
+        <div>
+          <p class="my-4">
+            <strong>Il tuo ordine:</strong>
+          </p>
+          <ul>
+            <li v-for="(item, index) in cartItems" :key="index" class="my-3">
+              <div>
+                {{ item.dish.name }} - &euro;{{
+                  item.dish.price.replace(".", ",")
+                }}
+              </div>
+
+              <!--* Bottoni di incremento & decremento del piatto -->
+              <div class="buttons">
+                <!--! Decremento -->
+                <button
+                  class="btn btn-danger"
+                  @click="decrementItem(item.dish)"
+                  style="
+                    --bs-btn-padding-y: 0.25rem;
+                    --bs-btn-padding-x: 0.5rem;
+                    --bs-btn-font-size: 0.75rem;
+                  "
+                >
+                  <i class="fa-solid fa-minus text-white"></i>
+                </button>
+
+                <div class="quantity text-center">
+                  {{ item.quantity }}
+                </div>
+
+                <!--? Incremento -->
+                <button
+                  class="btn btn-success"
+                  @click="incrementItem(item.dish)"
+                  style="
+                    --bs-btn-padding-y: 0.25rem;
+                    --bs-btn-padding-x: 0.5rem;
+                    --bs-btn-font-size: 0.75rem;
+                  "
+                >
+                  <i class="fa-solid fa-plus text-white"></i>
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div class="my-4">
+            <strong> Totale: &euro;{{ totalPrice.replace(".", ",") }} </strong>
           </div>
-
-          <!--* Bottoni di incremento & decremento del piatto -->
-          <div class="buttons">
-            <!--! Decremento -->
+          <!--! BTN svuota carrello/Vai al carrello -->
+          <div class="d-flex mx-3 mx-xl-0 d-md-block">
             <button
-              class="btn btn-danger"
-              @click="decrementItem(item.dish)"
-              style="
-                --bs-btn-padding-y: 0.25rem;
-                --bs-btn-padding-x: 0.5rem;
-                --bs-btn-font-size: 0.75rem;
-              "
+              @click="clearCartHandler"
+              class="btn btn-outline-warning svuota-carrello me-1 my-2"
             >
-              <i class="fa-solid fa-minus text-white"></i>
+              Svuota Carrello
             </button>
-
-            <div class="quantity text-center">
-              {{ item.quantity }}
-            </div>
-
-            <!--? Incremento -->
-            <button
-              class="btn btn-success"
-              @click="incrementItem(item.dish)"
-              style="
-                --bs-btn-padding-y: 0.25rem;
-                --bs-btn-padding-x: 0.5rem;
-                --bs-btn-font-size: 0.75rem;
-              "
+            <router-link
+              :to="{ name: 'cart' }"
+              class="btn btn-primary ordina-adesso my-2"
             >
-              <i class="fa-solid fa-plus text-white"></i>
-            </button>
+              Ordina adesso
+            </router-link>
           </div>
-        </li>
-      </ul>
-      <div class="my-4">
-        <strong> Totale: &euro;{{ totalPrice.replace(".", ",") }} </strong>
-      </div>
-      <!--! BTN svuota carrello/Vai al carrello -->
-      <div class="d-flex mx-3 mx-xl-0 d-md-block">
-        <button @click="clearCartHandler" class="btn btn-warning me-1 my-2">
-          Svuota Carrello
-        </button>
-        <router-link :to="{ name: 'cart' }" class="btn btn-primary my-2">
-          Vai al carrello
-        </router-link>
+        </div>
       </div>
     </div>
-    <div v-else>
-      <p>Il carrello è vuoto</p>
-    </div>
-  </div>
+  </transition>
 </template>
 
 <style lang="scss" scoped>
@@ -159,5 +172,59 @@ $cart-text-color: #b2adbe;
       text-align: center;
     }
   }
+}
+
+.btn.btn-outline-warning.svuota-carrello {
+  --bs-btn-color: #e88735 !important;
+  --bs-btn-border-color: #e88735 !important;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #e88735 !important;
+  --bs-btn-hover-border-color: #e88735 !important;
+  --bs-btn-focus-shadow-rgb: 255, 193, 7;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #e88735 !important;
+  --bs-btn-active-border-color: #e88735 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #e88735 !important;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #e88735 !important;
+  --bs-gradient: none;
+  // border: none !important;
+  &:hover {
+    color: #fff;
+    background-color: #e88735 !important;
+    border-color: none !important;
+  }
+}
+
+.btn-primary.ordina-adesso {
+  background-color: #e88735 !important;
+  color: #fff !important;
+  --bs-btn-border-color: #e88735 !important;
+}
+.slide-in-enter-active,
+.slide-in-leave-active {
+  transition: transform 0.5s ease-in;
+}
+
+.slide-in-enter {
+  transform: translateX(100%);
+}
+
+.slide-in-leave-to {
+  transform: translateX(-100%);
+}
+
+.slide-out-enter-active,
+.slide-out-leave-active {
+  transition: transform 0.5s ease-out;
+}
+
+.slide-out-enter {
+  transform: translateX(-100%);
+}
+
+.slide-out-leave-to {
+  transform: translateX(100%);
 }
 </style>

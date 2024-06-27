@@ -49,7 +49,7 @@ export default {
       this.store.loading = true;
 
       this.ricerca =
-        this.store.selected.length < 1
+        this.store.selected == []
           ? this.store.apiUrl + "/restaurants"
           : this.store.apiUrl + "/restaurants/type/?types=" + this.myString;
 
@@ -70,9 +70,16 @@ export default {
           this.myString = "";
         });
     },
+    jumboSearch() {
+      if (this.store.jumboChoose != "") {
+        this.saveTypes(this.store.jumboChoose);
+        this.store.jumboChoose = "";
+      }
+    },
   },
   mounted() {
     this.getTypes();
+    this.jumboSearch();
     this.getRest;
   },
 };

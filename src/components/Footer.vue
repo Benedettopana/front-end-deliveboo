@@ -52,16 +52,16 @@ footer {
   background-color: $footer-bg-color;
   color: #fff;
   height: 180px;
-  width: 99vw;
+  width: 100vw;
 
   nav {
     li {
       list-style: none;
       margin: 10px;
-      a{
+      a {
         text-decoration: none;
         color: #fff;
-        &:hover{
+        &:hover {
           color: #f6a606;
         }
       }
@@ -78,9 +78,9 @@ footer {
       background-color: #f6a606;
       text-align: center;
       margin: 0 6px;
-      &:hover{
-          color: black
-        }
+      &:hover {
+        color: black;
+      }
     }
   }
 }

@@ -26,8 +26,8 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <h1 class="my-5">Ricerca avanzata</h1>
+  <div class="container my-5">
+    <!-- <h1 class="my-5">Ricerca avanzata</h1> -->
     <!-- <AsideAdvResearch /> -->
     <!-- <Banner /> -->
     <div v-if="store.loading">
