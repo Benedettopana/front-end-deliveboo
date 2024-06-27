@@ -44,6 +44,7 @@ export default {
   },
   mounted() {
     this.getApi(this.$route.params);
+    this.store.selected = [];
   },
 };
 </script>

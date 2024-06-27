@@ -2,6 +2,7 @@
 import { mapGetters, mapActions } from "vuex";
 import { useToast } from "vue-toastification";
 import Paym from "../components/Cart/Paym.vue";
+import { store } from "../data/store";
 
 export default {
   name: "cart",
@@ -13,6 +14,11 @@ export default {
   setup() {
     const toast = useToast();
     return { toast };
+  },
+  data() {
+    return {
+      store,
+    };
   },
 
   methods: {
@@ -40,6 +46,10 @@ export default {
       this.toast.error("Carrello svuotato.");
     },
   },
+
+  // mounted() {
+  //   this.store.selected = [];
+  // },
 
   computed: {
     ...mapGetters(["cartItems", "currentRestaurant"]),
