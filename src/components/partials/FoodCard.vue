@@ -49,6 +49,7 @@ export default {
 </script>
 <template>
   <div v-if="dish.visibility" class="col d-flex justify-content-center my-3">
+
     <div class="food-card card">
       <div>
         <img :src="imageUrl" class="card-img" :alt="dish.name" />
@@ -107,6 +108,7 @@ export default {
       </div> -->
 
     <!--? /Informazioni piatto e aggiunta al carrello -->
+
   </div>
 </template>
 
