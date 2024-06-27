@@ -64,9 +64,10 @@ export default {
     handleScroll() {
       // Aggiorno is scroll solo se sono nella "home"
       if (this.isHomePage) {
-        const jumbotronHeight = document.querySelector(".jumbotron")
-          .offsetHeight;
-        this.isScrolled = window.scrollY > jumbotronHeight;
+        // const jumbotronHeight =
+        //   document.querySelector(".jumbotron").offsetHeight;
+        // console.log("scroll>>>>", window.scrollY);
+        this.isScrolled = window.scrollY > 50;
       }
     },
   },
@@ -78,6 +79,8 @@ export default {
       this.isHomePage = newName === "home";
       if (!this.isHomePage) {
         this.isScrolled = true;
+      } else {
+        this.isScrolled = false;
       }
     },
   },
