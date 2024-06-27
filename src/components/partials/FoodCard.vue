@@ -54,18 +54,20 @@ export default {
       <div class="food-info">
         <h5 class="">{{ dish.name }}</h5>
         <p class="">{{ dish.desc }}</p>
+
+        <!--* Vegan -->
+        <div v-show="dish.vegan" class="vegan">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+        <!--* /Vegan -->
       </div>
       <div class="add-to-cart">
-        <button type="button" class="btn btn-primary" @click="addToCartHandler">
-          <i class="fa-solid fa-cart-plus"></i>
+        <button type="button" class="btn my-cart" @click="addToCartHandler">
+          <i class="fa-solid fa-cart-plus "></i>
         </button>
       </div>
 
-      <!--* Vegan -->
-      <div v-show="dish.vegan" class="vegan">
-        <i class="fa-solid fa-leaf"></i>
-      </div>
-      <!--* /Vegan -->
+
     </div>
 
     <!-- <div class="row row-cols-3 w-100">
@@ -115,14 +117,14 @@ $food-card-bg-color: #ececec;
 $food-card-text-color: #b2adbe;
 $vegan-icon-color: #059862;
 .food-card {
-  background-color: $food-card-bg-color;
+  background-color: white;
   color: $food-card-text-color;
-  border: 3px solid rgb(232, 135, 53);
+  // border: 5px solid rgb(232, 135, 53);
   display: flex;
   flex-direction: column;
   align-items: left;
 
-  position: relative;
+
   // formato
   min-height: 100%;
   min-width: 100%;
@@ -140,15 +142,17 @@ $vegan-icon-color: #059862;
   }
 
   .card-img {
-    height: 60%;
+    height: 300px;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
+    object-fit: cover;
   }
 
   // Info piatto
   .food-info {
     padding: 15px 30px;
     color: black;
+    position: relative;
   }
   // /Info piatto
 
@@ -162,6 +166,14 @@ $vegan-icon-color: #059862;
     padding: 20px;
   }
   // /Aggiungi al carrello
+
+  // Icon cart
+  .my-cart {
+    background-color: rgb(232, 135, 53);
+    color: white;
+  }
+  // /Icon cart
+
 
   // Icon vegan
   .vegan {
