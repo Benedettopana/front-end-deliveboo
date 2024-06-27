@@ -1,10 +1,17 @@
 <script>
-  export default {
-    name: 'Error404'
-    
-  }
+import { store } from "../data/store";
+export default {
+  name: "Error404",
+  data() {
+    return {
+      store,
+    };
+  },
+  mounted() {
+    this.store.selected = [];
+  },
+};
 </script>
-
 
 <template>
   <div class="container">
@@ -13,8 +20,4 @@
   </div>
 </template>
 
-
-
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
