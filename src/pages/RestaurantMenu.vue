@@ -36,7 +36,7 @@ export default {
 
 <template>
   <div class="container-fluid my-5">
-    <h1 class="text-center mt-5">{{ store.restaurant_detail.name }}</h1>
+    <h1 class="text-center pt-5">{{ store.restaurant_detail.name }}</h1>
 
     <div class="row row-cols-3 my-5">
       <div class="col-3">
