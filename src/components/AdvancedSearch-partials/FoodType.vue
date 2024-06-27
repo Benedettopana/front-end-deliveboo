@@ -49,7 +49,7 @@ export default {
       this.store.loading = true;
 
       this.ricerca =
-        this.store.selected == []
+        this.store.selected.length === 0
           ? this.store.apiUrl + "/restaurants"
           : this.store.apiUrl + "/restaurants/type/?types=" + this.myString;
 
