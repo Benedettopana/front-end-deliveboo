@@ -49,8 +49,10 @@ export default {
 </script>
 <template>
   <div v-if="dish.visibility" class="col d-flex justify-content-center my-3">
-    <div class="food-card">
-      <img :src="imageUrl" class="card-img" :alt="dish.name" />
+    <div class="food-card card">
+      <div>
+        <img :src="imageUrl" class="card-img" :alt="dish.name" />
+      </div>
       <div class="food-info">
         <h5 class="">{{ dish.name }}</h5>
         <p class="">{{ dish.desc }}</p>
@@ -63,11 +65,9 @@ export default {
       </div>
       <div class="add-to-cart">
         <button type="button" class="btn my-cart" @click="addToCartHandler">
-          <i class="fa-solid fa-cart-plus "></i>
+          <i class="fa-solid fa-cart-plus"></i>
         </button>
       </div>
-
-
     </div>
 
     <!-- <div class="row row-cols-3 w-100">
@@ -124,7 +124,6 @@ $vegan-icon-color: #059862;
   flex-direction: column;
   align-items: left;
 
-
   // formato
   min-height: 100%;
   min-width: 100%;
@@ -173,7 +172,6 @@ $vegan-icon-color: #059862;
     color: white;
   }
   // /Icon cart
-
 
   // Icon vegan
   .vegan {

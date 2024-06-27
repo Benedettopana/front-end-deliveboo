@@ -43,12 +43,13 @@ export default {
       <!--? restaurant info -->
       <div
         class="card mx-3"
-        style="width: 18rem"
+        style="width: 18rem;"
         @click="getRestaurantDetail(restaurant.id)"
       >
         <img :src="restaurant.image" class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{ restaurant.name }}</h5>
+          <p class="card-text">{{ restaurant.address }}</p>
           <div>
             <span v-for="item in restaurant.types" :key="item.id" class="me-2">
               <span class="badge rounded-pill text-bg-warning">{{
@@ -56,7 +57,6 @@ export default {
               }}</span>
             </span>
           </div>
-          <p class="card-text">{{ restaurant.address }}</p>
         </div>
       </div>
       <!-- <div class="restaurant-info">
@@ -84,6 +84,24 @@ $restaurant-card-text-color: #000000;
 
 .card {
   cursor: pointer !important;
+  height: 420px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  .card-title {
+    height: 50px;
+  }
+  .badge {
+    background-color: #e88735 !important;
+    color: white !important;
+  }
+  .card-text {
+    height: 35px;
+  }
 }
 
 // .restaurant-card {
