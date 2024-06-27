@@ -50,7 +50,7 @@ export default {
         .then((result) => {
           // this.typeName = result.data.types.name;
           store.restaurants = result.data.restaurants;
-
+          this.store.selected = [];
           console.log(result.data.restaurants);
           console.log(store.restaurants);
         })

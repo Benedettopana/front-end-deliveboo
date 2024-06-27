@@ -16,9 +16,9 @@ export default {
     };
   },
 
-  mounted() {
-    this.store.selected = [];
-  },
+  // mounted() {
+  //   this.store.selected = [];
+  // },
 };
 </script>
 
