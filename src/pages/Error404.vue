@@ -7,9 +7,9 @@ export default {
       store,
     };
   },
-  mounted() {
-    this.store.selected = [];
-  },
+  // mounted() {
+  //   this.store.selected = [];
+  // },
 };
 </script>
 

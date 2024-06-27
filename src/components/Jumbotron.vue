@@ -28,7 +28,7 @@ export default {
         },
         {
           name: "Asiatico",
-          research: "Sushi",
+          research: "Giapponese",
           description:
             "Sapori intensi dall'Asia: sushi, noodles, curry e piatti speziati. Autenticità e freschezza in ogni portata.",
         },
