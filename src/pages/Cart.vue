@@ -45,6 +45,12 @@ export default {
       this.clearCart();
       this.toast.error("Carrello svuotato.");
     },
+
+    imageUrl(dish) {
+      let baseUrl = "http://localhost:8000/storage/" + dish;
+      console.log("link img>>>>>>", baseUrl);
+      return baseUrl;
+    },
   },
 
   // mounted() {
@@ -75,12 +81,21 @@ export default {
           Ordine da: <strong>{{ currentRestaurant.name }}</strong>
         </p>
         <div v-if="cartItems.length > 0">
-          <ul>
-            <li v-for="(item, index) in cartItems" :key="index">
-              <div>
-                {{ item.dish.name }} - &euro;{{
-                  item.dish.price.replace(".", ",")
-                }}
+          <div>
+            <div v-for="(item, index) in cartItems" :key="index">
+              <div class="d-flex">
+                <div class="dish-img">
+                  <img
+                    :src="`${imageUrl(item.dish.image)}`"
+                    class="card-img"
+                    :alt="item.name"
+                  />
+                </div>
+                <div class="align-content-center ms-3">
+                  {{ item.dish.name }} - &euro;{{
+                    item.dish.price.replace(".", ",")
+                  }}
+                </div>
               </div>
               <div class="buttons">
                 <button
@@ -101,12 +116,15 @@ export default {
                   <i class="fa-solid fa-plus text-white"></i>
                 </button>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
           <div>
             <strong>Totale: &euro;{{ totalPrice.replace(".", ",") }}</strong>
           </div>
-          <button @click="clearCartHandler" class="btn btn-warning">
+          <button
+            @click="clearCartHandler"
+            class="btn btn-outline-warning my-3"
+          >
             Svuota Carrello
           </button>
         </div>
@@ -132,6 +150,16 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/scss/partials/general" as *;
 @use "../assets/scss/partials/variables" as *;
+
+.dish-img {
+  height: 100px;
+  aspect-ratio: 1;
+  img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
+}
 
 .cart-detail {
   padding: 20px;
