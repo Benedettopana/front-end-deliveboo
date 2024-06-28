@@ -2,12 +2,14 @@
 import axios from "axios";
 import { store } from "../../data/store.js";
 
+
+
 export default {
   data() {
     return {
       store,
       axios,
-      types: [],
+      nameToSearch: "",
       icons: "img/food-type/",
       myString: "",
       selectedTypes: [],
@@ -17,20 +19,7 @@ export default {
   },
 
   methods: {
-    getTypes() {
-      store.message = "";
-      axios
-        .get(store.apiUrl + "/types")
-        .then((result) => {
-          this.types = result.data.types;
-          console.log(result.data.types);
-          console.log(this.types);
-        })
-        .catch((error) => {
-          console.log(error);
-          console.log(error.message);
-        });
-    },
+    
 
     saveTypes(typeName) {
       if (this.store.selected.includes(typeName)) {
@@ -46,7 +35,7 @@ export default {
 
     getRestaurantsByType() {
       store.message = "";
-      this.store.loading = true;
+      this.store.loadingRestaurant = true;
 
       this.ricerca =
         this.store.selected.length === 0
@@ -65,7 +54,7 @@ export default {
         })
         .finally(() => {
           setTimeout(() => {
-            this.store.loading = false; // Imposta loading su false dopo 1 secondo
+            this.store.loadingRestaurant = false; // Imposta loading su false dopo 1 secondo
           }, 1500);
           this.myString = "";
         });
@@ -76,9 +65,22 @@ export default {
         this.store.jumboChoose = "";
       }
     },
+    search() {
+      store.message = "";
+      if (this.nameToSearch.length > 0) {
+        const searchLower = this.nameToSearch.toLowerCase();
+        const filteredRestaurants = this.store.restaurants.filter(restaurant =>
+        restaurant.name.toLowerCase().includes(searchLower)
+      );
+      store.restaurants = filteredRestaurants;
+      this.nameToSearch = "";
+    }else{
+        this.store.selected = [];
+        this.getRestaurantsByType()
+      }
+    },
   },
   mounted() {
-    this.getTypes();
     this.jumboSearch();
     this.getRest;
   },
@@ -86,13 +88,22 @@ export default {
 </script>
 <template>
   <div class="container-fluid">
-    <h1 class="mb-4 text-center my-text">Le nostre tipologie di Ristoranti</h1>
+     <form class="d-flex my-5 pt-5" role="search" @submit.prevent="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Ricerca per Nome"
+            aria-label="Search"
+            v-model.trim="this.nameToSearch"
+          />
+          <button class="btn btn-outline-success" type="submit">Cerca</button>
+        </form>
     <!--? Riga -->
     <div class="row justify-content-center px-5">
       <!--% Colonne -->
       <div
         class="col-md-2 col-sm-3 col-4 mb-4"
-        v-for="item in types"
+        v-for="item in this.store.types"
         :key="item.id"
         @click="saveTypes(item.name)"
       >
