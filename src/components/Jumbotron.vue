@@ -326,48 +326,74 @@ export default {
   opacity: 1;
 }
 
-// Media Queries
+//--------- Media Queries ----------//
 
 // Mobile
 @media screen and (max-width: 660px) {
+  .jumboImg {
+    top: -28vh;
+  }
   .content {
-    font-size: 0.55rem;
+    button {
+      margin-top: 12px;
+    }
+    h1 {
+      font-size: 1.3rem;
+    }
+    font-size: 0.75rem;
   }
   #next {
-    right: 20vw;
+    top: 0;
+    right: 5vw;
   }
   #prev {
-    left: 20vw;
+    top: 0;
+    left: 5vw;
   }
 }
 
 // Tablet
-@media screen and (min-width: 880px) {
+@media screen and (min-width: 768px) {
   .content {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    h1 {
+      font-size: 2rem;
+    }
+    button {
+      margin-right: 0;
+    }
   }
   #next {
-    right: 40vw;
+    right: 30vw;
     bottom: 5vh;
   }
   #prev {
-    left: 40vw;
+    left: 30vw;
     bottom: 5vh;
   }
 }
 
 // Desktop
 @media screen and (min-width: 1200px) {
+  .jumboImg {
+    top: -40vh;
+  }
   .content {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    h1 {
+      font-size: 3rem;
+    }
+    button {
+      font-size: 1.2rem;
+    }
   }
   #next {
     right: 20vw;
-    top: 0;
+    top: 70px;
   }
   #prev {
     left: 20vw;
-    top: 0;
+    top: 70px;
   }
 }
 </style>
