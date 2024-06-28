@@ -41,9 +41,24 @@ export default {
         }, 1000);
       }
     },
+    async getTypes() {
+      store.message = "";
+      axios
+        .get(store.apiUrl + "/types")
+        .then((result) => {
+          this.store.types = result.data.types;
+          console.log(result.data.types);
+          console.log(this.store.types);
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log(error.message);
+        });
+    },
   },
   mounted() {
     this.getApi(this.$route.params);
+    this.getTypes();
     this.store.selected = [];
   },
 };
@@ -53,7 +68,7 @@ export default {
   <Header />
   <!--* Loader -->
   <div v-if="store.loading">
-    <Loader />
+    <Loader/>
   </div>
   <!--* /Loader -->
   <!--? Contenuto Pagina -->
