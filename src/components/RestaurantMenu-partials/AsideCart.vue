@@ -63,7 +63,7 @@ export default {
     mode="out-in"
   >
     <div :key="cartItems.length > 0 ? 'full' : 'empty'">
-      <div class="cart mx-5" v-if="cartItems.length > 0">
+      <div class="cart mx-0 mx-xl-5" v-if="cartItems.length > 0">
         <h3>Carrello</h3>
 
         <p v-if="currentRestaurant">
@@ -73,7 +73,7 @@ export default {
           <p class="my-4">
             <strong>Il tuo ordine:</strong>
           </p>
-          <ul>
+          <ul class="px-0 px-md-2">
             <li v-for="(item, index) in cartItems" :key="index" class="my-3">
               <div>
                 {{ item.dish.name }} - &euro;{{
@@ -119,16 +119,16 @@ export default {
             <strong> Totale: &euro;{{ totalPrice.replace(".", ",") }} </strong>
           </div>
           <!--! BTN svuota carrello/Vai al carrello -->
-          <div class="d-flex mx-3 mx-xl-0 d-md-block">
+          <div class="d-md-flex mx-md-3 mx-xl-0 d-md-block">
             <button
               @click="clearCartHandler"
-              class="btn btn-outline-warning svuota-carrello me-1 my-2"
+              class="btn btn-outline-warning svuota-carrello me-1 my-2 w-100"
             >
-              Svuota Carrello
+              Svuota
             </button>
             <router-link
               :to="{ name: 'cart' }"
-              class="btn btn-primary ordina-adesso my-2"
+              class="btn btn-primary ordina-adesso my-2 w-100"
             >
               Ordina adesso
             </router-link>
@@ -143,7 +143,7 @@ export default {
 @use "../../assets/scss/partials/general" as *;
 @use "../../assets/scss/partials/variables" as *;
 $cart-bg-color: #ececec;
-$cart-text-color: #b2adbe;
+$cart-text-color: #000;
 
 .cart {
   background-color: $cart-bg-color;
@@ -194,6 +194,7 @@ $cart-text-color: #b2adbe;
     color: #fff;
     background-color: #e88735 !important;
     border-color: none !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -201,6 +202,10 @@ $cart-text-color: #b2adbe;
   background-color: #e88735 !important;
   color: #fff !important;
   --bs-btn-border-color: #e88735 !important;
+  &:hover {
+    border-color: none !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
 }
 .slide-in-enter-active,
 .slide-in-leave-active {

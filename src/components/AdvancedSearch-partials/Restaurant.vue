@@ -26,7 +26,7 @@ export default {
     <h2 class="text-center">Ristoranti</h2>
     <h4>{{ store.message }}</h4>
     <div
-      class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"
+      class="row row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-xxl-4"
       v-if="store.restaurants.length !== 0"
     >
       <RestaurantCard

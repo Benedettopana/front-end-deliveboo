@@ -73,7 +73,7 @@ export default {
 </script>
 <template>
   <div class="container-fluid cart-detail">
-    <div class="row row-cols-2">
+    <div class="row row-cols-1 row-cols-md-2">
       <div class="col">
         <h1>Dettagli del Carrello</h1>
 
@@ -83,7 +83,7 @@ export default {
         <div v-if="cartItems.length > 0">
           <div>
             <div v-for="(item, index) in cartItems" :key="index">
-              <div class="d-flex">
+              <div class="d-md-flex">
                 <div class="dish-img">
                   <img
                     :src="`${imageUrl(item.dish.image)}`"
@@ -91,16 +91,21 @@ export default {
                     :alt="item.name"
                   />
                 </div>
-                <div class="align-content-center ms-3">
+                <div class="align-content-center ms-md-3">
                   {{ item.dish.name }} - &euro;{{
                     item.dish.price.replace(".", ",")
                   }}
                 </div>
               </div>
-              <div class="buttons">
+              <div class="buttons mb-3">
                 <button
                   @click="decrementItem(item.dish)"
                   class="btn btn-danger"
+                  style="
+                    --bs-btn-padding-y: 0.25rem;
+                    --bs-btn-padding-x: 0.5rem;
+                    --bs-btn-font-size: 0.75rem;
+                  "
                 >
                   <i class="fa-solid fa-minus text-white"></i>
                 </button>
@@ -112,6 +117,11 @@ export default {
                 <button
                   @click="incrementItem(item.dish)"
                   class="btn btn-success"
+                  style="
+                    --bs-btn-padding-y: 0.25rem;
+                    --bs-btn-padding-x: 0.5rem;
+                    --bs-btn-font-size: 0.75rem;
+                  "
                 >
                   <i class="fa-solid fa-plus text-white"></i>
                 </button>
@@ -123,7 +133,7 @@ export default {
           </div>
           <button
             @click="clearCartHandler"
-            class="btn btn-outline-warning my-3"
+            class="btn btn-outline-warning my-3 svuota-carrello"
           >
             Svuota Carrello
           </button>
@@ -171,6 +181,30 @@ export default {
     & button {
       text-align: center;
     }
+  }
+}
+
+.btn.btn-outline-warning.svuota-carrello {
+  --bs-btn-color: #e88735 !important;
+  --bs-btn-border-color: #e88735 !important;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #e88735 !important;
+  --bs-btn-hover-border-color: #e88735 !important;
+  --bs-btn-focus-shadow-rgb: 255, 193, 7;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #e88735 !important;
+  --bs-btn-active-border-color: #e88735 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #e88735 !important;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #e88735 !important;
+  --bs-gradient: none;
+  // border: none !important;
+  &:hover {
+    color: #fff;
+    background-color: #e88735 !important;
+    border-color: none !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   }
 }
 </style>

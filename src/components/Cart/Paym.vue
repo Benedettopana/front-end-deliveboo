@@ -236,7 +236,7 @@ export default {
           I campi con l'<span class="text-danger">*</span> sono obbligatori e
           necessari per procedere all'ordine.
         </div>
-        <button class="btn btn-primary" type="submit">
+        <button class="btn btn-primary paga-adesso" type="submit">
           Procedi al pagamento
         </button>
       </form>
@@ -246,7 +246,11 @@ export default {
     <!--! Pagamento -->
     <div v-if="showPaymentSection">
       <div id="dropin-container"></div>
-      <button class="btn btn-primary" type="submit" @click="submitPayment">
+      <button
+        class="btn btn-primary paga-adesso"
+        type="submit"
+        @click="submitPayment"
+      >
         Paga
       </button>
     </div>
@@ -257,4 +261,14 @@ export default {
 <style lang="scss" scoped>
 @use "../../assets/scss/partials/general" as *;
 @use "../../assets/scss/partials/variables" as *;
+
+.btn-primary.paga-adesso {
+  background-color: #e88735 !important;
+  color: #fff !important;
+  --bs-btn-border-color: #e88735 !important;
+  &:hover {
+    border-color: #e88735 !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+}
 </style>
