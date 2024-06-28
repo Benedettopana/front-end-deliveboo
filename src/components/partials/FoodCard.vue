@@ -57,6 +57,7 @@ export default {
       <div class="food-info">
         <h5 class="">{{ dish.name }}</h5>
         <p class="">{{ dish.desc }}</p>
+        <p> &euro; {{ dish.price }}</p>
 
         <!--* Vegan -->
         <div v-show="dish.vegan" class="vegan">
