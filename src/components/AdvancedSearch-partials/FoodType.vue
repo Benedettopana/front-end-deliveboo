@@ -88,16 +88,18 @@ export default {
 </script>
 <template>
   <div class="container-fluid">
-     <form class="d-flex my-5 pt-5" role="search" @submit.prevent="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Ricerca per Nome"
-            aria-label="Search"
-            v-model.trim="this.nameToSearch"
-          />
-          <button class="btn btn-outline-success" type="submit">Cerca</button>
-        </form>
+    <div class="container">
+      <form class="d-flex my-5 pt-5" role="search" @submit.prevent="search">
+           <input
+             class="form-control me-2"
+             type="search"
+             placeholder="Ricerca per Nome"
+             aria-label="Search"
+             v-model.trim="this.nameToSearch"
+           />
+           <button class="btn btn-warning search" type="submit">Cerca</button>
+         </form>
+    </div>
     <!--? Riga -->
     <div class="row justify-content-center px-5">
       <!--% Colonne -->
@@ -172,5 +174,37 @@ $type-card-text-color: #000000;
   .container-fluid {
     padding: 20px;
   }
+}
+.btn.btn-warning.search {
+  --bs-btn-color: white !important;
+  --bs-btn-border-color: #e88735 !important;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #e88735 !important;
+  --bs-btn-hover-border-color: #e88735 !important;
+  --bs-btn-focus-shadow-rgb: 255, 193, 7;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #e88735 !important;
+  --bs-btn-active-border-color: #e88735 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #e88735 !important;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #e88735 !important;
+  --bs-gradient: none;
+  background-color:#e88735 !important;
+  // border: none !important;
+  &:hover {
+    color: #fff;
+    background-color: #e88735 !important;
+    border-color: none !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+input{
+  border-radius:22px !important;
+}
+input:focus{
+  border-color:#e88735 !important;
+  box-shadow: 0 0 0 0.25rem rgba(232, 135, 53, .4)
+  !important;
 }
 </style>
