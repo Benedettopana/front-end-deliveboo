@@ -112,8 +112,8 @@ export default {
 @use "../../assets/scss/partials/general" as *;
 @use "../../assets/scss/partials/variables" as *;
 
-$review-card-bg-color: #ececec;
-$review-card-text-color: #b2adbe;
+
+
 
 .mySlider {
   width: 100%;
@@ -123,7 +123,7 @@ $review-card-text-color: #b2adbe;
     width: 250px;
     height: 250px;
     background-color: white;
-    color: $review-card-text-color;
+    color: black;
     padding: 30px 20px;
     border-radius: 20px;
     .my-name {
