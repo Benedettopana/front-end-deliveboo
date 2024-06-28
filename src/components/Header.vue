@@ -104,10 +104,13 @@ export default {
       class="navbar fixed-top"
       :class="{ 'navbar-scrolled': isScrolled || !isHomePage }"
     >
+      <!--  -->
       <div class="container">
         <a class="navbar-brand pt-0">Boo</a>
 
-        <ul class="d-flex justify-content-center align-items-center pt-2">
+        <ul
+          class="d-md-flex justify-content-center align-items-center pt-2 d-none"
+        >
           <li class="mx-3">
             <router-link :to="{ name: 'home' }" @click="getApi"
               >Home</router-link
@@ -138,6 +141,56 @@ export default {
           />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form> -->
+
+        <!-- Hamburger -->
+        <div class="d-md-none">
+          <button
+            class="navbar-toggler text-white border-white"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="text-white"><i class="fa-solid fa-bars"></i></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <h3 class="offcanvas-title" id="offcanvasNavbarLabel">
+                Deliveboo
+              </h3>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                <li class="my-3 off-a text-center">
+                  <router-link :to="{ name: 'home' }" @click="getApi"
+                    >Home</router-link
+                  >
+                </li>
+                <li class="my-3 off-a text-center">
+                  <router-link :to="{ name: 'advanceResearch' }"
+                    >Ristoranti</router-link
+                  >
+                </li>
+                <li class="my-3 off-a text-center">
+                  <router-link :to="{ name: 'cart' }">Carrello</router-link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /Hamburger -->
       </div>
     </nav>
     <!--? /Navbar -->
@@ -184,5 +237,14 @@ header.container-fluid {
 header.scrolled nav {
   background-color: #181b21;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.offcanvas-body {
+  .off-a {
+    a {
+      color: #000 !important;
+      font-size: 2em;
+    }
+  }
 }
 </style>
