@@ -64,15 +64,15 @@ export default {
   >
     <div :key="cartItems.length > 0 ? 'full' : 'empty'">
       <div class="cart mx-0 mx-xl-5" v-if="cartItems.length > 0">
-        <h3 class="text-center mb-4">Carrello</h3>
+        <h3 class="text-center mb-4">Il tuo ordine</h3>
 
-        <p v-if="currentRestaurant">
+        <p v-if="currentRestaurant" class="fst-italic">
           Ordine da: <strong>{{ currentRestaurant.name }}</strong>
         </p>
         <div>
-          <p class="mt-4 fst-italic">Il tuo ordine:
+          <!-- <p class="mt-4 fst-italic">Il tuo ordine: -->
             <!-- <strong>Il tuo ordine:</strong> -->
-          </p>
+          <!-- </p> -->
           <ul class="px-0 px-md-2">
             <li v-for="(item, index) in cartItems" :key="index" class="mb-3">
               <div class="s">
@@ -165,6 +165,10 @@ $cart-text-color: #000;
   margin: 10px;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  // position: fixed;
+  // z-index: 2;
+  // top: 40%;
+  // right: 50px;
 
   li {
     list-style: none;
