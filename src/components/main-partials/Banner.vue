@@ -23,9 +23,9 @@ export default {};
   </div>
     
   <div class="container-fluid d-flex justify-content-center">
-    <div class="card text-bg-dark my-card bs-dark" >
-      <img src="https://image-tc.galaxy.tf/wijpeg-1lcrqdyl91lsdkomcnet6276l/magazine-detail-page-it_og-image.jpg" class="card-img" alt="...">
-      <div class="card-img-overlay bg-black opacity-50 d-flex align-content-center flex-column flex-wrap">
+    <div class="card text-bg-dark my-card bs-dark" style="border-radius: 0!important;" >
+      <img src="https://image-tc.galaxy.tf/wijpeg-1lcrqdyl91lsdkomcnet6276l/magazine-detail-page-it_og-image.jpg" class="card-img" style="border-radius: 0!important;" alt="...">
+      <div class="card-img-overlay bg-black opacity-50 d-flex align-content-center flex-column flex-wrap" style="border-radius: 0!important;">
         <h2 class="card-title text-center">Facciamo consegne su tutta Roma!</h2>
         <p class="card-text text-center" style="max-width: 1000px">Le consegne a domicilio su Roma con Deliveboo ti aprono le porte a un'ampia varietà di ristoranti locali, dalle rinomate catene in franchising alle accoglienti trattorie di quartiere. Puoi ordinare cibo a domicilio a Roma in qualsiasi momento della giornata, dall'alba al tramonto, garantendo sempre freschezza e qualità direttamente sulla tua tavola.</p>
         <!-- <p class="card-text"><small>Last updated 3 mins ago</small></p> -->
