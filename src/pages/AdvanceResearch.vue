@@ -26,6 +26,9 @@ export default {
 </script>
 
 <template>
+  <div class=" menuJumbo">
+    <img src="\public\img\restaurants-top.jpg" alt="jumbo-picture">
+  </div>
   <div class="container my-5">
     <!-- <h1 class="my-5">Ricerca avanzata</h1> -->
     <!-- <AsideAdvResearch /> -->
@@ -43,4 +46,19 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/scss/partials/general" as *;
 @use "../assets/scss/partials/variables" as *;
+.menuJumbo{
+  // width: 100%;
+  overflow: hidden;
+  img{
+    max-height: calc(75vh);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position:center;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.5;
+  }
+}
 </style>

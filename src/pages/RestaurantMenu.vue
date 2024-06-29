@@ -30,25 +30,33 @@ export default {
     if (store.restaurant_detail.length == 0) {
       this.redirectFunction();
     }
+    console.log('restaurant info',this.store.restaurant_detail);
+    console.log('TIPO>>>>', this.store.restaurant_detail.types[0].name);
   },
 };
 </script>
 
 <template>
-  <div class="container-fluid my-5">
-    <h1 class="text-center pt-5">{{ store.restaurant_detail.name }}</h1>
+  <div class="containter-fluid menuJumbo">
+    <img :src="`img/restaurant-img/${this.store.restaurant_detail.types[0].name}.jpg`" alt="Food-picture">
+  </div>
+  <div class="container-fluid my-5 d-flex flex-column align-items-center">
+    <div class="col-8 col-xl-6 food-card card">
+      <h1 class="text-center pt-5">{{ store.restaurant_detail.name }}</h1>
+      <p class="text-center px-5 pt-5">
+          {{ store.restaurant_detail.desc }}
+        </p>
+        <p class="text-center px-5 pt-2">
+          {{ store.restaurant_detail.address }}
+        </p>
+    </div>
 
     <div class="row row-cols-3 my-5">
       <div class="col-3 d-none d-xl-block">
         <!-- <AsideMenu /> -->
       </div>
       <div class="col-8 col-xl-6">
-        <p class="text-center px-5 pt-5">
-          {{ store.restaurant_detail.desc }}
-        </p>
-        <p class="text-center px-5 pt-2">
-          {{ store.restaurant_detail.address }}
-        </p>
+       
         <!--? Card piatti -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-2">
           <FoodCard
@@ -71,4 +79,39 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+.menuJumbo{
+  // width: 100%;
+  overflow: hidden;
+  img{
+    max-height: calc(75vh);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position:center;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.5;
+  }
+}
+.restaurant-info{
+  background-color: rgba($color: #ffff, $alpha: .6);
+}
+.food-card {
+  margin-top: 50px;
+  color:black ;
+  background-color: white;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+ 
+  border-radius: 20px;
+  
+
+  
+}
+</style>

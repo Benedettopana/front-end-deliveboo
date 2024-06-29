@@ -138,8 +138,10 @@ $type-card-text-color: #000000;
 //   color: #e88735;
 // }
 
+
 .type-card {
   color: $type-card-text-color;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
