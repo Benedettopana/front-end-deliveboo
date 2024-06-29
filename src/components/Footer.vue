@@ -1,47 +1,45 @@
 <script></script>
 
 <template>
-  <footer class="mt-5 h-25">
-    <div class="row p-4">
-      <!--! aside left -->
-      <div class="col d-flex flex-column">
-        <!--? Logo -->
-        <div class="w-50">
-          <img class="logo" src="/public/img/logo.png" />
-        </div>
-
-        <!--? /Logo -->
-        <!--% powered by -->
-        <div class="mt-2">
-          <p class="fw-light">powered by Team 5</p>
-        </div>
-        <!--% /powered by -->
-      </div>
-      <!--! /aside left -->
-
-      <!--* aside Right -->
+  <footer class="footer">
+    <div class="main-wrapper text-center">
       <div
-        class="col d-flex justify-content-center align-items-end flex-column"
+        class="row main-row d-flex justify-content-around align-items-center"
       >
-        <div>
-          <!--? Nav -->
-          <nav class="d-flex mb-4 justify-content-center">
-            <li><a href="">Home</a></li>
-            <li><a href="">Ristoranti</a></li>
-          </nav>
-          <!--? /Nav -->
-          <!--% Icon -->
-          <div class="d-flex icon-list justify-content-between mt-4">
-            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-            <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
-            <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href=""><i class="fa-brands fa-instagram"></i></a>
-            <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+        <div class="col-3">
+          <img src="/public/img/logo.png" alt="Logo" class="logo" />
+          <p class="powered-by">powered by Team 5</p>
+        </div>
+
+        <div class="col-6">
+          <div
+            class="footer-right d-flex align-items-center justify-content-center flex-column"
+          >
+            <nav class="nav text-center">
+              <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Ristoranti</a></li>
+              </ul>
+            </nav>
+            <div class="social-media d-inline-block">
+              <div class="flex-nowrap">
+                <a href=""
+                  ><i class="fa-brands fa-facebook-f" aria-label="Facebook"></i
+                ></a>
+                <a href=""
+                  ><i class="fa-brands fa-linkedin-in" aria-label="LinkedIn"></i
+                ></a>
+                <a href=""
+                  ><i class="fa-brands fa-instagram" aria-label="Instagram"></i
+                ></a>
+                <a href=""
+                  ><i class="fa-brands fa-x-twitter" aria-label="Twitter"></i
+                ></a>
+              </div>
+            </div>
           </div>
-          <!--% /Icon -->
         </div>
       </div>
-      <!--* /aside Right -->
     </div>
   </footer>
 </template>
@@ -52,81 +50,100 @@
 
 $footer-bg-color: #1a1a1a;
 
-footer {
+.footer {
   background-color: $footer-bg-color;
   color: #fff;
-  height: 180px;
-  width: 100vw;
+  padding: 20px;
+  .col-6 {
+    width: fit-content;
+  }
+}
 
-  nav {
+.powered-by {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.nav {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
     li {
-      list-style: none;
       margin: 10px;
       a {
         text-decoration: none;
         color: #fff;
+
         &:hover {
           color: #f6a606;
         }
       }
     }
   }
+}
+.social-media {
+  display: flex;
+  justify-content: center;
+  i {
+    font-size: 1.2rem;
+    aspect-ratio: 1;
+    color: #fff;
+    background-color: #f6a606;
+    text-align: center;
+    margin: 0 6px;
+    padding: 7px 7px;
+    display: inline-block;
+    border-radius: 50%;
 
-  .icon-list {
-    i {
-      height: 30px;
-      line-height: 30px;
-      border-radius: 50%;
-      aspect-ratio: 1;
-      color: #fff;
-      background-color: #f6a606;
-      text-align: center;
-      margin: 0 6px;
-      &:hover {
-        color: black;
-      }
+    &:hover {
+      color: black;
     }
+  }
+  .fa-facebook-f {
+    padding: 7px 11px;
+  }
+  .fa-linkedin-in {
+    padding: 7px 9px;
+  }
+  .fa-instagram {
+    padding: 8px 9px;
   }
 }
 
-// ---------- Media Queries ---------- //
-
-// Mobile
+// Media Queries
 @media screen and (max-width: 660px) {
-  footer {
-    .icon-list {
+  .footer {
+    .social-media {
       i {
-        font-size: small;
-        line-height: 20px;
-        height: 20px;
-      }
-    }
-    nav {
-      li {
-        font-size: 0.8rem;
+        font-size: 18px;
+        line-height: 18px;
       }
     }
   }
 }
 
-// Tablet
 @media screen and (min-width: 768px) {
-  footer {
-    nav {
-      margin-bottom: 30px;
-      li {
-        font-size: 1.3rem;
+  .footer {
+    .nav {
+      ul {
+        li {
+          font-size: 1.3rem;
+        }
       }
     }
   }
 }
 
-// Desktop
 @media screen and (min-width: 1200px) {
-  footer {
-    nav {
-      li {
-        font-size: 1.3rem;
+  .footer {
+    .nav {
+      ul {
+        li {
+          font-size: 1.3rem;
+        }
       }
     }
   }
