@@ -75,7 +75,7 @@ export default {
   <div class="container-fluid cart-detail">
     <div class="row row-cols-1 row-cols-md-2">
       <div class="col">
-        <div class="cart-sx ">
+        <div class="cart-sx">
           <h1 class="my-4 text-center">Dettagli del Carrello</h1>
 
           <h4 v-if="currentRestaurant">
@@ -140,12 +140,12 @@ export default {
             </button>
           </div>
           <div v-else>
-            <p>Il carrello è vuoto</p>
+            <p class="text-center">Il carrello è vuoto</p>
           </div>
         </div>
       </div>
 
-      <div class="col">
+      <div v-if="cartItems.length > 0" class="col">
         <!--? Passo le props al Paym component -->
         <div class="my-5">
           <Paym
@@ -175,7 +175,7 @@ export default {
 
 .cart-detail {
   padding: 20px;
-  
+
   .buttons {
     display: flex;
     gap: 10px;
@@ -204,7 +204,7 @@ export default {
     border-radius: 50%;
     padding: 5px 7px !important;
     .my-icon {
-      font-size: .8rem;
+      font-size: 0.8rem;
     }
   }
 }

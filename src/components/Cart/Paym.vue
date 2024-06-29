@@ -30,15 +30,16 @@ export default {
       phone: "",
       notes: "",
       orderId: "",
+      btnPay: true,
 
       showPaymentSection: false,
     };
   },
 
-  // async mounted() {
-  //   await this.getClientToken();
-  //   this.setupBraintreeDropIn();
-  // },
+  async mounted() {
+    await this.getClientToken();
+    this.setupBraintreeDropIn();
+  },
 
   methods: {
     ...mapActions(["clearCart"]),
@@ -47,6 +48,7 @@ export default {
       const response = await axios.get(`${store.apiUrl}/payment/token`);
       this.clientToken = response.data.token;
     },
+
     setupBraintreeDropIn() {
       dropin.create(
         {
@@ -63,8 +65,11 @@ export default {
       );
     },
     async submitPayment() {
+      this.btnPay = false;
+
       this.dropinInstance.requestPaymentMethod(async (err, payload) => {
         if (err) {
+          this.btnPay = true;
           this.toast.error(err);
           return;
         }
@@ -97,7 +102,7 @@ export default {
               console.log(response);
               // Svuota il carrello
               this.clearCart();
-
+              this.btnPay = true;
               // Redirect tutto è andato a buon fine!
               this.$router.push({
                 name: "OrderConfirmation",
@@ -105,11 +110,12 @@ export default {
               });
             })
             .catch(function (error) {
+              this.btnPay = true;
               // this.toast.error(error);
               console.log(error);
               // Operazione di invio non andata a buon fine!
               // Ricaricare la pagina per rigenarare il token!
-              // window.location.reload();
+              window.location.reload();
             });
         } else {
           this.toast.error("Pagamento fallito: " + response.data.message);
@@ -125,11 +131,6 @@ export default {
         this.validateEmail(this.email)
       ) {
         this.showPaymentSection = true;
-        this.$nextTick(() => {
-          this.getClientToken().then(() => {
-            this.setupBraintreeDropIn();
-          });
-        });
       } else {
         this.toast.warning(
           "Per favore, compila tutti i campi obbligatori correttamente."
@@ -147,7 +148,8 @@ export default {
 <template>
   <div class="">
     <!--? Form -->
-    <div v-if="!showPaymentSection">
+    <!-- <div v-if="!showPaymentSection"> -->
+    <div>
       <form @submit.prevent="validateForm">
         <!--* Nome e cognome -->
         <div class="my-3">
@@ -244,15 +246,41 @@ export default {
     <!--? /Form -->
 
     <!--! Pagamento -->
-    <div v-if="showPaymentSection">
-      <div id="dropin-container"></div>
-      <button
-        class="btn btn-primary paga-adesso"
-        type="submit"
-        @click="submitPayment"
-      >
-        Paga
-      </button>
+    <div v-show="showPaymentSection" id="process" class="process-pay">
+      <div class="d-flex justify-content-center align-content-center">
+        <div class="pay-box p-3 d-flex flex-column justify-content-center">
+          <div id="dropin-container"></div>
+          <button
+            :class="this.btnPay ? 'd-block' : 'd-none'"
+            class="btn btn-primary paga-adesso mt-2"
+            type="submit"
+            @click="submitPayment"
+          >
+            Paga
+          </button>
+          <div
+            :class="this.btnPay ? 'd-none' : 'd-flex'"
+            class="flex-column justify-content-center text-center"
+          >
+            <p>Stai per essere reindirizzato alla pagina di riepilogo...</p>
+            <div class="my-3">
+              <div class="spinner-grow loaders text-center" role="status">
+                <p class="sr-only">Loading...</p>
+              </div>
+            </div>
+          </div>
+
+          <!--! Close btn -->
+          <div
+            :class="this.btnPay ? 'd-block' : 'd-none'"
+            class="close-btn"
+            @click="showPaymentSection = !showPaymentSection"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <!--! /Close btn -->
+        </div>
+      </div>
     </div>
     <!--! Pagamento -->
   </div>
@@ -262,6 +290,9 @@ export default {
 @use "../../assets/scss/partials/general" as *;
 @use "../../assets/scss/partials/variables" as *;
 
+.loaders {
+  color: #e88735;
+}
 .btn-primary.paga-adesso {
   background-color: #e88735 !important;
   color: #fff !important;
@@ -269,6 +300,46 @@ export default {
   &:hover {
     border-color: #e88735 !important;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.process-pay {
+  // display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15%;
+
+  .pay-box {
+    min-height: 420px;
+    max-height: 60%;
+
+    min-width: 350px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+
+    position: relative;
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      width: 23px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: red;
+      color: #fff;
+      text-align: center;
+      font-size: 0.9em;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
   }
 }
 </style>
