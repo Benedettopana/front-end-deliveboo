@@ -53,9 +53,54 @@ export default {};
       &:hover {
         border-color: #e88735 !important;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  }
+      }
     }
   }
+}
+
+
+@media (max-width: 1200px) {
+    .card-img p { 
+        font-size: 1.8rem;
+        margin-top: 60px;
+    }
+    .card-img h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .card-img p { 
+        font-size: 1.1rem;
+        margin-top: 60px;
+    }
+    .card-img h2 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .rounded-start-4 {
+        border-bottom-left-radius: 0 !important;
+        border-top-right-radius: 3% !important;
+    } 
+    .card-img p {
+        font-size: 1rem;
+        margin-top: 40px;
+    }
+    .card-img h2 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-img p { 
+        font-size: 0.9rem;
+        margin-top: 20px;
+    }
+    .card-img h2 {
+        font-size: 1.1rem;
+    }
 }
 
 
