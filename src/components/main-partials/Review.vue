@@ -134,6 +134,7 @@ export default {
     color: black;
     padding: 30px 20px;
     border-radius: 20px;
+    border: 3px solid rgb(232, 135, 53);
 
     .my-name {
       bottom: 5px;
