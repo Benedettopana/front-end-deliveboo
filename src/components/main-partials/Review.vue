@@ -126,8 +126,9 @@ export default {
   width: 100%;
   margin-top: 50px;
   margin-bottom: 70px;
-
+  
   .review-card {
+    margin: 0 auto;
     width: 250px;
     height: 250px;
     background-color: white;
