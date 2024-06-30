@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+
 export default {
   components: {
     Swiper,
@@ -16,6 +17,7 @@ export default {
   },
 };
 </script>
+
 <template>
   <div class="container-fluid h-100">
     <h1 class="text-center">Dicono di noi</h1>
@@ -42,6 +44,7 @@ export default {
         
           :modules="modules"
           class="mySwiper"
+          loop="true"
         >
           <swiper-slide>
             <div class="review-card position-relative" style="margin-left: 5%;">
