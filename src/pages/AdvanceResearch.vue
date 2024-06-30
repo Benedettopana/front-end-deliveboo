@@ -3,6 +3,7 @@ import AsideAdvResearch from "../components/AdvancedSearch-partials/AsideAdvRese
 import Banner from "../components/AdvancedSearch-partials/Banner.vue";
 import FoodType from "../components/AdvancedSearch-partials/FoodType.vue";
 import Restaurant from "../components/AdvancedSearch-partials/Restaurant.vue";
+import Partner from "../components/Main-partials/Partner.vue";
 import Loader from "../components/partials/Loader.vue";
 
 import { store } from "../data/store";
@@ -14,6 +15,7 @@ export default {
     Banner,
     FoodType,
     Restaurant,
+    Partner,
     Loader,
   },
 

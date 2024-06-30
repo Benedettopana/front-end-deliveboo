@@ -3,7 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay, FreeMode} from "swiper/modules";
+
 export default {
   components: {
     Swiper,
@@ -11,11 +12,12 @@ export default {
   },
   setup() {
     return {
-      modules: [Pagination],
+      modules: [Pagination, Autoplay, FreeMode],
     };
   },
 };
 </script>
+
 <template>
   <div class="container-fluid h-100">
     <h1 class="text-center">Dicono di noi</h1>
@@ -42,6 +44,11 @@ export default {
         
           :modules="modules"
           class="mySwiper"
+          loop="true"
+          :autoplay="{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false }"
+          speed="4000"
+          freeMode="true"
+          freeModeMomentum="false"
         >
           <swiper-slide>
             <div class="review-card position-relative" style="margin-left: 5%;">
@@ -119,18 +126,23 @@ export default {
   width: 100%;
   margin-top: 50px;
   margin-bottom: 70px;
+  
   .review-card {
+    margin: 0 auto;
     width: 250px;
     height: 250px;
     background-color: white;
     color: black;
     padding: 30px 20px;
     border-radius: 20px;
+    border: 3px solid rgb(232, 135, 53);
+
     .my-name {
       bottom: 5px;
       right: 20px;
     };
-    p{
+
+    p {
       font-size: 0.8rem;
       height: 145px;
       max-height: 145px;
