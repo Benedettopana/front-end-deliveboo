@@ -38,7 +38,7 @@ export default {
   z-index: 99;
   border: none;
   outline: none;
-  color: #f6a606;
+  color: #f96d00;
   background-color: white;
   cursor: pointer;
   border-radius: 50%;
@@ -52,7 +52,7 @@ export default {
 }
 
 #myBtn:hover {
-  background-color: #f6a606;
+  background-color: #f96d00;
   color: white;
 
 }

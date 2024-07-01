@@ -133,7 +133,7 @@ $footer-bg-color: #1a1a1a;
     font-size: 1.2rem;
     aspect-ratio: 1;
     color: #fff;
-    background-color: #f6a606;
+    background-color: #f96d00;
     text-align: center;
     margin: 0 6px;
     padding: 7px 7px;
