@@ -36,8 +36,21 @@ export default {
           >
             <nav class="nav text-center">
               <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Ristoranti</a></li>
+                <li>
+                  <router-link :to="{ name: 'home' }" @click="getApi"
+                    >Home</router-link
+                  >
+                </li>
+                <li>
+                  <router-link :to="{ name: 'advanceResearch' }"
+                    >Ristoranti</router-link
+                  >
+                </li>
+                <li>
+                  <router-link :to="{ name: 'advanceResearch' }"
+                    >Accedi</router-link
+                  >
+                </li>
               </ul>
             </nav>
             <div class="social-media d-inline-block">
