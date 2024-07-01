@@ -55,16 +55,16 @@ export default {
             </nav>
             <div class="social-media d-inline-block">
               <div class="flex-nowrap">
-                <a href=""
+                <a 
                   ><i class="fa-brands fa-facebook-f" aria-label="Facebook"></i
                 ></a>
-                <a href=""
+                <a
                   ><i class="fa-brands fa-linkedin-in" aria-label="LinkedIn"></i
                 ></a>
-                <a href=""
+                <a 
                   ><i class="fa-brands fa-instagram" aria-label="Instagram"></i
                 ></a>
-                <a href=""
+                <a 
                   ><i class="fa-brands fa-x-twitter" aria-label="Twitter"></i
                 ></a>
               </div>
@@ -150,6 +150,9 @@ $footer-bg-color: #1a1a1a;
   }
   .fa-instagram {
     padding: 8px 9px;
+  }
+  .fa-brands{
+    cursor: pointer;
   }
 }
 
