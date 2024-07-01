@@ -4,7 +4,7 @@ import Most from "./Main-partials/Most.vue";
 import Counter from "./Main-partials/Counter.vue";
 import Banner from "./Main-partials/Banner.vue";
 import Review from "./Main-partials/Review.vue";
-import PoweredBy from "./Main-partials/PoweredBy.vue";
+import PoweredBy from "./partials/PoweredBy.vue";
 
 import { store } from "../data/store";
 

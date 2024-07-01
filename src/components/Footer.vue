@@ -1,5 +1,5 @@
 <script>
-import PoweredBy from "./Main-partials/PoweredBy.vue";
+import PoweredBy from "./partials/PoweredBy.vue";
 
 export default {
   components: {
