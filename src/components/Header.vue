@@ -107,9 +107,12 @@ export default {
       <!--  -->
       <div class="container">
         <div>
-          <a class="navbar-brand">
-            DeliveBoo!
-          </a>
+          <router-link
+            class="navbar-brand"
+            :to="{ name: 'home' }"
+            @click="getApi"
+            >DeliveBoo!</router-link
+          >
         </div>
         <ul
           class="d-md-flex justify-content-between align-items-center pt-2 d-none"
