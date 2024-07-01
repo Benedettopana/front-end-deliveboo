@@ -1,88 +1,10 @@
-<script>
-import { Swiper, SwiperSlide } from "swiper/vue";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination, Autoplay, FreeMode } from "swiper/modules";
-
-export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  setup() {
-    return {
-      modules: [Pagination, Autoplay, FreeMode],
-    };
-  },
-};
-</script>
+<script></script>
 
 <template>
-  <div class="powered-container">
-    <h1 class="text-center">Powered by:</h1>
-    <div class="mySlider">
-      <swiper
-        :breakpoints="{
-          '0': {
-            slidesPerView: 1,
-          },
-          '550': {
-            slidesPerView: 2,
-          },
-          '820': {
-            slidesPerView: 3,
-          },
-          '1150': {
-            slidesPerView: 4,
-          },
-          '1400': {
-            slidesPerView: 5,
-          },
-        }"
-        :modules="modules"
-        class="mySwiper"
-        loop="true"
-        :autoplay="{
-          delay: 0,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: false,
-        }"
-        speed="4000"
-        freeMode="true"
-        freeModeMomentum="false"
-      >
-        <swiper-slide>
-          <div class="review-card position-relative" style="margin-left: 5%;">
-            <h6>Benny</h6>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="review-card position-relative">
-            <h6>Elena</h6>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="review-card position-relative">
-            <h6>Enrico</h6>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="review-card position-relative">
-            <h6>Eugenio</h6>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="review-card position-relative">
-            <h6>Juri</h6>
-          </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="review-card position-relative">
-            <h6>Mirco</h6>
-          </div>
-        </swiper-slide>
-      </swiper>
+  <div class="tech-slideshow">
+    <div class="mover-1">
+      Powered By: Benny &centerdot; Elena &centerdot; Enrico &centerdot; Eugenio
+      &centerdot; Juri &centerdot; Mirco
     </div>
   </div>
 </template>
@@ -91,20 +13,32 @@ export default {
 @use "../../assets/scss/partials/general" as *;
 @use "../../assets/scss/partials/variables" as *;
 
-.mySlider {
+.tech-slideshow {
+  height: 1.5rem;
   width: 100%;
-  margin-top: 50px;
-  margin-bottom: 70px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  background-color: #1a1a1a;
+  color: #666;
+}
 
-  .review-card {
-    margin: 0 auto;
-    width: 250px;
-    height: 250px;
-    background-color: white;
-    color: black;
-    padding: 30px 20px;
-    border-radius: 20px;
-    border: 3px solid rgb(232, 135, 53);
+.tech-slideshow > div {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  transform: translate3d(0, 0, 0);
+}
+.tech-slideshow .mover-1 {
+  animation: moveSlideshow 15s linear infinite;
+}
+
+@keyframes moveSlideshow {
+  100% {
+    transform: translateX(-140%);
   }
 }
 </style>

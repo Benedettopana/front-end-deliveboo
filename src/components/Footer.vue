@@ -1,10 +1,15 @@
 <script>
 import PoweredBy from "./Main-partials/PoweredBy.vue";
+
+export default {
+  components: {
+    PoweredBy,
+  },
+};
 </script>
 
 <template>
   <footer class="footer">
-    <PoweredBy />
     <div class="main-wrapper text-center">
       <div
         class="row main-row d-flex justify-content-around align-items-center"
@@ -56,6 +61,7 @@ import PoweredBy from "./Main-partials/PoweredBy.vue";
       </div>
     </div>
   </footer>
+  <PoweredBy />
 </template>
 
 <style lang="scss" scoped>
@@ -63,12 +69,6 @@ import PoweredBy from "./Main-partials/PoweredBy.vue";
 @use "../assets/scss/partials/variables" as *;
 
 $footer-bg-color: #1a1a1a;
-
-.powered-container {
-  position: absolute;
-  top: 0;
-  color: white;
-}
 
 .footer {
   background-color: $footer-bg-color;
