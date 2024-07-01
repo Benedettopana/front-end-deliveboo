@@ -33,7 +33,7 @@ export default {
       this.getRestaurantsByType();
     },
 
-    getRestaurantsByType() {
+    async getRestaurantsByType() {
       store.message = "";
       this.store.loadingRestaurant = true;
 
@@ -42,7 +42,7 @@ export default {
           ? this.store.apiUrl + "/restaurants"
           : this.store.apiUrl + "/restaurants/type/?types=" + this.myString;
 
-      axios
+          await axios
         .get(this.ricerca)
         .then((result) => {
           store.restaurants = result.data.restaurants;
@@ -54,7 +54,7 @@ export default {
         })
         .finally(() => {
           setTimeout(() => {
-            this.store.loadingRestaurant = false; // Imposta loading su false dopo 1 secondo
+            this.store.loadingRestaurant = false;
           }, 1500);
           this.myString = "";
         });
@@ -65,9 +65,9 @@ export default {
         this.store.jumboChoose = "";
       }
     },
-    search() {
+    async search() {
       store.message = "";
-      if (this.nameToSearch.length > 0) {
+      if (this.nameToSearch.length > 0 && this.store.restaurants.length > 1) {
         const searchLower = this.nameToSearch.toLowerCase();
         const filteredRestaurants = this.store.restaurants.filter(restaurant =>
         restaurant.name.toLowerCase().includes(searchLower)
@@ -76,7 +76,13 @@ export default {
       this.nameToSearch = "";
     }else{
         this.store.selected = [];
-        this.getRestaurantsByType()
+        await this.getRestaurantsByType();
+        const searchLower = this.nameToSearch.toLowerCase();
+        const filteredRestaurants = this.store.restaurants.filter(restaurant =>
+        restaurant.name.toLowerCase().includes(searchLower)
+      );
+      store.restaurants = filteredRestaurants;
+      this.nameToSearch = "";
       }
     },
   },
