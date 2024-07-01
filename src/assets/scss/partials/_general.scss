@@ -16,3 +16,22 @@ body {
     width: 100% !important;
   }
 }
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #e88735;
+}
+
+// For FireFox
+* {
+  scrollbar-width: auto;
+  scrollbar-color: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
