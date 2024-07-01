@@ -47,7 +47,7 @@ export default {
                   >
                 </li>
                 <li class="">
-                  <a href="http://127.0.0.1:8000">Accedi</a>
+                  <a href="http://127.0.0.1:8000">Area Ristoratori</a>
                 </li>
               </ul>
             </nav>

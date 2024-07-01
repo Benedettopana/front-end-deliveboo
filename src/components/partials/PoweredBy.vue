@@ -3,7 +3,7 @@
 <template>
   <div class="tech-slideshow">
     <div class="mover-1">
-      Powered By: Benny &centerdot; Elena &centerdot; Enrico &centerdot; Eugenio
+      Powered By: Benedetto &centerdot; Elena &centerdot; Enrico &centerdot; Eugenio
       &centerdot; Juri &centerdot; Mirco
     </div>
   </div>
