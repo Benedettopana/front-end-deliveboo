@@ -106,10 +106,13 @@ export default {
     >
       <!--  -->
       <div class="container">
-        <a class="navbar-brand pt-0">Boo</a>
-
+        <div>
+          <a class="navbar-brand">
+            DeliveBoo!
+          </a>
+        </div>
         <ul
-          class="d-md-flex justify-content-center align-items-center pt-2 d-none"
+          class="d-md-flex justify-content-between align-items-center pt-2 d-none"
         >
           <li class="me-3">
             <router-link :to="{ name: 'home' }" @click="getApi"
@@ -205,6 +208,8 @@ export default {
 @use "../assets/scss/partials/general" as *;
 @use "../assets/scss/partials/variables" as *;
 
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
 header {
   width: 99vw !important;
   @media screen and (max-width: 700px) {
@@ -217,6 +222,14 @@ header {
 
     &.navbar-scrolled {
       background-color: #181b21;
+    }
+
+    .navbar-brand {
+      display: none;
+      color: #fff;
+      font-family: "Pacifico", cursive;
+      text-shadow: 1px 2px 0px #478860;
+      transform: rotate(-5deg);
     }
 
     li {
@@ -241,6 +254,9 @@ header.container-fluid {
 header.scrolled nav {
   background-color: #181b21;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  .navbar-brand {
+    display: block;
+  }
 }
 
 .offcanvas-body {
