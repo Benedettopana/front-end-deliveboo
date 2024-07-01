@@ -22,18 +22,21 @@ body {
 // Scrollbar
 ::-webkit-scrollbar {
   width: 4px;
-  background-color: #1a1a1a;
+  background-color: #181b21;
 }
 ::-webkit-scrollbar-thumb {
   background: #e88735;
 }
 
 // For FireFox
-* {
+html {
   scrollbar-width: auto;
-  scrollbar-color: transparent;
+  scrollbar-color: #e88735 #181b21;
 }
-
-*::-webkit-scrollbar-track {
-  background: transparent;
+body::-webkit-scrollbar {
+  width: 4px;
+  background-color: #181b21;
+  ::-webkit-scrollbar-thumb {
+    background: #e88735;
+  }
 }
