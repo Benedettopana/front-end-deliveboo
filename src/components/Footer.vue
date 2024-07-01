@@ -15,9 +15,11 @@ export default {
         class="row main-row d-flex justify-content-around align-items-center"
       >
         <div class="col-3">
+
           <div class="navbar-brand">
             DeliveBoo!
           </div>
+
           <!-- <div class="container d-flex align-items-center gap-3">
             <p class="powered-by gap-1">Powered by:
               <ul class="powered-by list-unstyled ">
