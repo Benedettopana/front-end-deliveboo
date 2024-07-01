@@ -72,88 +72,97 @@ export default {
 };
 </script>
 <template>
-  <div class="container-fluid cart-detail d-flex justify-content-center"
-  :class="{'sinistra': cartItems.length > 0}">
-    <div class="row col-12" style="justify-content: center;">
-      <div class="col-12 col-md-6">
-        <div class="cart-sx">
-          <h1 class="my-4 text-center">Dettagli del Carrello</h1>
 
-          <h4 v-if="currentRestaurant">
-            Ordine da: <router-link :to=" {name: 'restaurantMenu', params:{ id:'currentRestaurant.id' }} " class="router-restaurant" ><strong>{{ currentRestaurant.name }}</strong></router-link>
-          </h4>
-          <div v-if="cartItems.length > 0">
-            <div>
-              <div v-for="(item, index) in cartItems" :key="index" class="my-3">
-                <div class="d-md-flex">
-                  <div class="dish-img">
-                    <img
-                      :src="`${imageUrl(item.dish.image)}`"
-                      class="card-img"
-                      :alt="item.name"
-                    />
-                  </div>
-                  <div class="align-content-center ms-md-3">
-                    {{ item.dish.name }} - &euro;{{
-                      item.dish.price.replace(".", ",")
-                    }}
-                  </div>
-                </div>
-                <div class="buttons mb-3">
-                  <button
-                    @click="decrementItem(item.dish)"
-                    class="btn my-btn"
-                    style="
-                      --bs-btn-padding-y: 0.25rem;
-                      --bs-btn-padding-x: 0.5rem;
-                      --bs-btn-font-size: 0.75rem;
-                    "
-                  >
-                    <i class="fa-solid fa-minus my-icon"></i>
-                  </button>
+  <div class="cart-page d-flex flex-column min-vh-100">
+    <div
+      class="container-fluid cart-detail d-flex flex-grow-1 justify-content-center"
+      :class="{ sinistra: cartItems.length > 0 }"
+    >
+      <div class="row col-12 cart-content" style="justify-content: center">
+        <div class="col-12 col-md-6">
+          <div class="cart-sx">
+            <h1 class="my-4 text-center">Dettagli del Carrello</h1>
 
-                  <div class="text-center pt-1">
-                    {{ item.quantity }}
+            <h4 v-if="currentRestaurant">
+              Ordine da: <router-link :to=" {name: 'restaurantMenu', params:{ id:'currentRestaurant.id' }} " class="router-restaurant" ><strong>{{ currentRestaurant.name }}</strong></router-link>
+            </h4>
+            <div v-if="cartItems.length > 0">
+              <div>
+                <div
+                  v-for="(item, index) in cartItems"
+                  :key="index"
+                  class="my-3"
+                >
+                  <div class="d-md-flex">
+                    <div class="dish-img">
+                      <img
+                        :src="`${imageUrl(item.dish.image)}`"
+                        class="card-img"
+                        :alt="item.name"
+                      />
+                    </div>
+                    <div class="align-content-center ms-md-3">
+                      {{ item.dish.name }} - &euro;{{
+                        item.dish.price.replace(".", ",")
+                      }}
+                    </div>
                   </div>
+                  <div class="buttons mb-3">
+                    <button
+                      @click="decrementItem(item.dish)"
+                      class="btn my-btn"
+                      style="
+                        --bs-btn-padding-y: 0.25rem;
+                        --bs-btn-padding-x: 0.5rem;
+                        --bs-btn-font-size: 0.75rem;
+                      "
+                    >
+                      <i class="fa-solid fa-minus my-icon"></i>
+                    </button>
 
-                  <button
-                    @click="incrementItem(item.dish)"
-                    class="btn my-btn"
-                    style="
-                      --bs-btn-padding-y: 0.25rem;
-                      --bs-btn-padding-x: 0.5rem;
-                      --bs-btn-font-size: 0.75rem;
-                    "
-                  >
-                    <i class="fa-solid fa-plus my-icon"></i>
-                  </button>
+                    <div class="text-center pt-1">
+                      {{ item.quantity }}
+                    </div>
+
+                    <button
+                      @click="incrementItem(item.dish)"
+                      class="btn my-btn"
+                      style="
+                        --bs-btn-padding-y: 0.25rem;
+                        --bs-btn-padding-x: 0.5rem;
+                        --bs-btn-font-size: 0.75rem;
+                      "
+                    >
+                      <i class="fa-solid fa-plus my-icon"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
+              <div>
+                <h4>Totale: &euro;{{ totalPrice.replace(".", ",") }}</h4>
+              </div>
+              <button
+                @click="clearCartHandler"
+                class="btn btn-outline-warning my-3 svuota-carrello"
+              >
+                Svuota Carrello
+              </button>
             </div>
-            <div>
-              <h4>Totale: &euro;{{ totalPrice.replace(".", ",") }}</h4>
+            <div v-else>
+              <p class="text-center">Il carrello è vuoto</p>
             </div>
-            <button
-              @click="clearCartHandler"
-              class="btn btn-outline-warning my-3 svuota-carrello"
-            >
-              Svuota Carrello
-            </button>
-          </div>
-          <div v-else>
-            <p class="text-center">Il carrello è vuoto</p>
           </div>
         </div>
-      </div>
 
-      <div v-if="cartItems.length > 0" class="col-12 col-md-6">
-        <!--? Passo le props al Paym component -->
-        <div class="my-5">
-          <Paym
-            :cartItems="cartItems"
-            :totalPrice="totalPrice"
-            :currentRestaurant="currentRestaurant"
-          />
+        <div v-if="cartItems.length > 0" class="col-12 col-md-6">
+          <!--? Passo le props al Paym component -->
+          <div class="my-5">
+            <Paym
+              :cartItems="cartItems"
+              :totalPrice="totalPrice"
+              :currentRestaurant="currentRestaurant"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -163,6 +172,12 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/scss/partials/general" as *;
 @use "../assets/scss/partials/variables" as *;
+
+.cart-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 .dish-img {
   height: 100px;
@@ -176,6 +191,10 @@ export default {
 
 .cart-detail {
   padding: 20px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
 
   .buttons {
     display: flex;
@@ -186,6 +205,10 @@ export default {
       text-align: center;
     }
   }
+}
+
+.cart-content {
+  flex-grow: 1;
 }
 
 // .card-img {
@@ -237,8 +260,8 @@ export default {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   }
 
-  .sinistra{
-    justify-content: left!important;
+  .sinistra {
+    justify-content: left !important;
   }
 }
 </style>
