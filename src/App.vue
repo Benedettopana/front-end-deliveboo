@@ -65,18 +65,17 @@ export default {
 </script>
 
 <template>
-  <Header />
   <!--* Loader -->
   <div v-if="store.loading">
-    <Loader/>
+    <Loader />
   </div>
   <!--* /Loader -->
   <!--? Contenuto Pagina -->
   <div v-else class="main-content">
+    <Header />
     <router-view></router-view>
+    <Footer />
   </div>
-
-  <Footer />
 </template>
 
 <style lang="scss">
