@@ -20,7 +20,7 @@ body {
 // Scrollbar
 ::-webkit-scrollbar {
   width: 4px;
-  background-color: #1a1a1a;
+  background-color: #181b21;
 }
 ::-webkit-scrollbar-thumb {
   background: #e88735;
@@ -29,11 +29,11 @@ body {
 // For FireFox
 html {
   scrollbar-width: auto;
-  scrollbar-color: #e88735 #1a1a1a;
+  scrollbar-color: #e88735 #181b21;
 }
 body::-webkit-scrollbar {
   width: 4px;
-  background-color: #1a1a1a;
+  background-color: #181b21;
   ::-webkit-scrollbar-thumb {
     background: #e88735;
   }
