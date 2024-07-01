@@ -55,12 +55,12 @@ export default {
     </div>
 
     <div class="row row-cols-2 my-5 px-3">
-      <!-- <div class="col-0 col-md-0 col-xl-2 d-none d-xl-block"> -->
-      <!-- <AsideMenu /> -->
-      <!-- </div> -->
-      <div class="col-7 col-md-8">
+      <div class="col-0 col-xl-3 d-none d-xl-block">
+        <!-- <AsideMenu /> -->
+      </div>
+      <div class="col-7 col-md-8 col-xl-6">
         <!--? Card piatti -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+        <div class="row row-cols-1 row-cols-md-2">
           <FoodCard
             v-for="dish in store.restaurant_detail.dishes"
             :key="dish.id"
@@ -74,7 +74,7 @@ export default {
         </div>
         <!--? /Card piatti -->
       </div>
-      <div class="col-5 col-md-4">
+      <div class="col-5 col-md-4 col-xl-3">
         <AsideCart />
       </div>
     </div>
