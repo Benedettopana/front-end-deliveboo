@@ -51,16 +51,40 @@ export default {
 .menuJumbo{
   // width: 100%;
   overflow: hidden;
-  img{
-    max-height: calc(75vh);
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position:center;
-    pointer-events: none;
-    position: absolute;
-    z-index: -1;
-    opacity: 0.5;
+   img{
+     height: 100%;
+     width: 100%;
+     object-fit: cover;
+     object-position:center;
+     pointer-events: none;
+     position: absolute;
+     z-index: -1;
+     opacity: 0.5;
+    }
   }
+  // Mobile
+  @media screen and (max-width: 660px) {
+    
+  }
+  
+  // Tablet
+  @media screen and (min-width: 768px) {
+    .menuJumbo{
+    img{
+      max-height: calc(52vh);
+
+    }
+  }
+  }
+  
+  // Desktop
+  @media screen and (min-width: 1200px) {
+  .menuJumbo{
+    img{
+      max-height: calc(60vh);
+
+    }
+  }
+  
 }
 </style>
