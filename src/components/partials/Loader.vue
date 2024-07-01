@@ -1,9 +1,16 @@
 <script>
-export default {};
+import { store } from '../../data/store'
+export default {
+  data(){
+    return{
+      store
+    }
+  },
+};
 </script>
 <template>
   <div>
-    <div class="load">
+    <div :class="['load', { 'min-eight100' : this.store.loading  } ] ">
       <div class="pan-loader">
         <div class="loader"></div>
         <div class="pan-container">
@@ -24,7 +31,10 @@ export default {};
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.min-eight100{
   min-height: 100vh;
+  
 }
 @keyframes loader {
   0% {

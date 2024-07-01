@@ -12,4 +12,6 @@ export let store = reactive({
   message: "",
   jumboChoose: "",
   selected: [],
+  types: [],
+  loadingRestaurant: false,
 });

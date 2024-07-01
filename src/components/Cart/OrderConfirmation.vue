@@ -9,9 +9,9 @@ export default {
 
 <template>
   <div class="container-fluid m-5">
-    <div class="p-5">
+    <div class="p-5 text-center">
       <h1>Ordine Confermato</h1>
-      <p>Il tuo ordine è andato a buon fine!</p>
+      <h5 class="py-4">Il tuo ordine è andato a buon fine!</h5>
       <p>
         Codice della transazione: <strong>{{ orderId }}</strong>
       </p>
