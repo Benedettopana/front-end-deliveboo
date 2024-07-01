@@ -187,7 +187,6 @@ export default {
 @use "../assets/scss/partials/general" as *;
 @use "../assets/scss/partials/variables" as *;
 
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 .container-fluid.jumbotron {
   margin-top: 0 !important;
@@ -195,7 +194,6 @@ export default {
 
 .slider {
   margin: 0;
-  font-family: monospace;
   position: relative;
   width: 100%;
   height: 100vh;
