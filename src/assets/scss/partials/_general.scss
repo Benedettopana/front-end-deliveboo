@@ -27,11 +27,14 @@ body {
 }
 
 // For FireFox
-* {
+html {
   scrollbar-width: auto;
-  scrollbar-color: transparent;
+  scrollbar-color: #e88735 #1a1a1a;
 }
-
-*::-webkit-scrollbar-track {
-  background: transparent;
+body::-webkit-scrollbar {
+  width: 4px; /* Larghezza della scrollbar */
+  background-color: #1a1a1a; /* Colore del track */
+  ::-webkit-scrollbar-thumb {
+    background: #e88735; /* Colore del thumb */
+  }
 }
