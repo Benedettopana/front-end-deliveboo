@@ -104,16 +104,14 @@ export default {
       class="navbar fixed-top"
       :class="{ 'navbar-scrolled': isScrolled || !isHomePage }"
     >
-      <!--  -->
       <div class="container">
         <div>
-
           <router-link
             class="navbar-brand"
             :to="{ name: 'home' }"
             @click="getApi"
             >DeliveBoo!</router-link
-
+          >
         </div>
         <ul
           class="d-md-flex justify-content-between align-items-center pt-2 d-none"
