@@ -15,7 +15,11 @@ export default {
         class="row main-row d-flex justify-content-around align-items-center"
       >
         <div class="col-3">
-          <img src="/img/logo.png" alt="Logo" class="logo" />
+
+          <div class="navbar-brand">
+            DeliveBoo!
+          </div>
+
           <!-- <div class="container d-flex align-items-center gap-3">
             <p class="powered-by gap-1">Powered by:
               <ul class="powered-by list-unstyled ">
@@ -53,16 +57,16 @@ export default {
             </nav>
             <div class="social-media d-inline-block">
               <div class="flex-nowrap">
-                <a href=""
+                <a 
                   ><i class="fa-brands fa-facebook-f" aria-label="Facebook"></i
                 ></a>
-                <a href=""
+                <a
                   ><i class="fa-brands fa-linkedin-in" aria-label="LinkedIn"></i
                 ></a>
-                <a href=""
+                <a 
                   ><i class="fa-brands fa-instagram" aria-label="Instagram"></i
                 ></a>
-                <a href=""
+                <a 
                   ><i class="fa-brands fa-x-twitter" aria-label="Twitter"></i
                 ></a>
               </div>
@@ -87,6 +91,13 @@ $footer-bg-color: #1a1a1a;
   padding: 20px;
   .col-6 {
     width: fit-content;
+  }
+  .navbar-brand {
+    color: #fff;
+    font-size: 2.5rem;
+    font-family: "Pacifico", cursive;
+    text-shadow: 3px 3px 0px #478860;
+    transform: rotate(-5deg);
   }
 }
 
@@ -141,6 +152,9 @@ $footer-bg-color: #1a1a1a;
   }
   .fa-instagram {
     padding: 8px 9px;
+  }
+  .fa-brands{
+    cursor: pointer;
   }
 }
 
