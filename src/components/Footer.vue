@@ -15,7 +15,9 @@ export default {
         class="row main-row d-flex justify-content-around align-items-center"
       >
         <div class="col-3">
-          <img src="/public/img/logo.png" alt="Logo" class="logo" />
+          <div class="navbar-brand">
+            DeliveBoo!
+          </div>
           <!-- <div class="container d-flex align-items-center gap-3">
             <p class="powered-by gap-1">Powered by:
               <ul class="powered-by list-unstyled ">
@@ -87,6 +89,13 @@ $footer-bg-color: #1a1a1a;
   padding: 20px;
   .col-6 {
     width: fit-content;
+  }
+  .navbar-brand {
+    color: #fff;
+    font-size: 2.5rem;
+    font-family: "Pacifico", cursive;
+    text-shadow: 3px 3px 0px #478860;
+    transform: rotate(-5deg);
   }
 }
 
