@@ -27,11 +27,25 @@ export default {
 
   mounted() {
     // Se restauntDetail è vuoto ridireziono alla advanceResearch
+    // if (store.restaurant_detail.length == 0) {
+    //   this.redirectFunction();
+    // }
+    // console.log("restaurant info", this.store.restaurant_detail);
+    // console.log("TIPO>>>>", this.store.restaurant_detail.types[0].name);
+
     if (store.restaurant_detail.length == 0) {
       this.redirectFunction();
+    } else {
+      console.log("restaurant info", this.store.restaurant_detail);
+      if (
+        this.store.restaurant_detail.types &&
+        this.store.restaurant_detail.types[0]
+      ) {
+        console.log("TIPO>>>>", this.store.restaurant_detail.types[0].name);
+      } else {
+        console.log("Nessun tipo di ristorante trovato");
+      }
     }
-    console.log("restaurant info", this.store.restaurant_detail);
-    console.log("TIPO>>>>", this.store.restaurant_detail.types[0].name);
   },
 };
 </script>
@@ -39,7 +53,8 @@ export default {
 <template>
   <div class="containter-fluid menuJumbo">
     <img
-      :src="`img/restaurant-img/${this.store.restaurant_detail.types[0].name}.jpg`"
+      v-if="store.restaurant_detail.types && store.restaurant_detail.types[0]"
+      :src="`img/restaurant-img/${store.restaurant_detail.types[0].name}.jpg`"
       alt="Food-picture"
     />
   </div>
