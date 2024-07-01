@@ -1,8 +1,10 @@
 body {
+  font-family: "Josefin Sans", sans-serif !important;
   scroll-behavior: smooth;
   overflow-x: hidden !important;
   width: 100vw !important;
   background-color: rgb(245, 245, 245);
+
   .container-fluid {
     --bs-gutter-x: 0 !important;
   }
@@ -15,4 +17,23 @@ body {
   img {
     width: 100% !important;
   }
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #e88735;
+}
+
+// For FireFox
+* {
+  scrollbar-width: auto;
+  scrollbar-color: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
 }
