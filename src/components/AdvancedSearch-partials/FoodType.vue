@@ -144,7 +144,6 @@ $type-card-text-color: #000000;
 //   color: #e88735;
 // }
 
-
 .type-card {
   color: $type-card-text-color;
   background-color: white;
@@ -154,7 +153,7 @@ $type-card-text-color: #000000;
   align-items: center;
 
   // formato
-  // width: 130px;
+  min-width: 100px;
   // aspect-ratio: 1;
   border: 3px solid #e88735;
   border-radius: 20px;
