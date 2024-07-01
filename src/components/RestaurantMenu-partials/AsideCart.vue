@@ -71,7 +71,7 @@ export default {
         </p>
         <div>
           <!-- <p class="mt-4 fst-italic">Il tuo ordine: -->
-            <!-- <strong>Il tuo ordine:</strong> -->
+          <!-- <strong>Il tuo ordine:</strong> -->
           <!-- </p> -->
           <ul class="px-0 px-md-2">
             <li v-for="(item, index) in cartItems" :key="index" class="mb-3">
@@ -87,11 +87,7 @@ export default {
                 <button
                   class="btn"
                   @click="decrementItem(item.dish)"
-                  style="
-                    --bs-btn-padding-y: 0.25rem;
-                    --bs-btn-padding-x: 0.5rem;
-                    --bs-btn-font-size: 0.75rem;
-                  "
+                  style="--bs-btn-font-size: 0.75rem"
                 >
                   <i class="fa-solid fa-minus my-icon my-btn"></i>
                 </button>
@@ -102,13 +98,9 @@ export default {
 
                 <!--? Incremento -->
                 <button
-                  class="btn "
+                  class="btn"
                   @click="incrementItem(item.dish)"
-                  style="
-                    --bs-btn-padding-y: 0.25rem;
-                    --bs-btn-padding-x: 0.5rem;
-                    --bs-btn-font-size: 0.75rem;
-                  "
+                  style="--bs-btn-font-size: 0.75rem"
                 >
                   <i class="fa-solid fa-plus my-icon my-btn"></i>
                 </button>
@@ -127,8 +119,6 @@ export default {
               Ordina adesso
             </router-link>
           </div>
-
-
 
           <!-- <div class="d-md-flex mx-md-3 mx-xl-0 d-md-block">
             <button
@@ -181,7 +171,7 @@ $cart-text-color: #000;
 
   .buttons {
     display: flex;
-    gap: 10px;
+    // gap: 10px;
     margin-top: 10px;
 
     & button {
@@ -196,7 +186,7 @@ $cart-text-color: #000;
     padding: 7px 7px !important;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     .my-icon {
-      font-size: .8rem;
+      font-size: 0.8rem;
     }
   }
 }
