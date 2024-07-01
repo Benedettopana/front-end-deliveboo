@@ -46,10 +46,8 @@ export default {
                     >Ristoranti</router-link
                   >
                 </li>
-                <li>
-                  <router-link :to="{ name: 'advanceResearch' }"
-                    >Accedi</router-link
-                  >
+                <li class="">
+                  <a href="http://127.0.0.1:8000">Accedi</a>
                 </li>
               </ul>
             </nav>
