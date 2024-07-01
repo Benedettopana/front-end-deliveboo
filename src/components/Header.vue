@@ -111,23 +111,23 @@ export default {
         <ul
           class="d-md-flex justify-content-center align-items-center pt-2 d-none"
         >
-          <li class="mx-3">
+          <li class="me-3">
             <router-link :to="{ name: 'home' }" @click="getApi"
               >Home</router-link
             >
           </li>
-          <li class="mx-2">
+          <li class="me-3">
             <router-link :to="{ name: 'advanceResearch' }"
               >Ristoranti</router-link
             >
           </li>
-          <li class="mx-3">
+          <li class="me-3">
             <router-link :to="{ name: 'cart' }">Carrello</router-link>
           </li>
 
-          <li class="mx-3">
+          <!-- <li class="">
             <a href="http://127.0.0.1:8000">Accedi</a>
-          </li>
+          </li> -->
           <!-- <li class="mx-3">
             <router-link :to="{ name: 'restaurantMenu' }"
               >Menu Ristorante</router-link
