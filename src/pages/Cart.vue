@@ -72,9 +72,10 @@ export default {
 };
 </script>
 <template>
-  <div class="container-fluid cart-detail">
-    <div class="row row-cols-1 row-cols-md-2">
-      <div class="col">
+  <div class="container-fluid cart-detail d-flex justify-content-center"
+  :class="{'sinistra': cartItems.length > 0}">
+    <div class="row col-12" style="justify-content: center;">
+      <div class="col-12 col-md-6">
         <div class="cart-sx">
           <h1 class="my-4 text-center">Dettagli del Carrello</h1>
 
@@ -145,7 +146,7 @@ export default {
         </div>
       </div>
 
-      <div v-if="cartItems.length > 0" class="col">
+      <div v-if="cartItems.length > 0" class="col-12 col-md-6">
         <!--? Passo le props al Paym component -->
         <div class="my-5">
           <Paym
@@ -196,8 +197,8 @@ export default {
 .cart-sx {
   border: 3px solid rgb(232, 135, 53);
   border-radius: 20px;
-  width: 70%;
-  padding-left: 30px;
+
+  padding: 20px;
   .my-btn {
     border: 3px solid #e88735;
     color: #e88735 !important;
@@ -230,6 +231,10 @@ export default {
     background-color: #e88735 !important;
     border-color: none !important;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .sinistra{
+    justify-content: left!important;
   }
 }
 </style>
