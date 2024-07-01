@@ -1,4 +1,12 @@
-<script></script>
+<script>
+import PoweredBy from "./partials/PoweredBy.vue";
+
+export default {
+  components: {
+    PoweredBy,
+  },
+};
+</script>
 
 <template>
   <footer class="footer">
@@ -8,7 +16,18 @@
       >
         <div class="col-3">
           <img src="/public/img/logo.png" alt="Logo" class="logo" />
-          <p class="powered-by">powered by Team 5</p>
+          <!-- <div class="container d-flex align-items-center gap-3">
+            <p class="powered-by gap-1">Powered by:
+              <ul class="powered-by list-unstyled ">
+                <li>Benny</li>
+                <li>Elena</li>
+                <li>Enrico</li>
+                <li>Eugenio</li>
+                <li>Juri</li>
+                <li>Mirco</li>
+              </ul>
+            </p>
+          </div> -->
         </div>
 
         <div class="col-6">
@@ -17,8 +36,19 @@
           >
             <nav class="nav text-center">
               <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Ristoranti</a></li>
+                <li>
+                  <router-link :to="{ name: 'home' }" @click="getApi"
+                    >Home</router-link
+                  >
+                </li>
+                <li>
+                  <router-link :to="{ name: 'advanceResearch' }"
+                    >Ristoranti</router-link
+                  >
+                </li>
+                <li class="">
+                  <a href="http://127.0.0.1:8000">Accedi</a>
+                </li>
               </ul>
             </nav>
             <div class="social-media d-inline-block">
@@ -42,6 +72,7 @@
       </div>
     </div>
   </footer>
+  <PoweredBy />
 </template>
 
 <style lang="scss" scoped>
