@@ -32,9 +32,9 @@ html {
   scrollbar-color: #e88735 #1a1a1a;
 }
 body::-webkit-scrollbar {
-  width: 4px; /* Larghezza della scrollbar */
-  background-color: #1a1a1a; /* Colore del track */
+  width: 4px;
+  background-color: #1a1a1a;
   ::-webkit-scrollbar-thumb {
-    background: #e88735; /* Colore del thumb */
+    background: #e88735;
   }
 }
