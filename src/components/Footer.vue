@@ -1,14 +1,28 @@
-<script></script>
+<script>
+import PoweredBy from "./Main-partials/PoweredBy.vue";
+</script>
 
 <template>
   <footer class="footer">
+    <PoweredBy />
     <div class="main-wrapper text-center">
       <div
         class="row main-row d-flex justify-content-around align-items-center"
       >
         <div class="col-3">
           <img src="/public/img/logo.png" alt="Logo" class="logo" />
-          <p class="powered-by">powered by Team 5</p>
+          <!-- <div class="container d-flex align-items-center gap-3">
+            <p class="powered-by gap-1">Powered by:
+              <ul class="powered-by list-unstyled ">
+                <li>Benny</li>
+                <li>Elena</li>
+                <li>Enrico</li>
+                <li>Eugenio</li>
+                <li>Juri</li>
+                <li>Mirco</li>
+              </ul>
+            </p>
+          </div> -->
         </div>
 
         <div class="col-6">
@@ -49,6 +63,12 @@
 @use "../assets/scss/partials/variables" as *;
 
 $footer-bg-color: #1a1a1a;
+
+.powered-container {
+  position: absolute;
+  top: 0;
+  color: white;
+}
 
 .footer {
   background-color: $footer-bg-color;
