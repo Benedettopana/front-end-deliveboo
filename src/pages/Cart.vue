@@ -80,7 +80,7 @@ export default {
           <h1 class="my-4 text-center">Dettagli del Carrello</h1>
 
           <h4 v-if="currentRestaurant">
-            Ordine da: <strong>{{ currentRestaurant.name }}</strong>
+            Ordine da: <router-link :to=" {name: 'restaurantMenu', params:{ id:'currentRestaurant.id' }} " ><strong>{{ currentRestaurant.name }}</strong></router-link>
           </h4>
           <div v-if="cartItems.length > 0">
             <div>
