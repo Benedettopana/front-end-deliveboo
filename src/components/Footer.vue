@@ -120,7 +120,7 @@ $footer-bg-color: #1a1a1a;
         color: #fff;
 
         &:hover {
-          color: #f6a606;
+          color: #f96d00;
         }
       }
     }
