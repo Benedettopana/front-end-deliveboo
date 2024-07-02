@@ -2,8 +2,6 @@
 import axios from "axios";
 import { store } from "../../data/store.js";
 
-
-
 export default {
   data() {
     return {
@@ -19,8 +17,6 @@ export default {
   },
 
   methods: {
-    
-
     saveTypes(typeName) {
       if (this.store.selected.includes(typeName)) {
         this.store.selected = this.store.selected.filter(
@@ -42,7 +38,7 @@ export default {
           ? this.store.apiUrl + "/restaurants"
           : this.store.apiUrl + "/restaurants/type/?types=" + this.myString;
 
-          await axios
+      await axios
         .get(this.ricerca)
         .then((result) => {
           store.restaurants = result.data.restaurants;
@@ -69,20 +65,20 @@ export default {
       store.message = "";
       if (this.nameToSearch.length > 0 && this.store.restaurants.length > 1) {
         const searchLower = this.nameToSearch.toLowerCase();
-        const filteredRestaurants = this.store.restaurants.filter(restaurant =>
-        restaurant.name.toLowerCase().includes(searchLower)
-      );
-      store.restaurants = filteredRestaurants;
-      this.nameToSearch = "";
-    }else{
+        const filteredRestaurants = this.store.restaurants.filter(
+          (restaurant) => restaurant.name.toLowerCase().includes(searchLower)
+        );
+        store.restaurants = filteredRestaurants;
+        this.nameToSearch = "";
+      } else {
         this.store.selected = [];
         await this.getRestaurantsByType();
         const searchLower = this.nameToSearch.toLowerCase();
-        const filteredRestaurants = this.store.restaurants.filter(restaurant =>
-        restaurant.name.toLowerCase().includes(searchLower)
-      );
-      store.restaurants = filteredRestaurants;
-      this.nameToSearch = "";
+        const filteredRestaurants = this.store.restaurants.filter(
+          (restaurant) => restaurant.name.toLowerCase().includes(searchLower)
+        );
+        store.restaurants = filteredRestaurants;
+        this.nameToSearch = "";
       }
     },
   },
@@ -96,15 +92,15 @@ export default {
   <div class="container-fluid">
     <div class="container">
       <form class="d-flex my-5 pt-5" role="search" @submit.prevent="search">
-           <input
-             class="form-control me-2"
-             type="search"
-             placeholder="Ricerca per Nome"
-             aria-label="Search"
-             v-model.trim="this.nameToSearch"
-           />
-           <button class="btn btn-warning search" type="submit">Cerca</button>
-         </form>
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Ricerca per Nome"
+          aria-label="Search"
+          v-model.trim="this.nameToSearch"
+        />
+        <button class="btn btn-warning search" type="submit">Cerca</button>
+      </form>
     </div>
     <!--? Riga -->
     <div class="row justify-content-center px-5">
@@ -158,6 +154,7 @@ $type-card-text-color: #000000;
   border: 3px solid #e88735;
   border-radius: 20px;
   font-weight: 500;
+
   // /formato
   cursor: pointer;
 
@@ -197,7 +194,7 @@ $type-card-text-color: #000000;
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: #e88735 !important;
   --bs-gradient: none;
-  background-color:#e88735 !important;
+  background-color: #e88735 !important;
   // border: none !important;
   &:hover {
     color: #fff;
@@ -206,12 +203,17 @@ $type-card-text-color: #000000;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   }
 }
-input{
-  border-radius:22px !important;
+input {
+  border-radius: 22px !important;
 }
-input:focus{
-  border-color:#e88735 !important;
-  box-shadow: 0 0 0 0.25rem rgba(232, 135, 53, .4)
-  !important;
+input:focus {
+  border-color: #e88735 !important;
+  box-shadow: 0 0 0 0.25rem rgba(232, 135, 53, 0.4) !important;
+}
+
+@media (max-width: 992px) {
+  .type-card {
+    font-size: 0.8em;
+  }
 }
 </style>
