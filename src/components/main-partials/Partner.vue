@@ -57,6 +57,7 @@ export default {};
       height: 100%;
       width: 100% !important;
       object-fit: cover;
+      object-position: left;
       border-radius: 20px 20px 0 0;
     }
   }
