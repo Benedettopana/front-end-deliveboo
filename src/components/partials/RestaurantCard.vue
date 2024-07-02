@@ -27,6 +27,18 @@ export default {
         });
     },
   },
+
+  computed: {
+    imageUrl() {
+      const baseUrl = "http://localhost:8000/storage";
+      if(this.restaurant.image && this.restaurant.image.startsWith('http')) {
+        return this.restaurant.image;
+      } else {
+
+        return `${baseUrl}/${this.restaurant.image}`;
+      }
+    },
+  },
 };
 </script>
 <template>
@@ -46,7 +58,9 @@ export default {
         style="width: 18rem;"
         @click="getRestaurantDetail(restaurant.id)"
       >
-        <img :src="restaurant.image" class="card-img-top" alt="..." />
+      
+      <!-- <img :src="restaurant.image" class="card-img-top" alt="..." /> -->
+      <img :src="imageUrl" class="card-img-top" :alt="restaurant.name" />
         <div class="card-body">
           <h5 class="card-title">{{ restaurant.name }}</h5>
           <p class="card-text">{{ restaurant.address }}</p>
