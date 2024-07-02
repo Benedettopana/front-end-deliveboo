@@ -51,14 +51,16 @@ export default {
 </script>
 
 <template>
-  <div class="containter-fluid menuJumbo min-vh-100">
+  <div class="containter-fluid menuJumbo">
     <img
       v-if="store.restaurant_detail.types && store.restaurant_detail.types[0]"
       :src="`img/restaurant-img/${store.restaurant_detail.types[0].name}.jpg`"
       alt="Food-picture"
     />
   </div>
-  <div class="container-fluid my-5 d-flex flex-column align-items-center">
+  <div
+    class="container-fluid my-5 d-flex flex-column align-items-center min-vh-100"
+  >
     <div class="col-8 col-xl-6 food-card card">
       <h1 class="text-center pt-5">{{ store.restaurant_detail.name }}</h1>
       <p class="text-center px-5 pt-5">
