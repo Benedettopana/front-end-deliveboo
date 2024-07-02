@@ -11,7 +11,7 @@ export default {
     Header,
     Loader,
     Footer,
-    ScrollUp
+    ScrollUp,
   },
 
   data() {
@@ -74,9 +74,11 @@ export default {
   </div>
   <!--* /Loader -->
   <!--? Contenuto Pagina -->
-  <div v-else class="main-content">
+  <div v-else class="">
     <Header />
-    <router-view></router-view>
+    <div class="main-content">
+      <router-view></router-view>
+    </div>
     <Footer />
   </div>
 </template>

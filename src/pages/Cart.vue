@@ -72,7 +72,6 @@ export default {
 };
 </script>
 <template>
-
   <div class="cart-page d-flex flex-column min-vh-100">
     <div
       class="container-fluid cart-detail d-flex flex-grow-1 justify-content-center"
@@ -84,7 +83,15 @@ export default {
             <h1 class="my-4 text-center">Dettagli del Carrello</h1>
 
             <h4 v-if="currentRestaurant">
-              Ordine da: <router-link :to=" {name: 'restaurantMenu', params:{ id:'currentRestaurant.id' }} " class="router-restaurant" ><strong>{{ currentRestaurant.name }}</strong></router-link>
+              Ordine da:
+              <router-link
+                :to="{
+                  name: 'restaurantMenu',
+                  params: { id: 'currentRestaurant.id' },
+                }"
+                class="router-restaurant"
+                ><strong>{{ currentRestaurant.name }}</strong></router-link
+              >
             </h4>
             <div v-if="cartItems.length > 0">
               <div>
@@ -176,7 +183,7 @@ export default {
 .cart-page {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  // min-height: 100vh;
 }
 
 .dish-img {
@@ -220,7 +227,7 @@ export default {
 .cart-sx {
   border: 3px solid rgb(232, 135, 53);
   border-radius: 20px;
-  .router-restaurant{
+  .router-restaurant {
     color: inherit;
     text-decoration: none;
   }
