@@ -51,7 +51,7 @@ export default {
 </script>
 
 <template>
-  <div class="containter-fluid menuJumbo">
+  <div class="containter-fluid menuJumbo min-vh-100">
     <img
       v-if="store.restaurant_detail.types && store.restaurant_detail.types[0]"
       :src="`img/restaurant-img/${store.restaurant_detail.types[0].name}.jpg`"
