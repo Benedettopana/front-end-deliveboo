@@ -14,8 +14,7 @@ export default {
       <div
         class="row main-row d-flex justify-content-around align-items-center"
       >
-        <div class="col-3">
-
+        <div class="col-3 navbar-col">
           <div class="navbar-brand">
             DeliveBoo!
           </div>
@@ -57,16 +56,16 @@ export default {
             </nav>
             <div class="social-media d-inline-block">
               <div class="flex-nowrap">
-                <a 
+                <a
                   ><i class="fa-brands fa-facebook-f" aria-label="Facebook"></i
                 ></a>
                 <a
                   ><i class="fa-brands fa-linkedin-in" aria-label="LinkedIn"></i
                 ></a>
-                <a 
+                <a
                   ><i class="fa-brands fa-instagram" aria-label="Instagram"></i
                 ></a>
-                <a 
+                <a
                   ><i class="fa-brands fa-x-twitter" aria-label="Twitter"></i
                 ></a>
               </div>
@@ -153,7 +152,7 @@ $footer-bg-color: #1a1a1a;
   .fa-instagram {
     padding: 8px 9px;
   }
-  .fa-brands{
+  .fa-brands {
     cursor: pointer;
   }
 }
@@ -161,6 +160,9 @@ $footer-bg-color: #1a1a1a;
 // Media Queries
 @media screen and (max-width: 660px) {
   .footer {
+    .navbar-col {
+      width: 100%;
+    }
     .social-media {
       i {
         font-size: 18px;
