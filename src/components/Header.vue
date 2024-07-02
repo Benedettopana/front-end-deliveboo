@@ -152,7 +152,7 @@ export default {
         </form> -->
 
         <!-- Hamburger -->
-        <div class="d-md-none">
+        <div class="d-md-none me-3">
           <button
             class="navbar-toggler text-white border-white"
             type="button"
