@@ -114,7 +114,7 @@ export default {
           >
         </div>
         <ul
-          class="d-md-flex justify-content-between align-items-center pt-2 d-none"
+          class="d-md-flex justify-content-between align-items-center pt-3 d-none"
         >
           <li class="me-3">
             <router-link :to="{ name: 'home' }" @click="getApi"
