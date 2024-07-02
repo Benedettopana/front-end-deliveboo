@@ -42,10 +42,10 @@ export default {
   background-color: white;
   cursor: pointer;
   border-radius: 50%;
-  padding: 15px;
+  padding: 10px;
   font-size: 1.5rem;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   text-align: center; 
   text-decoration: none;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
