@@ -79,7 +79,7 @@ export default {
 @media screen and (min-width: 1200px) {
   .menuJumbo {
     img {
-      max-height: calc(60vh);
+      max-height: calc(70vh);
     }
   }
 }
