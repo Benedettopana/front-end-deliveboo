@@ -32,24 +32,7 @@ export default {};
       </div>
     </div>
   </div>
-    <!-- <div class="img-banner">
-      <img :src="`/img/home/pic1.jpg`" alt="" />
 
-      <div class="banner">
-        <h3 class="text-center mt-4">
-          I migliori ristoranti adesso a casa tua!
-        </h3> -->
-
-        <!--? BTN -->
-        <!-- <div class="d-flex justify-content-center mt-5">
-          <button class="btn">
-            <router-link :to="{ name: 'advanceResearch' }"
-              >Ricerca Avanzata</router-link
-            >
-          </button>
-        </div> -->
-      <!-- </div>
-    </div> -->
 </template>
 
 <style lang="scss" scoped>
@@ -61,43 +44,9 @@ $btn-text-color: #e88735;
 $banner-bg-color: #e88735;
 $banner-text-color: #16181e;
 
-.card-body{
+.card-body {
   color: #16181e;
-  //font-weight: 600;
-  //-webkit-text-stroke-width: 1px;
-  //-webkit-text-stroke-color: black;
-}
-// .img-banner {
-//   width: 55%;
-//   position: relative;
-
-//   .banner {
-//     width: 40%;
-//     height: 30%;
-//     background-color: $banner-bg-color;
-//     color: $banner-text-color;
-//     font-size: 0.8em;
-//     border-radius: 20px;
-//     padding: 20px;
-//     // Posizionamento
-//     position: absolute;
-//     top: 50%;
-//     right: -40%;
-//     transform: translate(-50%, -50%);
-//     // /Posizionamento
-
-//     button {
-//       background-color: $btn-bg-color;
-//       // color: $btn-text-color;
-//       a {
-//         text-decoration: none;
-//         color: $btn-text-color;
-//       }
-//     }
-//   }
-// }
-
-
+ }
 
 .my-card {
   border: none !important;
@@ -153,9 +102,4 @@ $banner-text-color: #16181e;
 }
 
 
-
-/* .ooo {
-  -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: black;
-} */
 </style>

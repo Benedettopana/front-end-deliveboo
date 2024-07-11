@@ -18,19 +18,6 @@ export default {
           <div class="navbar-brand">
             DeliveBoo!
           </div>
-
-          <!-- <div class="container d-flex align-items-center gap-3">
-            <p class="powered-by gap-1">Powered by:
-              <ul class="powered-by list-unstyled ">
-                <li>Benny</li>
-                <li>Elena</li>
-                <li>Enrico</li>
-                <li>Eugenio</li>
-                <li>Juri</li>
-                <li>Mirco</li>
-              </ul>
-            </p>
-          </div> -->
         </div>
 
         <div class="col-6">
