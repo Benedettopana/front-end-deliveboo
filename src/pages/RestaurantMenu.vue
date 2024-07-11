@@ -102,8 +102,7 @@ export default {
 .menuJumbo {
   // width: 100%;
   overflow: hidden;
-  position: relative;
-  img {
+   img {
     max-height: calc(75vh);
     height: 100%;
     width: 100%;
@@ -130,7 +129,4 @@ export default {
   border-radius: 20px;
 }
 
-.cont-boo {
-  // position: relative;
-}
 </style>
