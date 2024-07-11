@@ -68,7 +68,7 @@ export default {
     mode="out-in"
   >
   <div :key="cartItems.length > 0 ? 'full' : 'empty'" id="cart" v-if="cartItems.length > 0" class="buu-cart-btn">
-    <button  class="btn my-btn my-icon  me-5" style="float: right;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="cart">
+    <button  class="btn my-btn my-icon" style="float: right;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="cart">
       <i class="fa-solid fa-cart-shopping p-2 fs-3"></i>
     </button>
 
@@ -178,7 +178,7 @@ export default {
                   <i class="fa-solid fa-minus my-icon my-btn"></i>
                 </button>
 
-                <div class="quantity text-center">
+                <div class="quantity text-center lh-lg">
                   {{ item.quantity }}
                 </div>
 
@@ -223,6 +223,7 @@ $cart-text-color: #000;
 #cart {
   position: sticky;
   top: 100px;
+
 }
 
 .cart {
@@ -302,16 +303,30 @@ $cart-text-color: #000;
   transform: translateX(100%);
 }
 
+ .buu-cart-btn {
+  position: fixed !important;
+  top:200px;
+  right: 30px;
+  margin: 0 !important;
+ }
 .buu-cart {
     display: none ;
+    position: fixed !important;
+    z-index: 99;
+    // position: absolute !important;
+    top:300px;
+    right: 50px;
+    width: 23%;
   }
 
 @media screen and (min-width: 1200px) {
   .buu-cart {
     display: block ;
+
   }
   .buu-cart-btn {
     display: none ;
+ 
   }
 }
 </style>

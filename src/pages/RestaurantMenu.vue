@@ -58,9 +58,7 @@ export default {
       alt="Food-picture"
     />
   </div>
-  <div
-    class="container-fluid my-5 d-flex flex-column align-items-center min-vh-100"
-  >
+  <div class="container-fluid my-5 d-flex flex-column align-items-center min-vh-100">
     <div class="col-8 col-xl-6 food-card card">
       <h1 class="text-center pt-5">{{ store.restaurant_detail.name }}</h1>
       <p class="text-center px-5 pt-5">
@@ -70,8 +68,9 @@ export default {
         {{ store.restaurant_detail.address }}
       </p>
     </div>
-
-    <div class="row row-cols-2 my-5 px-3">
+    
+    
+    <div class="row row-cols-2 my-5 px-3 d-flex flex-column align-items-center cont-boo">
       <div class="col-0 col-xl-3 d-none d-xl-block">
         <!-- <AsideMenu /> -->
       </div>
@@ -91,17 +90,19 @@ export default {
         </div>
         <!--? /Card piatti -->
       </div>
-      <div class="col-5 col-md-4 col-xl-3">
+      <div class="col-5 col-md-4 col-xl-3 ">
         <AsideCart />
       </div>
+      </div>
     </div>
-  </div>
+
 </template>
 
 <style lang="scss" scoped>
 .menuJumbo {
   // width: 100%;
   overflow: hidden;
+  position: relative;
   img {
     max-height: calc(75vh);
     height: 100%;
@@ -127,5 +128,9 @@ export default {
   align-items: left;
 
   border-radius: 20px;
+}
+
+.cont-boo {
+  // position: relative;
 }
 </style>
