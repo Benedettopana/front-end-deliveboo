@@ -34,6 +34,7 @@ export default {
       this.clearCart();
       this.toast.warning("Carrello svuotato");
     },
+
   },
 
   computed: {
@@ -54,6 +55,8 @@ export default {
         : "Nessun ristorante selezionato";
     },
   },
+
+
 };
 </script>
 
@@ -62,7 +65,7 @@ export default {
     :name="cartItems.length > 0 ? 'slide-in' : 'slide-out'"
     mode="out-in"
   >
-    <div :key="cartItems.length > 0 ? 'full' : 'empty'">
+    <div :key="cartItems.length > 0 ? 'full' : 'empty'" id="cart" >
       <div class="cart mx-0 mx-xl-5" v-if="cartItems.length > 0">
         <h3 class="text-center mb-4">Il tuo ordine</h3>
 
@@ -70,9 +73,7 @@ export default {
           Ordine da: <strong>{{ currentRestaurant.name }}</strong>
         </p>
         <div>
-          <!-- <p class="mt-4 fst-italic">Il tuo ordine: -->
-          <!-- <strong>Il tuo ordine:</strong> -->
-          <!-- </p> -->
+  
           <ul class="px-0 px-md-2">
             <li v-for="(item, index) in cartItems" :key="index" class="mb-3">
               <div class="s">
@@ -120,20 +121,7 @@ export default {
             </router-link>
           </div>
 
-          <!-- <div class="d-md-flex mx-md-3 mx-xl-0 d-md-block">
-            <button
-              @click="clearCartHandler"
-              class="btn btn-outline-warning svuota-carrello me-1 my-2 w-100"
-            >
-              Svuota
-            </button>
-            <router-link
-              :to="{ name: 'cart' }"
-              class="btn btn-primary ordina-adesso my-2 w-100"
-            >
-              Ordina adesso
-            </router-link>
-          </div> -->
+
         </div>
       </div>
     </div>
@@ -146,6 +134,12 @@ export default {
 $cart-bg-color: white;
 $cart-text-color: #000;
 
+
+#cart {
+  position: sticky;
+  top: 100px;
+}
+
 .cart {
   background-color: $cart-bg-color;
   color: $cart-text-color;
@@ -155,10 +149,7 @@ $cart-text-color: #000;
   margin: 10px;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  // position: fixed;
-  // z-index: 2;
-  // top: 40%;
-  // right: 50px;
+
 
   li {
     list-style: none;
@@ -171,7 +162,6 @@ $cart-text-color: #000;
 
   .buttons {
     display: flex;
-    // gap: 10px;
     margin-top: 10px;
 
     & button {
