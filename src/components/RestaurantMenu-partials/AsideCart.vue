@@ -61,14 +61,99 @@ export default {
 </script>
 
 <template>
+  
+  <!-- pp -->
   <transition
     :name="cartItems.length > 0 ? 'slide-in' : 'slide-out'"
     mode="out-in"
   >
-    <div :key="cartItems.length > 0 ? 'full' : 'empty'" id="cart" >
+  <div :key="cartItems.length > 0 ? 'full' : 'empty'" id="cart" v-if="cartItems.length > 0" class="buu-cart-btn">
+    <button  class="btn my-btn my-icon  me-5" style="float: right;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="cart">
+      <i class="fa-solid fa-cart-shopping p-2 fs-3"></i>
+    </button>
+
+  </div>
+  </transition>
+    
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div :key="cartItems.length > 0 ? 'full' : 'empty'" id="cart" >
+          <div class="cart mx-0 mx-xl-5" v-if="cartItems.length > 0">
+            <h3 class="text-center mb-4">Il tuo ordine</h3>
+            
+            <p v-if="currentRestaurant" class="fst-italic">
+              Ordine da: <strong>{{ currentRestaurant.name }}</strong>
+            </p>
+            <div>
+              
+              <ul class="px-0 px-md-2">
+                <li v-for="(item, index) in cartItems" :key="index" class="mb-3">
+                  <div class="s">
+                    {{ item.dish.name }} - &euro;{{
+                      item.dish.price.replace(".", ",")
+                    }}
+                  </div>
+                  
+                  <!--* Bottoni di incremento & decremento del piatto -->
+                  <div class="buttons">
+                    <!--! Decremento -->
+                    <button
+                    class="btn"
+                    @click="decrementItem(item.dish)"
+                    style="--bs-btn-font-size: 0.75rem"
+                    >
+                    <i class="fa-solid fa-minus my-icon my-btn"></i>
+                  </button>
+                  
+                  <div class="quantity text-center">
+                      {{ item.quantity }}
+                    </div>
+                    
+                    <!--? Incremento -->
+                    <button
+                    class="btn"
+                    @click="incrementItem(item.dish)"
+                    style="--bs-btn-font-size: 0.75rem"
+                    >
+                    <i class="fa-solid fa-plus my-icon my-btn"></i>
+                  </button>
+                </div>
+              </li>
+            </ul>
+              <div class="my-4">
+                <strong> Totale: &euro; {{ totalPrice.replace(".", ",") }} </strong>
+              </div>
+              <!--! BTN svuota carrello/Vai al carrello -->
+              <div class="d-md-flex mx-md-3 mx-xl-0 d-md-block">
+                <router-link
+                :to="{ name: 'cart' }"
+                class="btn ordina-adesso my-2 w-100"
+                >
+                Ordina adesso
+              </router-link>
+            </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- /pp -->
+  <transition
+    :name="cartItems.length > 0 ? 'slide-in' : 'slide-out'"
+    mode="out-in"
+    
+  >
+    <div :key="cartItems.length > 0 ? 'full' : 'empty'" id="cart" class="buu-cart">
       <div class="cart mx-0 mx-xl-5" v-if="cartItems.length > 0">
         <h3 class="text-center mb-4">Il tuo ordine</h3>
-
+        
         <p v-if="currentRestaurant" class="fst-italic">
           Ordine da: <strong>{{ currentRestaurant.name }}</strong>
         </p>
@@ -169,15 +254,16 @@ $cart-text-color: #000;
     }
   }
 
-  .my-btn {
-    border: 3px solid #e88735;
-    color: #e88735 !important;
-    border-radius: 50%;
-    padding: 7px 7px !important;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    .my-icon {
-      font-size: 0.8rem;
-    }
+}
+.my-btn {
+  border: 3px solid #e88735;
+  color: #e88735 !important;
+  border-radius: 50%;
+  padding: 7px 7px !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  .my-icon {
+    font-size: 0.8rem;
   }
 }
 
@@ -214,5 +300,18 @@ $cart-text-color: #000;
 
 .slide-out-leave-to {
   transform: translateX(100%);
+}
+
+.buu-cart {
+    display: none ;
+  }
+
+@media screen and (min-width: 1200px) {
+  .buu-cart {
+    display: block ;
+  }
+  .buu-cart-btn {
+    display: none ;
+  }
 }
 </style>
