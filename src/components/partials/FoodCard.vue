@@ -71,42 +71,6 @@ export default {
       </div>
     </div>
 
-    <!-- <div class="row row-cols-3 w-100">
-  
-        <div class="col">
-  
-
-            <img :src="imageUrl" :alt="dish.image">
-            <p>{{ dish.name }}</p>
-            
-            <p>{{ dish.desc }}</p>
-            
-            <p>&euro; {{ dish.price.replace(".", ",") }}</p>
-
-
-
-
-
-
-
-          
-
-        </div>
-        <div class="col-2">
-
-          <div class="add-to-cart">
-            <button
-              type="button"
-              class="btn btn-primary"
-              @click="addToCartHandler"
-            >
-              <i class="fa-solid fa-cart-plus"></i>
-            </button>
-          </div>
- 
-        </div>
-      </div> -->
-
     <!--? /Informazioni piatto e aggiunta al carrello -->
   </div>
 </template>
@@ -120,7 +84,6 @@ $vegan-icon-color: #059862;
 .food-card {
   background-color: white;
   color: $food-card-text-color;
-  // border: 5px solid rgb(232, 135, 53);
   display: flex;
   flex-direction: column;
   align-items: left;

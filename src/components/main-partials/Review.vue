@@ -22,7 +22,7 @@ export default {
   <div class="container-fluid h-100">
     <h1 class="text-center">Dicono di noi</h1>
   <div class="mySlider">
-      <!--  <div class="swiper-wrapper "> -->
+  
         <swiper
           :breakpoints="{
             '0': {
@@ -110,7 +110,7 @@ export default {
           </swiper-slide>
 
         </swiper>
-    <!---  </div> -->
+
     </div> 
   </div>
 </template>

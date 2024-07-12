@@ -32,7 +32,6 @@ $filter-card-text-color: #b2adbe;
   border-radius: 15px;
 
   li {
-    // margin: 0 15px;
     list-style: none;
     cursor: pointer;
   }
